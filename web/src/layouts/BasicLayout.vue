@@ -1,6 +1,6 @@
 <template>
   <pro-layout
-    title="Ant Design Pro"
+    title="IotPack"
     :menus="menus"
     :collapsed="collapsed"
     :mediaQuery="query"
