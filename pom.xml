@@ -15,7 +15,6 @@
         <module>component_direct</module>
         <module>api</module>
         <module>component_gateway</module>
-        <module>component_gateway</module>
     </modules>
 
 
