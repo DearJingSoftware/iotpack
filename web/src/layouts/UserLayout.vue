@@ -9,16 +9,16 @@
           </a>
         </div>
         <div class="desc">
-          设备管理平台
+         iotpack 设备管理平台
         </div>
       </div>
       <router-view />
-
       <div class="footer">
         <div class="links">
           <a href="_self">帮助</a>
           <a href="_self">隐私</a>
           <a href="_self">条款</a>
+          <a href="_self">app下载</a>
         </div>
         <div class="copyright">
           Copyright &copy; 2020
