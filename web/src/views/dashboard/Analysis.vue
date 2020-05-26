@@ -75,17 +75,17 @@
             </div>
             <a-range-picker :style="{width: '256px'}" />
           </div>
-          <a-tab-pane loading="true" tab="销售额" key="1">
+          <a-tab-pane loading="true" tab="报警" key="1">
             <a-row>
               <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :data="barData" title="销售额排行" />
+                <bar :data="barData" title="报警趋势" />
               </a-col>
               <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
+                <rank-list title="消息占比" :list="rankList"/>
               </a-col>
             </a-row>
           </a-tab-pane>
-          <a-tab-pane tab="访问量" key="2">
+          <a-tab-pane tab="任务" key="2">
             <a-row>
               <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
                 <bar :data="barData2" title="销售额趋势" />
@@ -102,7 +102,7 @@
     <div class="antd-pro-pages-dashboard-analysis-twoColLayout" :class="!isMobile && 'desktop'">
       <a-row :gutter="24" type="flex" :style="{ marginTop: '24px' }">
         <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-          <a-card :loading="loading" :bordered="false" title="线上热门搜索" :style="{ height: '100%' }">
+          <a-card :loading="loading" :bordered="false" title="当前报警" :style="{ height: '100%' }">
             <a-dropdown :trigger="['click']" placement="bottomLeft" slot="extra">
               <a class="ant-dropdown-link" href="#">
                 <a-icon type="ellipsis" />
@@ -116,36 +116,6 @@
                 </a-menu-item>
               </a-menu>
             </a-dropdown>
-            <a-row :gutter="68">
-              <a-col :xs="24" :sm="12" :style="{ marginBottom: ' 24px'}">
-                <number-info :total="12321" :sub-total="17.1">
-                  <span slot="subtitle">
-                    <span>搜索用户数</span>
-                    <a-tooltip title="指标说明" slot="action">
-                      <a-icon type="info-circle-o" :style="{ marginLeft: '8px' }" />
-                    </a-tooltip>
-                  </span>
-                </number-info>
-                <!-- miniChart -->
-                <div>
-                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData" :scale="searchUserScale" />
-                </div>
-              </a-col>
-              <a-col :xs="24" :sm="12" :style="{ marginBottom: ' 24px'}">
-                <number-info :total="2.7" :sub-total="26.2" status="down">
-                  <span slot="subtitle">
-                    <span>人均搜索次数</span>
-                    <a-tooltip title="指标说明" slot="action">
-                      <a-icon type="info-circle-o" :style="{ marginLeft: '8px' }" />
-                    </a-tooltip>
-                  </span>
-                </number-info>
-                <!-- miniChart -->
-                <div>
-                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData" :scale="searchUserScale" />
-                </div>
-              </a-col>
-            </a-row>
             <div class="ant-table-wrapper">
               <a-table
                 row-key="index"
@@ -164,7 +134,7 @@
           </a-card>
         </a-col>
         <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-          <a-card class="antd-pro-pages-dashboard-analysis-salesCard" :loading="loading" :bordered="false" title="销售额类别占比" :style="{ height: '100%' }">
+          <a-card class="antd-pro-pages-dashboard-analysis-salesCard" :loading="loading" :bordered="false" title="设备型号占比" :style="{ height: '100%' }">
             <div slot="extra" style="height: inherit;">
               <!-- style="bottom: 12px;display: inline-block;" -->
               <span class="dashboard-analysis-iconGroup">
@@ -182,14 +152,13 @@
               </span>
               <div class="analysis-salesTypeRadio">
                 <a-radio-group defaultValue="a">
-                  <a-radio-button value="a">全部渠道</a-radio-button>
-                  <a-radio-button value="b">线上</a-radio-button>
-                  <a-radio-button value="c">门店</a-radio-button>
+                  <a-radio-button value="a">全部设备</a-radio-button>
+                  <a-radio-button value="b">烟感</a-radio-button>
+                  <a-radio-button value="c">燃气</a-radio-button>
                 </a-radio-group>
               </div>
 
             </div>
-            <h4>销售额</h4>
             <div>
               <!-- style="width: calc(100% - 240px);" -->
               <div>
@@ -240,12 +209,22 @@ for (let i = 0; i < 12; i += 1) {
 }
 
 const rankList = []
-for (let i = 0; i < 7; i++) {
-  rankList.push({
-    name: '白鹭岛 ' + (i + 1) + ' 号店',
-    total: 1234.56 - i * 100
-  })
-}
+rankList.push({
+    name: '烟感',
+    total: 100
+    })
+rankList.push({
+      name: '燃气',
+      total: 200
+    })
+rankList.push({
+        name: '烟感',
+        total: 100
+   })
+rankList.push({ name: '温度', total: 56 })
+rankList.push({ name: '湿度', total: 34 })
+rankList.push({ name: '湿度', total: 28 })
+rankList.push({ name: '湿度', total: 15 })
 
 const searchUserData = []
 for (let i = 0; i < 7; i++) {
@@ -269,20 +248,28 @@ const searchUserScale = [
 const searchTableColumns = [
   {
     dataIndex: 'index',
-    title: '排名',
+    title: '序号',
     width: 90
   },
   {
     dataIndex: 'keyword',
-    title: '搜索关键词'
+    title: '位置'
   },
   {
     dataIndex: 'count',
-    title: '用户数'
+    title: '时间'
   },
   {
+      dataIndex: 'desc',
+      title: '内容'
+  },
+    {
+        dataIndex: 'level',
+        title: '级别'
+    },
+  {
     dataIndex: 'range',
-    title: '周涨幅',
+    title: '处理人',
     align: 'right',
     sorter: (a, b) => a.range - b.range,
     scopedSlots: { customRender: 'range' }
@@ -292,9 +279,11 @@ const searchData = []
 for (let i = 0; i < 50; i += 1) {
   searchData.push({
     index: i + 1,
-    keyword: `搜索关键词-${i}`,
+    keyword: `xx 大学 西门`,
     count: Math.floor(Math.random() * 1000),
-    range: Math.floor(Math.random() * 100),
+    desc: '1',
+    level: '5',
+    range: '哈喽克斯',
     status: Math.floor((Math.random() * 10) % 2)
   })
 }
@@ -302,12 +291,12 @@ for (let i = 0; i < 50; i += 1) {
 const DataSet = require('@antv/data-set')
 
 const sourceData = [
-  { item: '家用电器', count: 32.2 },
-  { item: '食用酒水', count: 21 },
-  { item: '个护健康', count: 17 },
-  { item: '服饰箱包', count: 13 },
-  { item: '母婴产品', count: 9 },
-  { item: '其他', count: 7.8 }
+  { item: '格力空调', count: 32.2 },
+  { item: '奥克斯', count: 21 },
+  { item: '美的', count: 17 },
+  { item: '苏宁', count: 13 },
+  { item: '索尼', count: 9 },
+  { item: '爱立信', count: 7.8 }
 ]
 
 const pieScale = [{
