@@ -11,8 +11,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, Long>, JpaSpecificationExecutor<UserEntity>, JpaRepository<UserEntity, Long> {
 
-    Optional<UserEntity> findByToken(String token);
-
     Optional<UserEntity>   findByAccountAndPasswordAndGroupId(String account,String password,Long groupId);
 
 }

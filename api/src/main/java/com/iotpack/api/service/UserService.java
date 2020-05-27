@@ -5,7 +5,9 @@ import com.iotpack.api.form.auth.LoginForm;
 import com.iotpack.api.form.auth.LogoutForm;
 
 public interface UserService {
+
     LoginDto login(LoginForm loginForm);
 
     Object logout(LogoutForm logoutForm);
+
 }

@@ -13,7 +13,6 @@ public class BusinessException extends RuntimeException {
 
     private Object data = new HashMap<String, String>(1);
 
-
     public BusinessException(String message) {
         super(message);
         this.code = -1;

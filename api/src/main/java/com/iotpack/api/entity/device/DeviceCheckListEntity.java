@@ -45,7 +45,7 @@ public class DeviceCheckListEntity {
     /**
      * 提供设备相关的功能 jar 包
      */
-    String function;
+    String jar;
 
     /**
      * 加入类型 1直连  2网关  3oc 4onenet 5cwting ====

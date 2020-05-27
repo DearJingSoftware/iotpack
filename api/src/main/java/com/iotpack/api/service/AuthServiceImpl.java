@@ -2,6 +2,8 @@ package com.iotpack.api.service;
 
 import com.iotpack.api.entity.group.GroupEntity;
 import com.iotpack.api.entity.group.GroupRepository;
+import com.iotpack.api.entity.user.TokenEntity;
+import com.iotpack.api.entity.user.TokenRepository;
 import com.iotpack.api.entity.user.UserEntity;
 import com.iotpack.api.entity.user.UserRepository;
 import com.iotpack.api.exception.BusinessException;
@@ -23,6 +25,9 @@ public class AuthServiceImpl implements AuthService {
     UserRepository userRepository;
 
     @Autowired
+    TokenRepository tokenRepository;
+
+    @Autowired
     GroupRepository groupRepository;
 
     @Autowired
@@ -41,11 +46,11 @@ public class AuthServiceImpl implements AuthService {
             throw new BusinessException("token不能为空");
         }
 
-        UserEntity u = userRepository.findByToken(token).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
 
-        GroupEntity g = groupRepository.findById(u.getGroupId()).orElseThrow(() -> {
-            throw new BusinessException("没有找到用户组");
-        });
+        TokenEntity tokenEntity= tokenRepository.findByToken(token).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
+        UserEntity u = userRepository.findById(tokenEntity.getId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
+
+        GroupEntity g = groupRepository.findById(u.getGroupId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("账户到用户组"));
         u.setGroup(g);
         return u;
     }
