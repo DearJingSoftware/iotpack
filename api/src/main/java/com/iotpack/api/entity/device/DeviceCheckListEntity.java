@@ -5,21 +5,20 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @SQLDelete(sql = "update `device_checklist` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "group_info")
+@Table(name = "device_checklist")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-/**
- * 设备类型清单
- */
 public class DeviceCheckListEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     String name;
 
@@ -47,4 +46,9 @@ public class DeviceCheckListEntity {
      * 提供设备相关的功能 jar 包
      */
     String function;
+
+    /**
+     * 加入类型 1直连  2网关  3oc 4onenet 5cwting ====
+     */
+    Integer accessType;
 }
