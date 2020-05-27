@@ -1,4 +1,4 @@
-package com.iotpack.api.service;
+package com.iotpack.api.service.impl;
 
 
 import com.iotpack.api.dto.auth.LoginDto;
@@ -12,6 +12,7 @@ import com.iotpack.api.enums.BusinessExceptionEnum;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.form.auth.LoginForm;
 import com.iotpack.api.form.auth.LogoutForm;
+import com.iotpack.api.service.UserService;
 import com.iotpack.api.utils.PasswordUtils;
 import com.iotpack.api.utils.TokenUtils;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.iotpack.api.service;
+package com.iotpack.api.service.impl;
 
 import com.iotpack.api.entity.group.GroupEntity;
 import com.iotpack.api.entity.group.GroupRepository;
@@ -8,6 +8,7 @@ import com.iotpack.api.entity.user.UserEntity;
 import com.iotpack.api.entity.user.UserRepository;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.form.auth.LogoutForm;
+import com.iotpack.api.service.AuthService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

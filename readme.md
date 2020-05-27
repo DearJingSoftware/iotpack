@@ -1,15 +1,16 @@
 # iotpack 
 
-##### 物联网管理平台
+##### iot device management platform
 
-### 功能特性
+### Feature
 - 设备管理
 
 ---
-### 技术栈
-- 前端 ant-design-vue-pro
+### Technology Stack
+- frontend  ant-design-vue-pro
 ```
 https://github.com/vueComponent/ant-design-vue-pro
 ```
-- 后端 springboot netty
-###  社区
+- backend springboot netty
+### Community
+wechat 
