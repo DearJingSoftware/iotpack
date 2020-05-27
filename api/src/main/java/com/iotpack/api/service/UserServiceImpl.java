@@ -40,9 +40,11 @@ public class UserServiceImpl implements UserService {
         LoginDto loginDto = new LoginDto();
         log.info("用户登录");
 
-        GroupEntity g= groupRepository.findByName(loginForm.getGroup()).get();
+        GroupEntity g= groupRepository.findByName(loginForm.getGroup())
+                .orElseThrow(()->new BusinessException("找不到"));
         loginDto.setGroup(g);
-        UserEntity u = userRepository.findByAccountAndPasswordAndGroupId(loginForm.getAccount(), PasswordUtils.getMd5(loginForm.getPassword()), g.getId()).get();
+        UserEntity u = userRepository.findByAccountAndPasswordAndGroupId(loginForm.getAccount(), PasswordUtils.getMd5(loginForm.getPassword()), g.getId())
+                .orElseThrow(()->new BusinessException("找不到"));;
         loginDto.setUser(u);
 
         TokenEntity tokenEntity=new TokenEntity();

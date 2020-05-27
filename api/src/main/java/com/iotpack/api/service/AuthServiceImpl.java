@@ -35,7 +35,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserEntity getUserInfo() {
-        String token = "";
+        String token;
         if (httpServletRequest.getMethod().equals("GET")) {
             token = httpServletRequest.getParameter("token");
         } else {
@@ -45,7 +45,6 @@ public class AuthServiceImpl implements AuthService {
         if (ObjectUtils.isEmpty(token)) {
             throw new BusinessException("token不能为空");
         }
-
 
         TokenEntity tokenEntity= tokenRepository.findByToken(token).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
         UserEntity u = userRepository.findById(tokenEntity.getId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
