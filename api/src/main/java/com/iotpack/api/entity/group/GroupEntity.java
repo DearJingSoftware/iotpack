@@ -6,6 +6,7 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 
@@ -17,6 +18,7 @@ import javax.persistence.*;
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
+@RedisHash
 public class GroupEntity extends BaseUserEntity {
 
     @Id
