@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class LoginForm {
     String group;
-    String account;
+    String username;
     String password;
 }

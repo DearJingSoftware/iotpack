@@ -1,25 +1,26 @@
-package com.iotpack.api.entity.gateway;
+package com.iotpack.api.entity.access;
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 
 @Data
-@SQLDelete(sql = "update `gateway` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `role` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "gateway")
+@Table(name = "role")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class Gateway {
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
-    String Name;
+    /**
+     * 角色名称
+     */
+    String name;
 }

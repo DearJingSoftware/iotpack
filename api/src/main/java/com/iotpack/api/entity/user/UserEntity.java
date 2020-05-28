@@ -17,7 +17,6 @@ import javax.persistence.*;
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-@RedisHash
 public class UserEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +45,4 @@ public class UserEntity extends BaseEntity {
      * 微信openid
      */
     String openId;
-
-    @Transient
-    GroupEntity group;
 }

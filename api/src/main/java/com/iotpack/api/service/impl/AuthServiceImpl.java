@@ -1,5 +1,6 @@
 package com.iotpack.api.service.impl;
 
+import com.iotpack.api.dto.auth.LoginDto;
 import com.iotpack.api.entity.group.GroupEntity;
 import com.iotpack.api.entity.group.GroupRepository;
 import com.iotpack.api.entity.user.TokenEntity;
@@ -35,24 +36,30 @@ public class AuthServiceImpl implements AuthService {
     HttpServletRequest httpServletRequest;
 
     @Override
-    public UserEntity getUserInfo() {
+    public LoginDto getUserInfo() {
+        LoginDto loginDto=new LoginDto();
         String token;
-        if (httpServletRequest.getMethod().equals("GET")) {
-            token = httpServletRequest.getParameter("token");
-        } else {
-            token = httpServletRequest.getHeader("Authorization").split(" ")[1];
-        }
+
+        token = httpServletRequest.getHeader("Authorization").split(" ")[1];
+//        if (httpServletRequest.getMethod().equals("GET")) {
+//            token = httpServletRequest.getParameter("token");
+//        } else {
+//            token = httpServletRequest.getHeader("Authorization").split(" ")[1];
+//        }
 
         if (ObjectUtils.isEmpty(token)) {
             throw new BusinessException("token不能为空");
         }
 
-        TokenEntity tokenEntity= tokenRepository.findByToken(token).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
-        UserEntity u = userRepository.findById(tokenEntity.getId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
+        TokenEntity tokenEntity= tokenRepository.findByToken(token).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("token 错误"));
+        UserEntity u = userRepository.findById(tokenEntity.getUserId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
+        loginDto.setToken(token);
+        loginDto.setId(tokenEntity.getId());
+        loginDto.setUser(u);
 
-        GroupEntity g = groupRepository.findById(u.getGroupId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("账户到用户组"));
-        u.setGroup(g);
-        return u;
+//        GroupEntity g = groupRepository.findById(u.getGroupId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("账户到用户组"));
+//        u.setGroup(g);
+        return loginDto;
     }
 
 }

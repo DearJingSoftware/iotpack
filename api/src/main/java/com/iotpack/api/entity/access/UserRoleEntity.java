@@ -1,34 +1,30 @@
-package com.iotpack.api.entity.user;
+package com.iotpack.api.entity.access;
 
-import com.iotpack.api.entity.base.BaseEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 
-
 @Data
-@SQLDelete(sql = "update `token` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `user_role` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "token")
+@Table(name = "user_role")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class TokenEntity extends BaseEntity {
+public class UserRoleEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     /**
-     * 所属用户id
+     * 用户id
      */
     Long userId;
-
     /**
-     * 用户token
+     * 角色id
      */
-    String token;
-
+    Long roleId;
 }

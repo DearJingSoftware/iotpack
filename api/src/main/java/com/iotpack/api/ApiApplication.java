@@ -16,8 +16,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableTransactionManagement
 @EnableAsync
 @EnableScheduling
-@ComponentScan("com.iotpack.api.*")
-@MapperScan("com.iotpack.api.mapper")
+//@ComponentScan("com.iotpack.api.*")
+//@MapperScan("com.iotpack.api.mapper")
 @EnableWebMvc
 public class ApiApplication {
     public static void main(String[] args) {

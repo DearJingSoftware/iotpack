@@ -18,7 +18,6 @@ import javax.persistence.*;
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-@RedisHash
 public class GroupEntity extends BaseUserEntity {
 
     @Id
