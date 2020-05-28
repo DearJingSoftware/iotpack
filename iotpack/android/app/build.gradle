@@ -7,6 +7,7 @@ if (localPropertiesFile.exists()) {
 }
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
+
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
@@ -26,7 +27,14 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
+
+    dexOptions {
+        dexInProcess true
+        preDexLibraries true
+        javaMaxHeapSize "2g"
+        incremental true
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -46,7 +54,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         /// 高德地图key
         manifestPlaceholders = [
-                AMAP_KEY : "21f1ae5074e415208ac8ae423adab2e9",
+                AMAP_KEY: "21f1ae5074e415208ac8ae423adab2e9",
         ]
     }
 
@@ -65,9 +73,10 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //高德
-    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:location:4.9.0'
 }

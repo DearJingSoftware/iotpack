@@ -1,73 +1,69 @@
-import 'package:flutter/material.dart';
 import 'package:amap_location/amap_location.dart';
+import 'package:flutter/material.dart';
+
 void main() {
   //设置高德地图ioskey
   AMapLocationClient.setApiKey("e2343505c0a2498c098c2fdaecdf7a25");
-  runApp(
-      IotPack()
-      );
+  runApp(IotPack());
 }
 
 class IotPack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body:DefaultTabController(
-          length: choices.length,
-          child: Scaffold(
-            appBar: AppBar(
-              title:Row(children: <Widget>[
+        home: Scaffold(
+      body: DefaultTabController(
+        length: choices.length,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Row(
+              children: <Widget>[
                 Text("仪表盘"),
-              ],),
-              bottom: TabBar(
-                isScrollable: true,
-                tabs: choices.map((Choice choice) {
-                  return Tab(
-                    text: choice.title,
-                    icon: Icon(choice.icon),
-                  );
-                }).toList(),
-              ),
+              ],
             ),
-            body: TabBarView(
-              children: choices.map((Choice choice) {
-                return Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: ChoiceCard(choice: choice),
+            bottom: TabBar(
+              isScrollable: true,
+              tabs: choices.map((Choice choice) {
+                return Tab(
+                  text: choice.title,
+                  icon: Icon(choice.icon),
                 );
               }).toList(),
             ),
           ),
-        ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              // Add your onPressed code here!
-            },
-            child: Icon(Icons.navigation),
-            backgroundColor: Colors.blue,
+          body: TabBarView(
+            children: choices.map((Choice choice) {
+              return Padding(
+                padding: const EdgeInsets.all(0),
+                child: ChoiceCard(choice: choice),
+              );
+            }).toList(),
           ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0, // this will be set when a new tab is tapped
-          items: [
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('仪表盘'),
-            ),
-
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.mail),
-              title: new Text('Messages'),
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                title: Text('Profile')
-            )
-          ],
         ),
-      )
-    );
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: Icon(Icons.navigation),
+        backgroundColor: Colors.blue,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0, // this will be set when a new tab is tapped
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.home),
+            title: new Text('仪表盘'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.mail),
+            title: new Text('消息'),
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('个人信息'))
+        ],
+      ),
+    ));
   }
 }
 
@@ -101,116 +97,115 @@ class ChoiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle textStyle = Theme.of(context).textTheme.body1;
     return Card(
-      color: Colors.white,
-      child: ListView(
-        padding: const EdgeInsets.all(8),
-        children: <Widget>[
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 00,
-                height: 100,
-                child: Text('Device#'),
+        color: Colors.white,
+        child: ListView(
+          padding: const EdgeInsets.all(8),
+          children: <Widget>[
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 00,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('Card tapped.');
-              },
-              child: Container(
-                width: 300,
-                height: 100,
-                child: Text('Device#'),
+            Card(
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  print('Card tapped.');
+                },
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: Text('Device#'),
+                ),
               ),
             ),
-          ),
-        ],
-      )
-    );
+          ],
+        ));
   }
 }
