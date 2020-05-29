@@ -6,10 +6,9 @@ import com.iotpack.api.entity.device.DeviceEntity;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.gateway.onenet.service.OneNetServiceImpl;
 import com.iotpack.api.service.PlatformGateway;
-import com.iotpack.api.service.impl.platformGateway.CtwingGatewayImpl;
+import com.iotpack.api.gateway.ctwing.service.CtwingGatewayImpl;
 import com.iotpack.api.service.impl.platformGateway.DirectGatewayImpl;
 import com.iotpack.api.service.impl.platformGateway.OceanConnectGatewayImpl;
-import com.iotpack.api.service.impl.platformGateway.OnenetGatewayImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.function.Supplier;

@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-
+// 加载本地指定的 ca 证书
 public class SslUtil {
 
     public static SSLSocketFactory getSocketFactory(final InputStream caCrtFile) throws NoSuchAlgorithmException,
@@ -21,7 +21,7 @@ public class SslUtil {
 
         TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
         if (null != caCrtFile) {
-            // 加载本地指定的 ca 证书
+
             PEMReader reader = new PEMReader(new InputStreamReader(caCrtFile));
             X509Certificate caCert = (X509Certificate) reader.readObject();
             reader.close();
