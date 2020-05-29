@@ -28,6 +28,30 @@ public class DeviceEntity {
     String location;
 
     /**
+     * 联网IMEI;
+     */
+    String IMEI;
+    /**
+     * onenet 协议 LWM2M
+     */
+    String protocol="LWM2M";
+    /**
+     * 经度
+     */
+    Double lon=113.62;
+    /**
+     * 纬度
+     */
+    Double lat=34.75;
+    /**
+     * 高度
+     */
+    Double ele=0.0;
+    /**
+     * 设备id
+     */
+    String deviceId;
+    /**
      * 设备类型
      */
     Long deviceType;

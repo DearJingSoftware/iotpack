@@ -4,6 +4,7 @@ import com.iotpack.api.entity.device.DeviceCheckListEntity;
 import com.iotpack.api.entity.device.DeviceCheckListRepository;
 import com.iotpack.api.entity.device.DeviceEntity;
 import com.iotpack.api.exception.BusinessException;
+import com.iotpack.api.gateway.onenet.service.OneNetServiceImpl;
 import com.iotpack.api.service.PlatformGateway;
 import com.iotpack.api.service.impl.platformGateway.CtwingGatewayImpl;
 import com.iotpack.api.service.impl.platformGateway.DirectGatewayImpl;
@@ -20,7 +21,7 @@ public class PlatformGatewayImpl implements PlatformGateway {
     @Autowired
     CtwingGatewayImpl ctwingGateway;
     @Autowired
-    OnenetGatewayImpl onenetGateway;
+    OneNetServiceImpl onenetGateway;
     @Autowired
     DirectGatewayImpl directGateway;
 
