@@ -2,6 +2,19 @@
 
 ##### iot device management platform
 
+
+#### LOGO
+![Logo](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/logo.png)
+
+### APP Download
+
+#### GooglePlay
+![GooglePlay](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/android_qrcode.png)
+
+#### AppStore
+![AppStore](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/ios_qrcode.png)
+
+
 ### Doc
 English | 中文 | ＋
 
@@ -41,12 +54,6 @@ springboot netty
 flutter
 ```
 
-### APP Download
-#### GooglePlay
-![GooglePlay]("https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/android_qrcode.png")
-
-#### AppStore
-![AppStore]("https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/ios_qrcode.png")
 
 ### Gateway SDK
 - Java
