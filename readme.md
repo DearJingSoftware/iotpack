@@ -43,10 +43,10 @@ flutter
 
 ### APP Download
 #### GooglePlay
-![GooglePlay]("https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/android_qrcode.png")
+![GooglePlay](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/android_qrcode.png)
 
 #### AppStore
-![AppStore]("https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/ios_qrcode.png")
+![AppStore](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/ios_qrcode.png)
 
 ### Gateway SDK
 - Java
