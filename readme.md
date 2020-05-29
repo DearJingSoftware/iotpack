@@ -2,7 +2,6 @@
 
 ##### iot device management platform
 
-
 #### LOGO
 ![Logo](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/logo.png)
 
