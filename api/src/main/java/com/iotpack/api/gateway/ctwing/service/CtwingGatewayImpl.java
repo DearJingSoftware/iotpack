@@ -4,6 +4,7 @@ import com.ctg.ag.sdk.biz.AepDeviceManagementClient;
 import com.ctg.ag.sdk.biz.aep_device_management.CreateDeviceRequest;
 import com.ctg.ag.sdk.biz.aep_device_management.CreateDeviceResponse;
 import com.ctg.ag.sdk.biz.aep_device_management.DeleteDeviceRequest;
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.iotpack.api.entity.device.DeviceEntity;
 import com.iotpack.api.exception.BusinessException;
@@ -12,7 +13,6 @@ import com.iotpack.api.gateway.ctwing.dto.AddCtwingDeviceResponseDto;
 import com.iotpack.api.gateway.ctwing.dto.ResponseDto;
 import com.iotpack.api.service.impl.PlatformGatewayImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.pulsar.shade.com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

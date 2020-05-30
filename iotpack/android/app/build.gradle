@@ -45,7 +45,6 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.iotpack.shell"
         minSdkVersion 16
         targetSdkVersion 29
@@ -53,14 +52,13 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         /// 高德地图key
-        manifestPlaceholders = [
-                AMAP_KEY: "21f1ae5074e415208ac8ae423adab2e9",
-        ]
+//        manifestPlaceholders = [
+//                AMAP_KEY: "21f1ae5074e415208ac8ae423adab2e9",
+//        ]
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
@@ -78,5 +76,5 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //高德
-    implementation 'com.amap.api:location:4.9.0'
+    //implementation 'com.amap.api:location:4.9.0'
 }

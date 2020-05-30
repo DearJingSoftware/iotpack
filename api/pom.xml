@@ -43,6 +43,8 @@
             <groupId>com.ctg.ag</groupId>
             <artifactId>ag-sdk-biz-16156.tar.gz</artifactId>
             <version>20191224.094939-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/ag-sdk-biz-16156.tar.gz-20191224.094939-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -55,8 +57,8 @@
             <groupId>com.ctiot.aep</groupId>
             <artifactId>mq-msgpush-sdk</artifactId>
             <version>1.0.0</version>
-            <!--			<scope>system</scope>-->
-            <!--			<systemPath>${project.basedir}/../mq-msgpush-sdk-1.0.0.jar</systemPath>-->
+            			<scope>system</scope>
+            			<systemPath>${project.basedir}/../libs/mq-msgpush-sdk-1.0.0.jar</systemPath>
         </dependency>
         <!--        中国移动 onenet-->
 
@@ -89,6 +91,8 @@
             <groupId>cmcc.iot.onenet.javasdk</groupId>
             <artifactId>javaSDK</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/api-client-1.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
