@@ -31,12 +31,6 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
         <!--        中国电信 ctwing -->
 
         <dependency>
@@ -45,6 +39,14 @@
             <version>20191224.094939-SNAPSHOT</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/../libs/ag-sdk-biz-16156.tar.gz-20191224.094939-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ctg.ag</groupId>
+            <artifactId>ctg-ag-sdk-core</artifactId>
+            <version>2.5.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/ctg-ag-sdk-core-2.5.0-20190923.022737-11.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -65,12 +67,6 @@
 
 
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20160212</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
             <version>1.54</version>
@@ -87,12 +83,6 @@
             <version>140</version>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

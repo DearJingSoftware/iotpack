@@ -2,9 +2,10 @@ package com.iotpack.api.gateway.onenet.utils;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
@@ -44,13 +45,16 @@ public class Util {
      * @param token OneNet平台配置页面token的值
      * @return token检验成功返回true；token校验失败返回false
      */
+    final static Base64 base64 = new Base64();
+
     public static boolean checkToken(String msg,String nonce,String signature, String token) throws UnsupportedEncodingException {
 
         byte[] paramB = new byte[token.length() + 8 + msg.length()];
         System.arraycopy(token.getBytes(), 0, paramB, 0, token.length());
         System.arraycopy(nonce.getBytes(), 0, paramB, token.length(), 8);
         System.arraycopy(msg.getBytes(), 0, paramB, token.length() + 8, msg.length());
-        String sig =  com.sun.org.apache.xerces.internal.impl.dv.util.Base64.encode(mdInst.digest(paramB));
+
+        String sig =  base64.encodeToString(mdInst.digest(paramB));
         logger.info("url&token validation: result {},  detail receive:{} calculate:{}", sig.equals(signature.replace(' ','+')),signature,sig);
         return sig.equals(signature.replace(' ','+'));
     }
@@ -108,7 +112,7 @@ public class Util {
      * @param encrypted 表征是否为加密消息
      * @return  生成的<code>BodyObj</code>消息对象
      */
-    public static BodyObj resolveBody(String body, boolean encrypted) {
+    public static BodyObj resolveBody(String body, boolean encrypted) throws JSONException {
         JSONObject jsonMsg = new JSONObject(body);
         BodyObj obj = new BodyObj();
         obj.setNonce(jsonMsg.getString("nonce"));

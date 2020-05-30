@@ -37,7 +37,9 @@ public class CtwingGatewayImpl extends PlatformGatewayImpl {
     @Override
     public void createDevice(DeviceEntity device) {
         log.info("ctwing创建设备请求");
-        AepDeviceManagementClient client = AepDeviceManagementClient.newClient()
+        AepDeviceManagementClient client =
+                AepDeviceManagementClient
+                .newClient()
                 .appKey(appKey).appSecret(appSecret)
                 .build();
 

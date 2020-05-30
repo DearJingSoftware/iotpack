@@ -5,6 +5,7 @@ import com.iotpack.api.dto.ResDto;
 import com.iotpack.api.gateway.onenet.utils.Util;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.crypto.BadPaddingException;
@@ -45,7 +46,12 @@ public class OnenetController extends BaseController {
          *  如果是明文模式使用以下代码
          **************************************************/
         /*************明文模式  start****************/
-        Util.BodyObj obj = Util.resolveBody(body, false);
+        Util.BodyObj obj = null;
+        try {
+            obj = Util.resolveBody(body, false);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         log.info("data receive:  body Object --- " +obj);
         if (obj != null){
             boolean dataRight = Util.checkSignature(obj, token);
