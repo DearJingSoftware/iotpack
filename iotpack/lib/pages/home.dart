@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iotpack/api/test/ping.dart';
 
 class homePage extends StatefulWidget {
   @override
@@ -104,7 +105,36 @@ class _HomeState extends State<homePage> with SingleTickerProviderStateMixin {
             child: Icon(Icons.add),
             backgroundColor: Colors.black,
             onPressed: () {
-              Navigator.pushNamed(context, 'about');
+              fetchPing().then((value) {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        content: Text(value),
+                        title: Center(
+                            child: Text(
+                          "提示",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold),
+                        )),
+                        actions: <Widget>[
+                          FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('确定')),
+                          FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('取消')),
+                        ],
+                      );
+                    });
+                print(value);
+              });
             }),
         body: TabBarView(
           controller: _tabController,

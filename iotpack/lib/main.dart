@@ -6,9 +6,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iotpack/pages/home.dart';
 import 'package:iotpack/route.dart';
 import 'package:iotpack/stores/auth.dart';
+import 'package:mqtt_client/mqtt_client.dart';
+import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:typed_data/typed_data.dart' as typed;
 
-import 'api/test/ping.dart';
 import 'database/database.dart';
 
 void main() async {
@@ -20,6 +22,31 @@ void main() async {
     var dir = await getApplicationDocumentsDirectory();
     Hive.init(dir.path);
   }
+
+  final client = MqttServerClient('broker.emqx.io', 'iotpackTest');
+  client.onConnected = () {
+    print("mqtt链接成功");
+
+    client.subscribe("/iotpack", MqttQos.exactlyOnce);
+    client.updates.listen((List<MqttReceivedMessage<MqttMessage>> event) {
+      final MqttPublishMessage recMess = event[0].payload;
+      final pt =
+          MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
+      print(pt);
+    });
+
+    typed.Uint8Buffer data = new typed.Uint8Buffer();
+    data.add(1);
+    data.add(2);
+    client.publishMessage("/iotpack", MqttQos.exactlyOnce, data);
+  };
+
+  client.onSubscribeFail = (s) {
+    print("订阅失败");
+    print(s);
+  };
+
+  await client.connect();
 
   final database =
       await $FloorAppDatabase.databaseBuilder('app_database.db').build();
@@ -43,11 +70,6 @@ void main() async {
 
   box.listenable().addListener(() {
     print("数据更新变化");
-  });
-
-  fetchPing().then((value) {
-    print("网络获取数据成功");
-    print(value.body.toString());
   });
 
   var auth = Auth()

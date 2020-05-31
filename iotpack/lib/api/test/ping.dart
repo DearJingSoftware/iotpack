@@ -1,6 +1,6 @@
-import 'package:http/http.dart' as http;
+import '../request.dart';
 
-Future<http.Response> fetchPing() {
-  print("获取数据");
-  return http.get('https://jsonplaceholder.typicode.com/albums/1');
+Future fetchPing() {
+  var s = "ss";
+  return IotPackApi().get("ping", s);
 }
