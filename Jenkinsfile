@@ -8,10 +8,10 @@ pipeline {
         }
         stage("build web") {
                 steps {
-                    sh "cd web && npm install && cp .env.daily .env && npm run build && rm -rf /data/www/api.daily.iotpack.addpoints.cn"
-                    sh "rm -rf /data/www/api.daily.iotpack.addpoints.cn && mkdir /data/www/api.daily.iotpack.addpoints.cn && mkdir /data/www/api.daily.iotpack.addpoints.cn/dist"
-                    sh "cp -rf web/dist /data/www/api.daily.iotpack.addpoints.cn/dist"
-                    sh "cp -rf daily.nginx.conf web/dist /data/www/api.daily.iotpack.addpoints.cn/"
+                    sh "cd web && npm install && cp .env.daily .env && npm run build && rm -rf /data/www/daily.iotpack.addpoints.cn"
+                    sh "rm -rf /data/www/daily.iotpack.addpoints.cn && mkdir /data/www/daily.iotpack.addpoints.cn && mkdir /data/www/daily.iotpack.addpoints.cn/dist"
+                    sh "cp -rf web/dist /data/www/daily.iotpack.addpoints.cn/dist"
+                    sh "cp -rf daily.nginx.conf web/dist /data/www/daily.iotpack.addpoints.cn/"
                 }
         }
         stage("deploy") {
