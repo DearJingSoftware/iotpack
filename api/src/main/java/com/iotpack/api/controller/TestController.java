@@ -35,6 +35,7 @@ public class TestController extends BaseController {
 
     @RequestMapping("/test")
     public ResDto test(@RequestParam("port") int port) {
+
         Bootstrap bs = new Bootstrap();
         bs.run("0.0.0.0", port);
         return success("success");
@@ -57,6 +58,7 @@ public class TestController extends BaseController {
 
     @RequestMapping("/startmqtt")
     public ResDto startMqtt() throws IOException {
+
         IResourceLoader classpathLoader = new ClasspathResourceLoader();
 
         final IConfig classPathConfig = new ResourceLoaderConfig(classpathLoader);
