@@ -1,9 +1,8 @@
 <service>
     <id>IotPack</id>
     <name>IotPack</name>
-    <description>IotPack </description>
+    <description>IotPack</description>
     <executable>java</executable>
-    <arguments>-Dfile.encoding=UTF-8 -jar bin\iotpack.jar --spring.datasource.url=jdbc:mysql://localhost/iotpack?serverTimezone=GMT&useUnicode=true&characterEncoding=utf8
-    </arguments>
+    <arguments>-Dfile.encoding=UTF-8 -jar bin\iotpack.jar --spring.profiles.active=product</arguments>
     <logmode>rotate</logmode>
 </service>
