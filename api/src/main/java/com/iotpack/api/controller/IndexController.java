@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 @Slf4j
 public class IndexController extends BaseController {
-    int count=0;
+    int count = 0;
+
     @RequestMapping("/ping")
-    public ResDto ping(){
-        count=count+1;
-        log.info("ping "+count);
+    public ResDto ping() {
+        log.info("ping " + count);
         return success("success");
     }
 }
