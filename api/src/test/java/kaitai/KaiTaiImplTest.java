@@ -1,9 +1,6 @@
 package kaitai;
 
 import ognl.*;
-import org.apache.camel.Exchange;
-import org.apache.camel.language.ognl.OgnlExpression;
-import org.apache.camel.language.ognl.OgnlLanguage;
 import org.junit.jupiter.api.Test;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
@@ -12,8 +9,6 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import java.io.IOException;
-import java.lang.reflect.Member;
-import java.util.Map;
 
 public class KaiTaiImplTest {
 

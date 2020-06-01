@@ -12,17 +12,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>port</groupId>
-    <artifactId>com.iotpack</artifactId>
+    <groupId>com.iotpack</groupId>
+    <artifactId>port</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>component_ctwing</module>
-        <module>component_onenet</module>
-        <module>component_oc</module>
         <module>component_direct</module>
         <module>api</module>
-        <module>component_gateway</module>
     </modules>
 
 
