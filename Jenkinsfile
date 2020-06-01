@@ -19,7 +19,7 @@ pipeline {
         }
         stage("build api") {
                 steps {
-                     sh "mvn clean package -Dmaven.test.skip=true"
+                     sh "/root/.sdkman/candidates/maven/3.6.3/bin/mvn clean package -Dmaven.test.skip=true"
                      sh "mkdir /data/www/daily.iotpack.addpoints.cn/bin"
                      sh "cp  api/target/iotpack.jar /data/www/daily.iotpack.addpoints.cn/bin"
                 }
