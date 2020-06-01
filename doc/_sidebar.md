@@ -1,10 +1,13 @@
 - 用户协议
-   - [用户协议](more-pages.md)
+   - [用户协议](agreement.md)
+   - [发行版本](version.md)
 
 - 安装配置
   - [Liunx安装](liunx.md)
   - [Windows安装](windows.md)
   - [Docker安装](docker.md)
+  - [K8s安装](k8s.md)
+  - [网关](gateway.md)
   - [基本配置](docker.md)
 
 - 操作手册
@@ -20,7 +23,20 @@
   - [可视化展示](custom-navbar.md)
   - [设备报警](custom-navbar.md)
   - [系统配置](custom-navbar.md)
-
+- 测试客户端
+    - [JAVA](backend.md)
+    - [C#](backend.md)
+    - [Go](backend.md)
+    - [C++](backend.md)
+    - [Python](backend.md)
+    - [Nodejs](backend.md)
+- 网关SDK
+    - [JAVA](backend.md)
+    - [C#](backend.md)
+    - [Go](backend.md)
+    - [C++](backend.md)
+    - [Python](backend.md)
+    - [Nodejs](backend.md)
 - 开发
   - [约定](backend.md)
   - [后端](backend.md)
