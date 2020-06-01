@@ -3,15 +3,15 @@
 
 ## night版本
    - 每日构建版本 每日自动构建master版本
-   - 体验地址: http://daily.iotpack.com
+   - 体验地址: http://daily.iotpack.addpoints.cn
 
 ## 测试版本
    - 每月构建版本 一般每个月发布
-   - 体验地址: http://test.iotpack.com
+   - 体验地址: http://test.iotpack.addpoints.cn
 
-## CLOUD版本
+## CLOUD版本(暂不开放)
    - 社区版本 拥有全部的功能 在线版本
-   - 体验地址: http://cloud.iotpack.com
+   - 体验地址: http://test.iotpack.addpoints.cn
    
 ## CC社区版本
    - 社区版本 拥有全部的功能
