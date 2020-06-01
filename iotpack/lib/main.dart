@@ -74,9 +74,9 @@ void main() async {
 
   var auth = Auth()
     ..name = DotEnv().env['VAR_NAME']
-    ..token = '111';
+    ..token = '';
   box.put("auth", auth);
-  print('XXXXXName: ${box.get('auth').name}');
+//  print('XXXXXName: ${box.get('auth').name}');
 
 //  AMapLocationClient.setApiKey("e2343505c0a2498c098c2fdaecdf7a25");
   runApp(IotPack());
@@ -87,9 +87,8 @@ class IotPack extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-//            primaryColor: Colors.black,
-//            tabBarTheme: TabBarTheme(labelStyle: TextStyle())
-            ),
+            primaryColor: Colors.black,
+            tabBarTheme: TabBarTheme(labelStyle: TextStyle())),
         routes: routes,
         home: homePage());
   }

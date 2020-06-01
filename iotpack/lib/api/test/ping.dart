@@ -1,6 +1,8 @@
+import 'package:flutter/widgets.dart';
+
 import '../request.dart';
 
-Future fetchPing() {
+Future fetchPing(BuildContext context) {
   var s = "ss";
-  return IotPackApi().get("ping", s);
+  return IotPackApi(context).get("ping", s);
 }
