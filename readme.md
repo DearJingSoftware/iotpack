@@ -55,12 +55,7 @@ flutter
 - C#
 
 ### Community
-- wechat
-- dingtalk
-- qq
-- telegram
-- facebook
-- twitter
+ qq group( 829543314 )
 
 
 ### ChangeLog
