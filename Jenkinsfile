@@ -35,7 +35,7 @@ pipeline {
         stage("doc") {
                 steps {
                       sh "mkdir /data/www/daily.iotpack.addpoints.cn/doc"
-                      sh "cp -rf doc/data/www/daily.iotpack.addpoints.cn/doc"
+                      sh "cp -rf doc/* /data/www/daily.iotpack.addpoints.cn/doc"
                     }
              }
             }
