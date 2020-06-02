@@ -10,8 +10,8 @@
 #### AppStore
 ![AppStore](https://raw.githubusercontent.com/DearJingSoftware/iotpack/master/doc/ios_qrcode.png)
 
-### Doc
-English | 中文 | ＋
+### Document
+ [English]("http://en-us.doc.iotpack.addpoints.cn") | [中文]("http://zh-cn.doc.iotpack.addpoints.cn") 
 
 ### Feature
 - Equipment management
