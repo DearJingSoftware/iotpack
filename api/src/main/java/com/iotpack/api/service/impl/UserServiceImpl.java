@@ -2,6 +2,9 @@ package com.iotpack.api.service.impl;
 
 
 import com.iotpack.api.dto.auth.LoginDto;
+import com.iotpack.api.dto.auth.UserInfoDto;
+import com.iotpack.api.entity.access.PermissionsEntity;
+import com.iotpack.api.entity.access.RoleEntity;
 import com.iotpack.api.entity.group.GroupRepository;
 import com.iotpack.api.entity.user.TokenEntity;
 import com.iotpack.api.entity.user.TokenRepository;
@@ -12,8 +15,13 @@ import com.iotpack.api.form.auth.LoginForm;
 import com.iotpack.api.service.UserService;
 import com.iotpack.api.utils.TokenUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.security.Permission;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -62,5 +70,53 @@ public class UserServiceImpl implements UserService {
             tokenRepository.delete(t);
         });
         return true;
+    }
+
+    @Override
+    public Object getInfo(LoginDto userInfo) {
+        UserInfoDto  userInfoDto=new UserInfoDto();
+
+        getRole(userInfoDto);
+        BeanUtils.copyProperties(userInfo.getUser(),userInfoDto);
+        userInfoDto.setName(userInfo.getUser().getAccount());
+
+        List<String> p= new ArrayList<>();
+        p.add("dashboard");
+        p.add("exception");
+        p.add("result");
+        p.add("profile");
+        p.add("table");
+        p.add("form");
+        p.add("permission");
+        p.add("role");
+        p.add("user");
+        p.add("support");
+
+        RoleEntity role= RoleEntity.builder().id(1L).name("管理员").status(1).permissionList(p).description("管理员").build();
+        role.setName("admin");
+
+        List<PermissionsEntity> permissionsEntities=new ArrayList<>();
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("dashboard").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("exception").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("profile").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("result").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("table").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("form").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("permission").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("role").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("user").actions(new ArrayList<>()).permissionName("permissionName").build());
+        permissionsEntities.add(PermissionsEntity.builder().permissionId("support").actions(new ArrayList<>()).permissionName("permissionName").build());
+
+        role.setPermissions(permissionsEntities);
+        userInfoDto.setRole(role);
+
+        return  userInfoDto;
+    }
+    void  getRole(UserInfoDto userInfoDto){
+
+    }
+    void getPermissions(){
+//        PermissionsEntity permissionsEntity=new PermissionsEntity();
+//        permissionsEntity.
     }
 }

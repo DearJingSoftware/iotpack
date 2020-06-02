@@ -367,7 +367,10 @@ const info = (options) => {
   })
 
   userInfo.role = roleObj
-  return builder(userInfo)
+  var res = builder(userInfo)
+  console.log('权限权限')
+  console.log(res)
+  return res
 }
 
 const userNav = (options) => {

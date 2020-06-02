@@ -10,4 +10,5 @@ public interface UserService {
 
     Object logout(LoginDto logoutForm);
 
+    Object getInfo(LoginDto userInfo);
 }

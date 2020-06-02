@@ -25,7 +25,7 @@ export default {
   menu: {
     locale: true
   },
-  title: 'Ant Design Pro',
+  title: 'IotPack',
   multiTab: false,
   pwa: false,
   iconfontUrl: '',

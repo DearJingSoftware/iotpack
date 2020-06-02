@@ -23,13 +23,14 @@ router.beforeEach((to, from, next) => {
       next({ path: defaultRoutePath })
       NProgress.done()
     } else {
+      next()
       // check login user.roles is null
       if (store.getters.roles.length === 0) {
         // request login userInfo
         store
           .dispatch('GetInfo')
           .then(res => {
-            const roles = res.result && res.result.role
+            const roles = res.data && res.data.role
             // generate dynamic router
             store.dispatch('GenerateRoutes', { roles }).then(() => {
               // 根据roles权限生成可访问的路由表
@@ -46,7 +47,8 @@ router.beforeEach((to, from, next) => {
               }
             })
           })
-          .catch(() => {
+          .catch((e) => {
+            console.log(e)
             notification.error({
               message: '错误',
               description: '请求用户信息失败，请重试'

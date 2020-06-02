@@ -1,5 +1,6 @@
 package com.iotpack.api.entity.user;
 
+import com.iotpack.api.entity.access.RoleEntity;
 import com.iotpack.api.entity.base.BaseEntity;
 import com.iotpack.api.entity.group.GroupEntity;
 import lombok.Data;
@@ -45,4 +46,22 @@ public class UserEntity extends BaseEntity {
      * 微信openid
      */
     String openId;
+    /**
+     * 账号状态
+     */
+    Integer status;
+    /**
+     * 最后登录ip
+     */
+    String lastLoginIp;
+    /**
+     * 最后登录时间
+     */
+    Long lastLoginTime;
+
+    /**
+     * 角色
+     */
+    @Transient
+    RoleEntity role=new RoleEntity();
 }

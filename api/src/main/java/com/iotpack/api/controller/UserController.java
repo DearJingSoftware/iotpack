@@ -29,7 +29,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("/info")
     public Object login(){
-        return success(  authService.getUserInfo());
+        return success(userService.getInfo(authService.getUserInfo()));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.iotpack.api.entity.access;
 
+import com.iotpack.api.entity.base.BaseGroupEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,43 +13,36 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Data
-@SQLDelete(sql = "update `role` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `permission_action` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "role")
+@Table(name = "permission_action")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RoleEntity {
+public class PermissionsActionsEntity extends BaseGroupEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     /**
-     * 角色名称
+     * 显示的名称
      */
-    String name;
+    String permissionName;
 
     /**
-     * 角色描述
+     * 权限名称
      */
-    String description;
+    String permissionId;
 
     /**
-     * 角色状态
-     */
-    Integer status;
-
-    /**
-     * 角色权限
+     * 动作列表
      */
     @Transient
-    List<PermissionsEntity> permissions=new ArrayList<>();
-
-    @Transient
-    List<String> permissionList=new ArrayList<>();
+    List<ActionEntity> actions=new ArrayList<>();;
 }

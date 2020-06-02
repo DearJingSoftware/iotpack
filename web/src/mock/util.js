@@ -6,13 +6,13 @@ const responseBody = {
 }
 
 export const builder = (data, message, code = 0, headers = {}) => {
-  responseBody.result = data
+  responseBody.data = data
   if (message !== undefined && message !== null) {
     responseBody.message = message
   }
   if (code !== undefined && code !== 0) {
     responseBody.code = code
-    responseBody._status = code
+    responseBody.code = code
   }
   if (headers !== null && typeof headers === 'object' && Object.keys(headers).length > 0) {
     responseBody._headers = headers
