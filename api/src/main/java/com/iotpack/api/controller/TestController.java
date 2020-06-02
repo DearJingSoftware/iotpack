@@ -11,10 +11,6 @@ import io.moquette.interception.AbstractInterceptHandler;
 import io.moquette.interception.InterceptHandler;
 import io.moquette.interception.messages.InterceptPublishMessage;
 import io.netty.buffer.ByteBufUtil;
-import io.netty.buffer.Unpooled;
-import io.netty.handler.codec.mqtt.MqttMessageBuilders;
-import io.netty.handler.codec.mqtt.MqttPublishMessage;
-import io.netty.handler.codec.mqtt.MqttQoS;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +31,6 @@ public class TestController extends BaseController {
 
     @RequestMapping("/test")
     public ResDto test(@RequestParam("port") int port) {
-
         Bootstrap bs = new Bootstrap();
         bs.run("0.0.0.0", port);
         return success("success");
@@ -53,6 +48,7 @@ public class TestController extends BaseController {
             final String decodedPayload = new String( ByteBufUtil.getBytes(msg.getPayload()), UTF_8);
             System.out.println("Received on topic: " + msg.getTopicName() + " content: " + decodedPayload);
         }
+
     }
 
 
