@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class ProjectUserInviteEntity extends BaseUserEntity {
+class ProjectUserInviteEntity extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +26,8 @@ public class ProjectUserInviteEntity extends BaseUserEntity {
     Long projectId;
 
     Long userId;
-
     /**
-     * 默认项目
+     * 邀请的时候发送的消息
      */
-    Boolean primary;
+    Long message;
 }

@@ -35,8 +35,10 @@ class ProjectUserEntity extends BaseUserEntity {
      */
     Long userId;
 
+
     /**
-     * 邀请的时候发送的消息
+     * 默认项目
      */
-    Long message;
+    Boolean isPrimary;
+
 }
