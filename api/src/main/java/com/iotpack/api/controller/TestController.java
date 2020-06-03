@@ -29,10 +29,14 @@ public class TestController extends BaseController {
 
     int count = 0;
 
-    @RequestMapping("/test")
-    public ResDto test(@RequestParam("port") int port) {
-        Bootstrap bs = new Bootstrap();
-        bs.run("0.0.0.0", port);
+    @RequestMapping("/test1")
+    public ResDto test1() {
+        return success("success");
+    }
+
+    @RequestMapping("/test2")
+    public ResDto test2() throws InterruptedException {
+        Thread.sleep(5000);
         return success("success");
     }
 

@@ -21,8 +21,8 @@ public class ApiLimitAspect {
     @Autowired
     SystemService systemService;
     /**
-     * api 请求限额
-     * api 请求统计 超时发送 邮件提醒
+     * api TODO 请求限额
+     * api TODO 请求统计 超时发送 邮件提醒
      * @param pjp
      * @return
      * @throws Throwable
@@ -32,9 +32,9 @@ public class ApiLimitAspect {
         Long startTime = System.currentTimeMillis();
         Object o = pjp.proceed();
         Long endTime = System.currentTimeMillis();
-        log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
         if((endTime-startTime)>3000){
-            String msg="api 请求耗时过长提醒 "+httpServletRequest.getRequestURL().toString()+(endTime - startTime);
+            log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
+            String msg="api 请求耗时过长提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
             systemService.sendMessage(msg);
         }
         return o;
