@@ -5,7 +5,7 @@ import com.iotpack.api.dto.auth.LoginDto;
 import com.iotpack.api.dto.auth.UserInfoDto;
 import com.iotpack.api.entity.access.PermissionsEntity;
 import com.iotpack.api.entity.access.RoleEntity;
-import com.iotpack.api.entity.group.GroupRepository;
+import com.iotpack.api.entity.organization.OrganizationRepository;
 import com.iotpack.api.entity.user.TokenEntity;
 import com.iotpack.api.entity.user.TokenRepository;
 import com.iotpack.api.entity.user.UserEntity;
@@ -19,7 +19,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.Permission;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Autowired
-    GroupRepository groupRepository;
+    OrganizationRepository organizationRepository;
 
     @Autowired
     UserRepository userRepository;

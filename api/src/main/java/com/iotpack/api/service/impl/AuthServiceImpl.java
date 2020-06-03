@@ -1,14 +1,12 @@
 package com.iotpack.api.service.impl;
 
 import com.iotpack.api.dto.auth.LoginDto;
-import com.iotpack.api.entity.group.GroupEntity;
-import com.iotpack.api.entity.group.GroupRepository;
+import com.iotpack.api.entity.organization.OrganizationRepository;
 import com.iotpack.api.entity.user.TokenEntity;
 import com.iotpack.api.entity.user.TokenRepository;
 import com.iotpack.api.entity.user.UserEntity;
 import com.iotpack.api.entity.user.UserRepository;
 import com.iotpack.api.exception.BusinessException;
-import com.iotpack.api.form.auth.LogoutForm;
 import com.iotpack.api.service.AuthService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +28,7 @@ public class AuthServiceImpl implements AuthService {
     TokenRepository tokenRepository;
 
     @Autowired
-    GroupRepository groupRepository;
+    OrganizationRepository organizationRepository;
 
     @Autowired
     HttpServletRequest httpServletRequest;

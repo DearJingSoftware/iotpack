@@ -15,11 +15,12 @@ import javax.persistence.*;
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class Gateway {
+public class GatewayEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     String Name;
+
 }

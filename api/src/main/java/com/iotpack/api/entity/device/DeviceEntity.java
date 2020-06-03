@@ -60,4 +60,13 @@ public class DeviceEntity {
      * 设备清单id
      */
     Integer deviceCheckListId;
+
+    /**
+     * 产品id
+     */
+    Long productId;
+    /**
+     * 产品id
+     */
+    Long gatewayId;
 }

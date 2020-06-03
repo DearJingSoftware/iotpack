@@ -2,12 +2,10 @@ package com.iotpack.api.entity.user;
 
 import com.iotpack.api.entity.access.RoleEntity;
 import com.iotpack.api.entity.base.BaseEntity;
-import com.iotpack.api.entity.group.GroupEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 

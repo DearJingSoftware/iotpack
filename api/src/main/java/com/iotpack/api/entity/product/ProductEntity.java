@@ -1,4 +1,4 @@
-package com.iotpack.api.entity.project;
+package com.iotpack.api.entity.product;
 
 
 import com.iotpack.api.entity.base.BaseUserEntity;
@@ -9,26 +9,27 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
+
 @Data
-@SQLDelete(sql = "update `project` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `product` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "project")
+@Table(name = "product")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class ProjectEntity extends BaseUserEntity {
+public class ProductEntity extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     /**
-     * 登录账户
+     * 产品名称
      */
     String name;
 
     /**
-     * 简介
+     * 应用使用的协议
      */
-    String remark;
+    String applicationProtocol;
 }

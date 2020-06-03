@@ -9,10 +9,14 @@ import com.iotpack.api.service.PlatformGateway;
 import com.iotpack.api.gateway.ctwing.service.CtwingGatewayImpl;
 import com.iotpack.api.service.impl.platformGateway.DirectGatewayImpl;
 import com.iotpack.api.service.impl.platformGateway.OceanConnectGatewayImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.function.Supplier;
 
+@Service
+@Slf4j
 public class PlatformGatewayImpl implements PlatformGateway {
 
     @Autowired

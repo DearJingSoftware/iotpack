@@ -1,4 +1,4 @@
-package com.iotpack.api.entity.group;
+package com.iotpack.api.entity.product;
 
 
 import com.iotpack.api.entity.base.BaseUserEntity;
@@ -6,31 +6,30 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 
 
 @Data
-@SQLDelete(sql = "update `group_info` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `product` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "group_info")
+@Table(name = "product")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class GroupEntity extends BaseUserEntity {
+public class ProductRepository extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     /**
-     * 登录账户
+     * 产品名称
      */
     String name;
 
     /**
-     * 联系电话
+     * 应用使用的协议
      */
-    String phone;
-
+    String applicationProtocol;
 }

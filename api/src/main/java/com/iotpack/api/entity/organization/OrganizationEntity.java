@@ -1,4 +1,4 @@
-package com.iotpack.api.entity.project;
+package com.iotpack.api.entity.organization;
 
 
 import com.iotpack.api.entity.base.BaseUserEntity;
@@ -9,14 +9,15 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
+
 @Data
-@SQLDelete(sql = "update `project` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `organization` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "project")
+@Table(name = "organization")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class ProjectEntity extends BaseUserEntity {
+public class OrganizationEntity extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,8 @@ public class ProjectEntity extends BaseUserEntity {
     String name;
 
     /**
-     * 简介
+     * 联系电话
      */
-    String remark;
+    String phone;
+
 }

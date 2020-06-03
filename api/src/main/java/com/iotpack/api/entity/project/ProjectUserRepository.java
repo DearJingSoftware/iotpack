@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProjectRepository extends CrudRepository<ProjectEntity, Long>, JpaSpecificationExecutor<ProjectEntity>, JpaRepository<ProjectEntity, Long> {
+public interface ProjectUserRepository extends CrudRepository<ProjectUserEntity, Long>, JpaSpecificationExecutor<ProjectUserEntity>, JpaRepository<ProjectUserEntity, Long> {
 }

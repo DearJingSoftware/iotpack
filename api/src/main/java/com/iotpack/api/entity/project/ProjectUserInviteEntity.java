@@ -9,26 +9,26 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
+
 @Data
-@SQLDelete(sql = "update `project` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `project_user_invite` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "project")
+@Table(name = "project_user_invite")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class ProjectEntity extends BaseUserEntity {
+public class ProjectUserInviteEntity extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    /**
-     * 登录账户
-     */
-    String name;
+    Long projectId;
+
+    Long userId;
 
     /**
-     * 简介
+     * 默认项目
      */
-    String remark;
+    Boolean primary;
 }
