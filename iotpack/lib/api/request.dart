@@ -2,9 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:iotpack/stores/auth.dart';
 
 class IotPackApi {
   var client = http.Client();
@@ -30,32 +28,33 @@ class IotPackApi {
         receiver);
   }
 
-  http.Client requestInception(req, String method, String path, data) async {
-    var box = await Hive.openBox('iotpack');
-    Auth auth = box.get("auth");
-    if (auth.token == "" || auth.token == null) {
-      showDialog(
-          context: this.context,
-          builder: (BuildContext context) {
-            return Dialog(
-                insetPadding: EdgeInsets.all(10.0),
-                child: Expanded(
-                    child: SizedBox(
-                  width: 400,
-                  height: 300.0,
-                  child: Column(
-                    children: <Widget>[
-                      TextField(
-                        decoration: InputDecoration(hintText: 'username'),
-                      ),
-                      TextField(
-                        decoration: InputDecoration(hintText: 'password'),
-                      )
-                    ],
-                  ),
-                )));
-          });
-    }
+  http.Client requestInception(req, String method, String path, data) {
+//    var box =  Hive.openBox('iotpack').then((box)=>{
+//         Auth auth = box.get("auth")
+//    });
+//
+//    if (auth.token == "" || auth.token == null) {
+//      showDialog(
+//          context: this.context,
+//          builder: (BuildContext context) {
+//            return Dialog(
+//                child: Expanded(
+//                    child: SizedBox(
+//              width: 400,
+//              height: 300.0,
+//              child: Column(
+//                children: <Widget>[
+//                  TextField(
+//                    decoration: InputDecoration(hintText: 'username'),
+//                  ),
+//                  TextField(
+//                    decoration: InputDecoration(hintText: 'password'),
+//                  )
+//                ],
+//              ),
+//            )));
+//          });
+//    }
     return req;
   }
 

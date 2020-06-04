@@ -32,7 +32,6 @@ class ChoiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.headline4;
     return Center(
         child: GridView(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

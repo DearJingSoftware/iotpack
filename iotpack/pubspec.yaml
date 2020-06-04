@@ -8,7 +8,7 @@ environment:
 
 dependency_overrides:
   dartx:
-
+    
 dependencies:
   flutter:
     sdk: flutter
@@ -23,10 +23,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   json_annotation: any
   mqtt_client: any
-
+#  flutter_barcode_scanner: ^1.0.1
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+#  flutter_test:
+#    sdk: flutter
+#  hive_flutter: 0.3.0-dev
   floor_generator: any
   hive_generator: any
   build_runner: any
