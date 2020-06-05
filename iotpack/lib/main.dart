@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:iotpack/init/initHive.dart';
 import 'package:iotpack/pages/home.dart';
 import 'package:iotpack/route.dart';
 
 void main() async {
   //设置高德地图ioskey
-//  print("启动应用");
-//
-//  if (!kIsWeb) {
-//    Hive.initFlutter();
-//    var dir = await getApplicationDocumentsDirectory();
-//    Hive.init(dir.path);
-//  }
+  InitHive();
 //
 //  final client = MqttServerClient('broker.emqx.io', 'iotpackTest');
 //  client.onConnected = () {

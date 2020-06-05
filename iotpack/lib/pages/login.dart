@@ -24,9 +24,10 @@ class _MyHomePageState extends State<loginPage> {
 
   Widget _buildLoginLayout(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 100, left: 20, right: 20),
+      padding: EdgeInsets.only(top: 60, left: 20, right: 20),
       child: Column(
         children: <Widget>[
+          _buildSetting(context),
           _buildTopLogo(context),
           _buildUsernameField(context),
           SizedBox(
@@ -41,6 +42,19 @@ class _MyHomePageState extends State<loginPage> {
         ],
       ),
     );
+  }
+
+  Widget _buildSetting(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(bottom: 20),
+        child: Align(
+            alignment: Alignment.centerRight,
+            child: IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.of(context).pushNamed("setting");
+              },
+            )));
   }
 
   Widget _buildTopLogo(BuildContext context) {

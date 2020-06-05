@@ -29,6 +29,7 @@ class _MyHomePageState extends State<regPage> {
         children: <Widget>[
           _buildTopLogo(context),
           _buildUsernameField(context),
+          _buildPhoneField(context),
           SizedBox(
             height: 20,
           ),
@@ -59,6 +60,15 @@ class _MyHomePageState extends State<regPage> {
     return TextFormField(
         decoration: InputDecoration(
       labelText: '账户',
+      filled: true,
+      fillColor: Colors.white,
+    ));
+  }
+
+  Widget _buildPhoneField(BuildContext context) {
+    return TextFormField(
+        decoration: InputDecoration(
+      labelText: '手机号',
       filled: true,
       fillColor: Colors.white,
     ));
