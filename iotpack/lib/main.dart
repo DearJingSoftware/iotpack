@@ -1,81 +1,70 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iotpack/pages/home.dart';
 import 'package:iotpack/route.dart';
-import 'package:iotpack/stores/auth.dart';
-import 'package:mqtt_client/mqtt_client.dart';
-import 'package:mqtt_client/mqtt_server_client.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:typed_data/typed_data.dart' as typed;
-
-import 'database/database.dart';
 
 void main() async {
   //设置高德地图ioskey
-  print("启动应用");
+//  print("启动应用");
+//
+//  if (!kIsWeb) {
+//    Hive.initFlutter();
+//    var dir = await getApplicationDocumentsDirectory();
+//    Hive.init(dir.path);
+//  }
+//
+//  final client = MqttServerClient('broker.emqx.io', 'iotpackTest');
+//  client.onConnected = () {
+//    print("mqtt链接成功");
+//
+//    client.subscribe("/iotpack", MqttQos.exactlyOnce);
+//    client.updates.listen((List<MqttReceivedMessage<MqttMessage>> event) {
+//      final MqttPublishMessage recMess = event[0].payload;
+//      final pt =
+//          MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
+//      print(pt);
+//    });
+//
+//    typed.Uint8Buffer data = new typed.Uint8Buffer();
+//    data.add(1);
+//    data.add(2);
+//    client.publishMessage("/iotpack", MqttQos.exactlyOnce, data);
+//  };
+//
+//  client.onSubscribeFail = (s) {
+//    print("订阅失败");
+//    print(s);
+//  };
+//
+//  await client.connect();
+//
+//  final database =
+//      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+//  final deviceDao = database.deviceDao;
+//
+////  final device = Device(1, 'Frank');
+////  await deviceDao.insertDevice(device);
+//
+//  final result = await deviceDao.findDeviceById(1);
+//  result.first.then((value) => {print(value.name)});
 
-  if (!kIsWeb) {
-    Hive.initFlutter();
-    var dir = await getApplicationDocumentsDirectory();
-    Hive.init(dir.path);
-  }
-
-  final client = MqttServerClient('broker.emqx.io', 'iotpackTest');
-  client.onConnected = () {
-    print("mqtt链接成功");
-
-    client.subscribe("/iotpack", MqttQos.exactlyOnce);
-    client.updates.listen((List<MqttReceivedMessage<MqttMessage>> event) {
-      final MqttPublishMessage recMess = event[0].payload;
-      final pt =
-          MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
-      print(pt);
-    });
-
-    typed.Uint8Buffer data = new typed.Uint8Buffer();
-    data.add(1);
-    data.add(2);
-    client.publishMessage("/iotpack", MqttQos.exactlyOnce, data);
-  };
-
-  client.onSubscribeFail = (s) {
-    print("订阅失败");
-    print(s);
-  };
-
-  await client.connect();
-
-  final database =
-      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-  final deviceDao = database.deviceDao;
-
-//  final device = Device(1, 'Frank');
-//  await deviceDao.insertDevice(device);
-
-  final result = await deviceDao.findDeviceById(1);
-  result.first.then((value) => {print(value.name)});
-
-  print("加载配置文件");
-  await DotEnv().load('.env').catchError((e) {
-    print("加载配置文件出错");
-    print(e.toString());
-  });
-
-  print(DotEnv().env['API_ENDPOINT']);
-  Hive.registerAdapter(AuthAdapter());
-  var box = await Hive.openBox('iotpack');
-
-  box.listenable().addListener(() {
-    print("数据更新变化");
-  });
-
-  var auth = Auth()
-    ..name = DotEnv().env['VAR_NAME']
-    ..token = '';
-  box.put("auth", auth);
+//  print("加载配置文件");
+//  await DotEnv().load('.env').catchError((e) {
+//    print("加载配置文件出错");
+//    print(e.toString());
+//  });
+//
+//  print(DotEnv().env['API_ENDPOINT']);
+//  Hive.registerAdapter(AuthAdapter());
+//  var box = await Hive.openBox('iotpack');
+//
+//  box.listenable().addListener(() {
+//    print("数据更新变化");
+//  });
+//
+//  var auth = Auth()
+//    ..name = DotEnv().env['VAR_NAME']
+//    ..token = '';
+//  box.put("auth", auth);
 //  print('XXXXXName: ${box.get('auth').name}');
 
 //  AMapLocationClient.setApiKey("e2343505c0a2498c098c2fdaecdf7a25");

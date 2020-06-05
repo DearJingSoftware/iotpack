@@ -176,7 +176,7 @@ class _HomeState extends State<homePage> with SingleTickerProviderStateMixin {
                 tooltip: "UserInfo",
                 icon: Icon(Icons.perm_identity),
                 onPressed: () {
-                  setIndex(3);
+                  Navigator.of(context).pushNamed("login");
                 },
               ),
             ],

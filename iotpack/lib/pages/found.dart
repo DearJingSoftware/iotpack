@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class loginPage extends StatefulWidget {
-  loginPage({this.title});
+class foundPage extends StatefulWidget {
+  foundPage({this.title});
 
   final String title;
 
@@ -9,7 +9,7 @@ class loginPage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<loginPage> {
+class _MyHomePageState extends State<foundPage> {
   Widget _buildLayoutContainer(BuildContext context) {
     return SingleChildScrollView(
       child: _buildFormWrapper(context),
@@ -29,10 +29,6 @@ class _MyHomePageState extends State<loginPage> {
         children: <Widget>[
           _buildTopLogo(context),
           _buildUsernameField(context),
-          SizedBox(
-            height: 20,
-          ),
-          _buildPasswordField(context),
           SizedBox(
             height: 20,
           ),
@@ -63,23 +59,12 @@ class _MyHomePageState extends State<loginPage> {
     ));
   }
 
-  Widget _buildPasswordField(BuildContext context) {
-    return TextFormField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: '密码',
-        filled: true,
-        fillColor: Colors.white,
-      ),
-    );
-  }
-
   Widget _buildSubmitButton(BuildContext context) {
     return ButtonTheme(
       minWidth: double.infinity,
       child: RaisedButton(
         child: Text(
-          "登录",
+          "确认",
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () {},
@@ -90,17 +75,9 @@ class _MyHomePageState extends State<loginPage> {
   Widget _buildOtherButton(BuildContext context) {
     return Row(children: [
       RaisedButton(
-        onPressed: () => {Navigator.of(context).pushNamed("found")},
-        child: Text("找回密码"),
+        onPressed: () => {Navigator.of(context).pop()},
+        child: Text("返回登陆"),
       ),
-      Expanded(
-          child: Align(
-        alignment: Alignment.centerRight,
-        child: RaisedButton(
-          onPressed: () => {Navigator.of(context).pushNamed("reg")},
-          child: Text("注册"),
-        ),
-      )),
     ]);
   }
 
