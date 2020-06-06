@@ -1,45 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:iotpack/api/test/login.dart';
+import 'package:iotpack/dto/loginDto.dart';
 
 class loginPage extends StatefulWidget {
-  loginPage({this.title});
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<loginPage> {
+  String _username = "admin";
+  String _password = "admin";
+
   Widget _buildLayoutContainer(BuildContext context) {
     return SingleChildScrollView(
-      child: _buildFormWrapper(context),
-    );
-  }
-
-  Widget _buildFormWrapper(BuildContext context) {
-    return Form(
-      child: _buildLoginLayout(context),
-    );
-  }
-
-  Widget _buildLoginLayout(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 60, left: 20, right: 20),
-      child: Column(
-        children: <Widget>[
-          _buildSetting(context),
-          _buildTopLogo(context),
-          _buildUsernameField(context),
-          SizedBox(
-            height: 20,
+      child: Form(
+        child: Container(
+          padding: EdgeInsets.only(top: 60, left: 20, right: 20),
+          child: Column(
+            children: <Widget>[
+              _buildSetting(context),
+              _buildTopLogo(context),
+              TextFormField(
+                  onSaved: (val) {
+                    _username = val;
+                  },
+                  decoration: InputDecoration(
+                    labelText: '账户',
+                    filled: true,
+                    fillColor: Colors.white,
+                  )),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                onSaved: (val) {
+                  _password = val;
+                },
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: '密码',
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ButtonTheme(
+                minWidth: double.infinity,
+                child: RaisedButton(
+                  child: Text(
+                    "登录",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {
+                    print("发起登录请求");
+                    login<LoginDto>(context, _username, _password)
+                        .then((value) {
+                      print(value.token);
+                      print("登录返回结果");
+                      Navigator.of(context).pushNamed("user");
+                    }).catchError((value) {
+                      print("登录报错");
+                      print(value);
+                    });
+                  },
+                ),
+              ),
+              _buildOtherButton(context)
+            ],
           ),
-          _buildPasswordField(context),
-          SizedBox(
-            height: 20,
-          ),
-          _buildSubmitButton(context),
-          _buildOtherButton(context)
-        ],
+        ),
       ),
     );
   }
@@ -66,39 +97,6 @@ class _MyHomePageState extends State<loginPage> {
           height: 100,
           width: 100,
         ));
-  }
-
-  Widget _buildUsernameField(BuildContext context) {
-    return TextFormField(
-        decoration: InputDecoration(
-      labelText: '账户',
-      filled: true,
-      fillColor: Colors.white,
-    ));
-  }
-
-  Widget _buildPasswordField(BuildContext context) {
-    return TextFormField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: '密码',
-        filled: true,
-        fillColor: Colors.white,
-      ),
-    );
-  }
-
-  Widget _buildSubmitButton(BuildContext context) {
-    return ButtonTheme(
-      minWidth: double.infinity,
-      child: RaisedButton(
-        child: Text(
-          "登录",
-          style: TextStyle(color: Colors.white),
-        ),
-        onPressed: () {},
-      ),
-    );
   }
 
   Widget _buildOtherButton(BuildContext context) {

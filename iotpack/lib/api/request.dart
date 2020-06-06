@@ -3,68 +3,47 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:iotpack/api/rep.dart';
 
 class IotPackApi {
   var client = http.Client();
-  var header = new Map();
   var context;
+  Map<String, String> header = {"Content-type": "application/json"};
   IotPackApi(BuildContext context) {
     this.context = context;
+
+//    header['user-agent'] = "iotpack";
+//    header['Content-type'] = "application/json";
   }
 
-  Future post(String path, data, receiver) {
-    return responseInception(
-        requestInception(client, "post", path, data).post(
-            DotEnv().env['API_ENDPOINT'] + path,
-            body: data,
-            headers: header),
-        receiver);
+  Future<T> post<T>(String path, data) {
+    return responseInception<T>(
+      requestInception<T>(client, "post", path, data).post(
+          DotEnv().env['API_ENDPOINT'] + path,
+          body: json.encode(data),
+          headers: header),
+    );
   }
 
-  Future get(String path, receiver) {
-    return responseInception(
-        requestInception(client, "get", path, "")
-            .get(DotEnv().env['API_ENDPOINT'] + path),
-        receiver);
+  Future<T> get<T>(String path) {
+    return responseInception(requestInception(client, "get", path, "")
+        .get(DotEnv().env['API_ENDPOINT'] + path, headers: header));
   }
 
-  http.Client requestInception(req, String method, String path, data) {
-//    var box =  Hive.openBox('iotpack').then((box)=>{
-//         Auth auth = box.get("auth")
-//    });
-//
-//    if (auth.token == "" || auth.token == null) {
-//      showDialog(
-//          context: this.context,
-//          builder: (BuildContext context) {
-//            return Dialog(
-//                child: Expanded(
-//                    child: SizedBox(
-//              width: 400,
-//              height: 300.0,
-//              child: Column(
-//                children: <Widget>[
-//                  TextField(
-//                    decoration: InputDecoration(hintText: 'username'),
-//                  ),
-//                  TextField(
-//                    decoration: InputDecoration(hintText: 'password'),
-//                  )
-//                ],
-//              ),
-//            )));
-//          });
-//    }
+  http.Client requestInception<T>(req, String method, String path, data) {
     return req;
   }
 
-  Future responseInception(Future<http.Response> res, receiver) {
+  Future<T> responseInception<T>(Future<http.Response> res) {
     return res.then((value) {
-      Map<String, dynamic> resbody = json.decode(value.body);
-      if (resbody["code"] == 0) {
-        return resbody['data'];
+      print("解析");
+      Resp<T> resbody = Resp.fromJson(json.decode(value.body));
+      print("请求结果");
+      print(resbody.data);
+      if (resbody.code == 0) {
+        return resbody.data;
       } else {
-        throw new Exception(resbody['msg']);
+        throw (resbody.msg);
       }
     }).catchError((e) {
       print(e.toString());

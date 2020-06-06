@@ -4,5 +4,5 @@ import '../request.dart';
 
 Future fetchPing(BuildContext context) {
   var s = "ss";
-  return IotPackApi(context).get("ping", s);
+  return IotPackApi(context).get("ping");
 }
