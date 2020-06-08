@@ -1,4 +1,4 @@
-package com.iotpack.driect;
+package com.iotpack.gateway.tcp;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelInitializer;

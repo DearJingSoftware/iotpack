@@ -1,4 +1,4 @@
-package com.iotpack.driect;
+package com.iotpack.gateway.tcp;
 
 public interface ProtocolBootstrap {
 

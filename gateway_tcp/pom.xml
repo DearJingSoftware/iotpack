@@ -39,7 +39,7 @@
     </dependencies>
 
     <build>
-        <finalName>component_direct</finalName>
+        <finalName>gateway_tcp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,4 +1,4 @@
-package com.iotpack.driect;
+package com.iotpack.gateway.tcp;
 
 public class Main {
     public static void main(String[] argv) throws Exception {
