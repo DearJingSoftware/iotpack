@@ -17,8 +17,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>component_direct</module>
+
         <module>api</module>
+        <module>gateway_tcp</module>
+        <module>gateway_udp</module>
+        <module>gateway_mqtt</module>
+        <module>gateway_coap</module>
+
     </modules>
 
 

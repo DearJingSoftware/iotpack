@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>component_direct</artifactId>
+    <artifactId>gateway_tcp</artifactId>
 
     <dependencies>
         <dependency>

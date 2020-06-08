@@ -202,14 +202,10 @@
         <dependency>
             <groupId>com.iotpack</groupId>
             <version>1.0-SNAPSHOT</version>
-            <artifactId>component_direct</artifactId>
+            <artifactId>gateway_tcp</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>io.moquette</groupId>
-            <artifactId>moquette-broker</artifactId>
-            <version>0.12.1</version>
-        </dependency>
+
 
     </dependencies>
 
