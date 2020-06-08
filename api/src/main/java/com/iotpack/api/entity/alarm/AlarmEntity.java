@@ -37,7 +37,7 @@ public class AlarmEntity {
     DeviceEntity device;
 
     /**
-     * 触发设备的描述;
+     * 文字描述;
      */
     String description;
 }

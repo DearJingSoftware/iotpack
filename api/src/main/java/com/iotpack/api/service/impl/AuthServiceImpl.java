@@ -1,11 +1,11 @@
 package com.iotpack.api.service.impl;
 
 import com.iotpack.api.dto.auth.LoginDto;
-import com.iotpack.api.entity.organization.OrganizationRepository;
+import com.iotpack.api.entity.organization.repo.OrganizationRepository;
 import com.iotpack.api.entity.user.TokenEntity;
-import com.iotpack.api.entity.user.TokenRepository;
+import com.iotpack.api.entity.user.repo.TokenRepository;
 import com.iotpack.api.entity.user.UserEntity;
-import com.iotpack.api.entity.user.UserRepository;
+import com.iotpack.api.entity.user.repo.UserRepository;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.service.AuthService;
 import lombok.extern.slf4j.Slf4j;

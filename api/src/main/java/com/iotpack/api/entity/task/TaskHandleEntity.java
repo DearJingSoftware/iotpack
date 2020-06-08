@@ -26,18 +26,12 @@ public class TaskHandleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
     /**
-     * 消息id
+     * 操作人id
      */
-    Long mid;
+    Long optUserId;
     /**
-     * 触发消息的设备
+     * 操作人用户姓名
      */
-    DeviceEntity device;
-
-    /**
-     * 触发设备的描述;
-     */
-    String description;
+    String optUserName;
 }

@@ -22,8 +22,6 @@ public class DeviceMetaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
-    String name;
     /**
      *  设备的非检索配置信息
      */

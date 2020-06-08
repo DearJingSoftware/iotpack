@@ -1,6 +1,7 @@
-package com.iotpack.api.entity.user;
+package com.iotpack.api.entity.user.repo;
 
 
+import com.iotpack.api.entity.user.TokenEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;

@@ -1,6 +1,5 @@
-package com.iotpack.api.entity.task;
+package com.iotpack.api.entity.device;
 
-import com.iotpack.api.entity.device.DeviceEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
@@ -9,25 +8,29 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 
 /**
- * 任务表
+ * 设备分组关系表
  */
 @Data
-@SQLDelete(sql = "update `task_label` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `device_related` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "task_label")
+@Table(name = "device_related")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class TaskLabelEntity {
+public class DeviceRelatedEntity {
 
-    /**
-     * 触发设备的消息id
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    /**
+     * 设备分组id
+     */
+    Long deviceGroupId;
 
-    String name;
-    String color;
+    /**
+     * 设备id
+     */
+    Long deviceId;
+
 }

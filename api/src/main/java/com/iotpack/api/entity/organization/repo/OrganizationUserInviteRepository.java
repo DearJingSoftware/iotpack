@@ -1,5 +1,6 @@
-package com.iotpack.api.entity.organization;
+package com.iotpack.api.entity.organization.repo;
 
+import com.iotpack.api.entity.organization.OrganizationUserInviteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;

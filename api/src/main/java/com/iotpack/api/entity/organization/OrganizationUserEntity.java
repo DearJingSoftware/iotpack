@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-class OrganizationUserEntity extends BaseUserEntity {
+public class OrganizationUserEntity extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

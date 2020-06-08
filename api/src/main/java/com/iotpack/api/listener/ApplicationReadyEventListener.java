@@ -1,7 +1,7 @@
 package com.iotpack.api.listener;
 
 import com.iotpack.api.entity.user.UserEntity;
-import com.iotpack.api.entity.user.UserRepository;
+import com.iotpack.api.entity.user.repo.UserRepository;
 import com.iotpack.api.utils.PasswordUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

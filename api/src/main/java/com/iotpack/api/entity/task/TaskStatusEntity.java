@@ -27,17 +27,6 @@ public class TaskStatusEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    /**
-     * 消息id
-     */
-    Long mid;
-    /**
-     * 触发消息的设备
-     */
-    DeviceEntity device;
-
-    /**
-     * 触发设备的描述;
-     */
-    String description;
+    String name;
+    String color;
 }
