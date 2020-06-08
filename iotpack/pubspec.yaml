@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   json_annotation: any
   mqtt_client: any
+  charts_flutter: ^0.9.0
 #  flutter_barcode_scanner: ^1.0.1
 dev_dependencies:
 #  flutter_test:

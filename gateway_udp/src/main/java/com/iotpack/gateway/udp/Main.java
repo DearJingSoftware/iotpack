@@ -10,15 +10,15 @@ public class Main {
     public static void main(String[] argv) throws Exception {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
-                        Bootstrap b = new Bootstrap();
-                         b.group(group)
-                           .channel(NioDatagramChannel.class)
-                         .option(ChannelOption.SO_BROADCAST, true)
-                          .handler(new PongServerHandler());
+            Bootstrap b = new Bootstrap();
+            b.group(group)
+                    .channel(NioDatagramChannel.class)
+                    .option(ChannelOption.SO_BROADCAST, true)
+                    .handler(new PongServerHandler());
 
-                          b.bind(7686).sync().channel().closeFuture().await();
-                     } finally {
-                          group.shutdownGracefully();
-                      }
+            b.bind(7686).sync().channel().closeFuture().await();
+        } finally {
+            group.shutdownGracefully();
+        }
     }
 }

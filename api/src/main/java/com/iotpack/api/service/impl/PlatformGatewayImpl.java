@@ -1,7 +1,7 @@
 package com.iotpack.api.service.impl;
 
 import com.iotpack.api.entity.device.DeviceCheckListEntity;
-import com.iotpack.api.entity.device.DeviceCheckListRepository;
+import com.iotpack.api.entity.device.repo.DeviceCheckListRepository;
 import com.iotpack.api.entity.device.DeviceEntity;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.gateway.onenet.service.OneNetServiceImpl;

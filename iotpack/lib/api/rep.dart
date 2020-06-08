@@ -10,9 +10,8 @@ class Resp<T> {
   Resp.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     msg = json['msg'];
-
-//    if (T is LoginDto) {
-    data = LoginDto.fromJson(json['data']) as T;
-//    }
+    if (T is LoginDto) {
+      data = LoginDto.fromJson(json['data']) as T;
+    }
   }
 }

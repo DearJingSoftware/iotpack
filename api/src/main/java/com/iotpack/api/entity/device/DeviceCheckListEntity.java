@@ -8,6 +8,9 @@ import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 
+/**
+ * 产品清单
+ */
 @Data
 @SQLDelete(sql = "update `device_checklist` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
