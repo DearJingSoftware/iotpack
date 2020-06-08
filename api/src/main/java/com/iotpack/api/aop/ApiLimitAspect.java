@@ -35,7 +35,19 @@ public class ApiLimitAspect {
         Long endTime = System.currentTimeMillis();
         if((endTime-startTime)>3000){
             log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
-            String msg="api 请求耗时过长提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
+            String msg="api 请求耗时预警提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
+            systemService.sendMessage(msg);
+        }
+
+        if((endTime-startTime)>5000){
+            log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
+            String msg="api 请求耗时提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
+            systemService.sendMessage(msg);
+        }
+
+        if((endTime-startTime)>10000){
+            log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
+            String msg="api 请求耗时超时提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
             systemService.sendMessage(msg);
         }
         return o;
