@@ -1,7 +1,5 @@
 package com.iotpack.api.entity.product;
 
-
-import com.iotpack.api.entity.base.BaseUserEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
@@ -9,37 +7,41 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
-
+/**
+ * 设备属性表
+ */
 @Data
-@SQLDelete(sql = "update `product` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `product_property` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "product")
+@Table(name = "product_property")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class ProductEntity extends BaseUserEntity {
+public class ProductPropertyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    Long productId;
+
     /**
-     * 产品名称
+     * 属性的key
+     */
+    Long k;
+
+    /**
+     * 属性的名称
      */
     String name;
 
     /**
-     * 产品名称
+     * 如何定义属性
      */
-    String icon;
+    Long delimit;
 
     /**
-     * 应用使用的协议
+     * 属性是否可观测
      */
-    String applicationProtocol;
-
-    /**
-     * 产品交互数据编码类型
-     */
-    Integer encodeType;
+    String observeAble;
 }

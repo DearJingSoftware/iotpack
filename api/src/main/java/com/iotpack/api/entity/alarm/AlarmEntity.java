@@ -34,6 +34,7 @@ public class AlarmEntity {
     /**
      * 触发消息的设备
      */
+    @Transient
     DeviceEntity device;
 
     /**
