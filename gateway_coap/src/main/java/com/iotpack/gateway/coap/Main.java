@@ -1,10 +1,5 @@
 package com.iotpack.gateway.coap;
 
-import com.iotpack.gateway.coap.resource.HelloWorldResource;
-import org.eclipse.californium.core.CoapServer;
-import org.eclipse.californium.core.coap.Request;
-import org.eclipse.californium.core.coap.Response;
-
 import java.io.IOException;
 
 

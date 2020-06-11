@@ -1,7 +1,7 @@
 package com.iotpack.gateway.coap;
 
 import com.iotpack.gateway.bootstrap.GatewayBootStrap;
-import com.iotpack.gateway.coap.resource.HelloWorldResource;
+import com.iotpack.gateway.coap.resource.DeviceResource;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.californium.core.CoapServer;
 
@@ -14,7 +14,7 @@ public class IotPackCoapServerBootstrap implements GatewayBootStrap {
     @Override
     public void start() {
         server.start();
-        server.add(new HelloWorldResource("hello"));
+        server.add(new DeviceResource("device"));
     }
 
     @Override
