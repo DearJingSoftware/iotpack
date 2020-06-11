@@ -1,0 +1,14 @@
+{
+  "name": "coapclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coap": "^0.23.1"
+  }
+}

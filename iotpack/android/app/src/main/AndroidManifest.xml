@@ -10,6 +10,7 @@
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@drawable/ic_senc"
         android:label="IotPack">
+        <meta-data android:name="com.mapbox.token" android:value="pk.eyJ1IjoiamluZ2RvciIsImEiOiJja2I3c2NqZnAwMGx2MnJsYmpva3F2dWVvIn0.5k2wk1iqG10JNFYD7dREvw" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

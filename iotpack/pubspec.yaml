@@ -26,6 +26,7 @@ dependencies:
   json_annotation: any
   mqtt_client: any
   charts_flutter: ^0.9.0
+  mapbox_gl: ^0.7.0
 #  flutter_barcode_scanner: ^1.0.1
 dev_dependencies:
 #  flutter_test:
@@ -46,6 +47,7 @@ flutter:
   assets:
     - .env
     - assets/logo.png
+    - assets/cache.db
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
