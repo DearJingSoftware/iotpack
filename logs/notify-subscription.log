@@ -1,54 +1,39 @@
-2020-06-11 09:36:26,373 - Loading configuration. ResourceLoader = classpath resource, configName = null.
-2020-06-11 09:36:26,374 - Loading resource. RelativePath = config/moquette.conf.
-2020-06-11 09:36:26,374 - Parsing configuration properties. ResourceLoader = classpath resource, configName = null.
-2020-06-11 09:36:26,380 - Configuring message interceptors...
-2020-06-11 09:36:26,381 - Initializing broker interceptor. InterceptorIds=[EmbeddedLauncherPublishListener]
-2020-06-11 09:36:26,384 - Adding MQTT message interceptor. InterceptorId=EmbeddedLauncherPublishListener, handledMessageTypes=[class io.moquette.interception.messages.InterceptConnectMessage, class io.moquette.interception.messages.InterceptDisconnectMessage, class io.moquette.interception.messages.InterceptConnectionLostMessage, class io.moquette.interception.messages.InterceptPublishMessage, class io.moquette.interception.messages.InterceptSubscribeMessage, class io.moquette.interception.messages.InterceptUnsubscribeMessage, class io.moquette.interception.messages.InterceptAcknowledgedMessage]
-2020-06-11 09:36:26,385 - Initializing CTrie
-2020-06-11 09:36:26,387 - Initializing subscriptions store...
-2020-06-11 09:36:26,426 - Netty is using NIO
-2020-06-11 09:36:27,425 - Server bound to host=0.0.0.0, port=1883, protocol=TCP MQTT
-2020-06-11 09:36:27,427 - Property websocket_port has been setted to disabled. Websocket MQTT will be disabled
-2020-06-11 09:36:27,430 - Moquette integration has been started successfully in 1048 ms
-2020-06-11 09:36:38,240 - C->B CONNECT <null>
-2020-06-11 09:36:38,241 - clientId mqttx_f76fe8fe username 123 password 456
-2020-06-11 09:38:06,135 - Loading configuration. ResourceLoader = classpath resource, configName = null.
-2020-06-11 09:38:06,136 - Loading resource. RelativePath = config/moquette.conf.
-2020-06-11 09:38:06,136 - Parsing configuration properties. ResourceLoader = classpath resource, configName = null.
-2020-06-11 09:38:06,142 - Configuring message interceptors...
-2020-06-11 09:38:06,143 - Initializing broker interceptor. InterceptorIds=[EmbeddedLauncherPublishListener]
-2020-06-11 09:38:06,145 - Adding MQTT message interceptor. InterceptorId=EmbeddedLauncherPublishListener, handledMessageTypes=[class io.moquette.interception.messages.InterceptConnectMessage, class io.moquette.interception.messages.InterceptDisconnectMessage, class io.moquette.interception.messages.InterceptConnectionLostMessage, class io.moquette.interception.messages.InterceptPublishMessage, class io.moquette.interception.messages.InterceptSubscribeMessage, class io.moquette.interception.messages.InterceptUnsubscribeMessage, class io.moquette.interception.messages.InterceptAcknowledgedMessage]
-2020-06-11 09:38:06,147 - Initializing CTrie
-2020-06-11 09:38:06,148 - Initializing subscriptions store...
-2020-06-11 09:38:06,188 - Netty is using NIO
-2020-06-11 09:38:07,168 - Server bound to host=0.0.0.0, port=1883, protocol=TCP MQTT
-2020-06-11 09:38:07,170 - Property websocket_port has been setted to disabled. Websocket MQTT will be disabled
-2020-06-11 09:38:07,173 - Moquette integration has been started successfully in 1029 ms
-2020-06-11 09:38:12,362 - C->B CONNECT <null>
-2020-06-11 09:38:12,362 - clientId mqttx_f76fe8fe username 123 password 456
-2020-06-11 09:38:16,139 - C->B UNSUBSCRIBE <mqttx_f76fe8fe> to topics <[testtopic/#]>
-2020-06-11 09:38:16,145 - C<-B UNSUBACK <mqttx_f76fe8fe> packetID <50875>
-2020-06-11 09:38:20,254 - C->B SUBSCRIBE <mqttx_f76fe8fe> to topics [MqttTopicSubscription[topicFilter=testtopic/#, qualityOfService=AT_MOST_ONCE]]
-2020-06-11 09:38:20,255 - canRead topic testtopic/# username 123 clientId mqttx_f76fe8fe
-2020-06-11 09:38:20,260 - C<-B SUBACK <mqttx_f76fe8fe> packetID <50876>, grantedQoses [0]
-2020-06-11 09:38:26,636 - canWrite topic /aaa username 123 clientId mqttx_f76fe8fe
-2020-06-11 09:38:28,120 - canWrite topic /aaa username 123 clientId mqttx_f76fe8fe
-2020-06-11 09:38:28,969 - canWrite topic /aaa username 123 clientId mqttx_f76fe8fe
-2020-06-11 09:55:08,519 - Loading configuration. ResourceLoader = classpath resource, configName = null.
-2020-06-11 09:55:08,519 - Loading resource. RelativePath = config/moquette.conf.
-2020-06-11 09:55:08,520 - Parsing configuration properties. ResourceLoader = classpath resource, configName = null.
-2020-06-11 09:55:08,523 - Configuring message interceptors...
-2020-06-11 09:55:08,524 - Initializing broker interceptor. InterceptorIds=[EmbeddedLauncherPublishListener]
-2020-06-11 09:55:08,527 - Adding MQTT message interceptor. InterceptorId=EmbeddedLauncherPublishListener, handledMessageTypes=[class io.moquette.interception.messages.InterceptConnectMessage, class io.moquette.interception.messages.InterceptDisconnectMessage, class io.moquette.interception.messages.InterceptConnectionLostMessage, class io.moquette.interception.messages.InterceptPublishMessage, class io.moquette.interception.messages.InterceptSubscribeMessage, class io.moquette.interception.messages.InterceptUnsubscribeMessage, class io.moquette.interception.messages.InterceptAcknowledgedMessage]
-2020-06-11 09:55:08,528 - Initializing CTrie
-2020-06-11 09:55:08,531 - Initializing subscriptions store...
-2020-06-11 09:55:08,577 - Netty is using NIO
-2020-06-11 09:55:09,554 - Server bound to host=0.0.0.0, port=1883, protocol=TCP MQTT
-2020-06-11 09:55:09,560 - Property websocket_port has been setted to disabled. Websocket MQTT will be disabled
-2020-06-11 09:55:09,560 - Moquette integration has been started successfully in 1039 ms
-2020-06-11 09:55:38,611 - C->B CONNECT <null>
-2020-06-11 09:55:38,611 - clientId mqttx_f76fe8fe username 123 password 456
-2020-06-11 09:55:45,614 - C->B SUBSCRIBE <mqttx_f76fe8fe> to topics [MqttTopicSubscription[topicFilter=testtopic/#, qualityOfService=AT_MOST_ONCE]]
-2020-06-11 09:55:45,614 - canRead topic testtopic/# username 123 clientId mqttx_f76fe8fe
-2020-06-11 09:55:45,621 - C<-B SUBACK <mqttx_f76fe8fe> packetID <25079>, grantedQoses [0]
-2020-06-11 09:55:48,579 - canWrite topic /aaa username 123 clientId mqttx_f76fe8fe
+2020-06-12 14:37:10,178 - Loading configuration. ResourceLoader = classpath resource, configName = null.
+2020-06-12 14:37:10,180 - Loading resource. RelativePath = config/moquette.conf.
+2020-06-12 14:37:10,180 - Parsing configuration properties. ResourceLoader = classpath resource, configName = null.
+2020-06-12 14:37:10,185 - Configuring message interceptors...
+2020-06-12 14:37:10,186 - Initializing broker interceptor. InterceptorIds=[EmbeddedLauncherPublishListener]
+2020-06-12 14:37:10,188 - Adding MQTT message interceptor. InterceptorId=EmbeddedLauncherPublishListener, handledMessageTypes=[class io.moquette.interception.messages.InterceptConnectMessage, class io.moquette.interception.messages.InterceptDisconnectMessage, class io.moquette.interception.messages.InterceptConnectionLostMessage, class io.moquette.interception.messages.InterceptPublishMessage, class io.moquette.interception.messages.InterceptSubscribeMessage, class io.moquette.interception.messages.InterceptUnsubscribeMessage, class io.moquette.interception.messages.InterceptAcknowledgedMessage]
+2020-06-12 14:37:10,190 - Initializing CTrie
+2020-06-12 14:37:10,192 - Initializing subscriptions store...
+2020-06-12 14:37:10,253 - Netty is using NIO
+2020-06-12 14:37:11,368 - Server bound to host=0.0.0.0, port=1883, protocol=TCP MQTT
+2020-06-12 14:37:11,370 - Server bound to host=0.0.0.0, port=8080, protocol=Websocket MQTT
+2020-06-12 14:37:27,369 - Loading configuration. ResourceLoader = classpath resource, configName = null.
+2020-06-12 14:37:27,370 - Loading resource. RelativePath = config/moquette.conf.
+2020-06-12 14:37:27,370 - Parsing configuration properties. ResourceLoader = classpath resource, configName = null.
+2020-06-12 14:37:27,374 - Configuring message interceptors...
+2020-06-12 14:37:27,375 - Initializing broker interceptor. InterceptorIds=[EmbeddedLauncherPublishListener]
+2020-06-12 14:37:27,381 - Adding MQTT message interceptor. InterceptorId=EmbeddedLauncherPublishListener, handledMessageTypes=[class io.moquette.interception.messages.InterceptConnectMessage, class io.moquette.interception.messages.InterceptDisconnectMessage, class io.moquette.interception.messages.InterceptConnectionLostMessage, class io.moquette.interception.messages.InterceptPublishMessage, class io.moquette.interception.messages.InterceptSubscribeMessage, class io.moquette.interception.messages.InterceptUnsubscribeMessage, class io.moquette.interception.messages.InterceptAcknowledgedMessage]
+2020-06-12 14:37:27,382 - Initializing CTrie
+2020-06-12 14:37:27,385 - Initializing subscriptions store...
+2020-06-12 14:37:27,432 - Netty is using NIO
+2020-06-12 14:37:28,564 - Server bound to host=0.0.0.0, port=1883, protocol=TCP MQTT
+2020-06-12 14:37:28,570 - Server bound to host=0.0.0.0, port=18080, protocol=Websocket MQTT
+2020-06-12 14:37:28,570 - Moquette integration has been started successfully in 1198 ms
+2020-06-12 14:43:50,981 - C->B CONNECT <null>
+2020-06-12 14:43:50,991 - C->B SUBSCRIBE <mqttjs_e2cf6373> to topics [MqttTopicSubscription[topicFilter=presence, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 14:43:50,992 - canRead topic presence username null clientId mqttjs_e2cf6373
+2020-06-12 14:43:50,999 - C<-B SUBACK <mqttjs_e2cf6373> packetID <49575>, grantedQoses [0]
+2020-06-12 14:43:51,002 - canWrite topic presence username null clientId mqttjs_e2cf6373
+2020-06-12 14:43:51,946 - C->B DISCONNECT <mqttjs_e2cf6373>
+2020-06-12 14:43:51,947 - Channel closed <mqttjs_e2cf6373>
+2020-06-12 14:43:51,953 - Notifying connection lost event. CId: mqttjs_e2cf6373, channel: [id: 0x097d70d9, L:0.0.0.0/0.0.0.0:1883 ! R:/127.0.0.1:55388]
+2020-06-12 14:44:11,278 - C->B CONNECT <null>
+2020-06-12 14:44:11,283 - C->B SUBSCRIBE <mqttjs_1f90145e> to topics [MqttTopicSubscription[topicFilter=presence, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 14:44:11,283 - canRead topic presence username null clientId mqttjs_1f90145e
+2020-06-12 14:44:11,283 - C<-B SUBACK <mqttjs_1f90145e> packetID <52375>, grantedQoses [0]
+2020-06-12 14:44:11,286 - canWrite topic presence username null clientId mqttjs_1f90145e
+2020-06-12 14:44:12,280 - C->B DISCONNECT <mqttjs_1f90145e>
+2020-06-12 14:44:12,280 - Channel closed <mqttjs_1f90145e>
+2020-06-12 14:44:12,280 - Notifying connection lost event. CId: mqttjs_1f90145e, channel: [id: 0x8ee243ea, L:0.0.0.0/0.0.0.0:1883 ! R:/127.0.0.1:55400]
