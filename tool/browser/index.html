@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mqtt</title>
+    <script src="./js/mqtt.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+
+    var client = mqtt.connect('ws://127.0.0.1:18080/mqtt')
+
+    client.subscribe("test")
+
+    client.on("message", function (topic, payload) {
+        console.log(`收到消息 topic : ${payload.toString()}`);
+    })
+
+    client.publish("test","test mqtt")
+</script>
+</html>
