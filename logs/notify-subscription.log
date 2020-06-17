@@ -6770,3 +6770,62 @@ java.lang.ClassCastException: io.netty.handler.codec.http.HttpObjectAggregator$A
 2020-06-12 15:13:11,416 - canRead topic test username null clientId mqttjs_c0edf4b5
 2020-06-12 15:13:11,416 - C<-B SUBACK <mqttjs_c0edf4b5> packetID <3119>, grantedQoses [0]
 2020-06-12 15:13:11,420 - canWrite topic test username null clientId mqttjs_c0edf4b5
+2020-06-12 15:19:30,969 - Channel closed <mqttjs_c0edf4b5>
+2020-06-12 15:19:30,969 - Notifying connection lost event. CId: mqttjs_c0edf4b5, channel: [id: 0x65713a0f, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:57379]
+2020-06-12 15:19:31,077 - C->B CONNECT <null>
+2020-06-12 15:19:31,083 - C->B SUBSCRIBE <mqttjs_e69e18ca> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:19:31,083 - canRead topic test username null clientId mqttjs_e69e18ca
+2020-06-12 15:19:31,084 - C<-B SUBACK <mqttjs_e69e18ca> packetID <54708>, grantedQoses [0]
+2020-06-12 15:19:31,085 - canWrite topic test username null clientId mqttjs_e69e18ca
+2020-06-12 15:20:37,608 - Channel closed <mqttjs_e69e18ca>
+2020-06-12 15:20:37,609 - Notifying connection lost event. CId: mqttjs_e69e18ca, channel: [id: 0x7230be9d, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:58027]
+2020-06-12 15:20:37,722 - C->B CONNECT <null>
+2020-06-12 15:20:37,733 - C->B SUBSCRIBE <mqttjs_49859cb7> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:20:37,733 - canRead topic test username null clientId mqttjs_49859cb7
+2020-06-12 15:20:37,733 - C<-B SUBACK <mqttjs_49859cb7> packetID <55104>, grantedQoses [0]
+2020-06-12 15:20:37,734 - canWrite topic test username null clientId mqttjs_49859cb7
+2020-06-12 15:20:55,091 - Channel closed <mqttjs_49859cb7>
+2020-06-12 15:20:55,091 - Notifying connection lost event. CId: mqttjs_49859cb7, channel: [id: 0xc07fc355, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:58157]
+2020-06-12 15:20:55,220 - C->B CONNECT <null>
+2020-06-12 15:20:55,229 - C->B SUBSCRIBE <mqttjs_bb9c16e2> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:20:55,229 - canRead topic test username null clientId mqttjs_bb9c16e2
+2020-06-12 15:20:55,230 - C<-B SUBACK <mqttjs_bb9c16e2> packetID <48394>, grantedQoses [0]
+2020-06-12 15:20:55,232 - canWrite topic test username null clientId mqttjs_bb9c16e2
+2020-06-12 15:21:08,579 - canWrite topic test username null clientId mqttjs_bb9c16e2
+2020-06-12 15:21:53,744 - Channel closed <mqttjs_bb9c16e2>
+2020-06-12 15:21:53,745 - Notifying connection lost event. CId: mqttjs_bb9c16e2, channel: [id: 0xafdbc4a9, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:58182]
+2020-06-12 15:21:53,894 - C->B CONNECT <null>
+2020-06-12 15:21:53,901 - C->B SUBSCRIBE <mqttjs_c29ccc91> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:21:53,901 - canRead topic test username null clientId mqttjs_c29ccc91
+2020-06-12 15:21:53,901 - C<-B SUBACK <mqttjs_c29ccc91> packetID <35337>, grantedQoses [0]
+2020-06-12 15:21:53,903 - canWrite topic test username null clientId mqttjs_c29ccc91
+2020-06-12 15:22:13,742 - Channel closed <mqttjs_c29ccc91>
+2020-06-12 15:22:13,742 - Notifying connection lost event. CId: mqttjs_c29ccc91, channel: [id: 0x50b093e3, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:58249]
+2020-06-12 15:22:13,841 - C->B CONNECT <null>
+2020-06-12 15:22:13,849 - C->B SUBSCRIBE <mqttjs_f3b4f852> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:22:13,849 - canRead topic test username null clientId mqttjs_f3b4f852
+2020-06-12 15:22:13,849 - C<-B SUBACK <mqttjs_f3b4f852> packetID <48582>, grantedQoses [0]
+2020-06-12 15:22:13,850 - canWrite topic test username null clientId mqttjs_f3b4f852
+2020-06-12 15:22:33,741 - C->B CONNECT <null>
+2020-06-12 15:22:33,750 - C->B SUBSCRIBE <mqttjs_b8974965> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:22:33,751 - canRead topic test username null clientId mqttjs_b8974965
+2020-06-12 15:22:33,751 - C<-B SUBACK <mqttjs_b8974965> packetID <26637>, grantedQoses [0]
+2020-06-12 15:22:33,752 - canWrite topic test username null clientId mqttjs_b8974965
+2020-06-12 15:22:55,779 - canWrite topic test username null clientId mqttjs_b8974965
+2020-06-12 15:22:56,804 - canWrite topic test username null clientId mqttjs_b8974965
+2020-06-12 15:22:57,483 - canWrite topic test username null clientId mqttjs_b8974965
+2020-06-12 15:22:59,282 - canWrite topic test username null clientId mqttjs_b8974965
+2020-06-12 15:24:14,926 - Channel closed <mqttjs_f3b4f852>
+2020-06-12 15:24:14,926 - Notifying connection lost event. CId: mqttjs_f3b4f852, channel: [id: 0x73ef1a7b, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:58274]
+2020-06-12 15:24:15,039 - C->B CONNECT <null>
+2020-06-12 15:24:15,045 - C->B SUBSCRIBE <mqttjs_e06f352b> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:24:15,045 - canRead topic test username null clientId mqttjs_e06f352b
+2020-06-12 15:24:15,045 - C<-B SUBACK <mqttjs_e06f352b> packetID <58415>, grantedQoses [0]
+2020-06-12 15:24:15,046 - canWrite topic test username null clientId mqttjs_e06f352b
+2020-06-12 15:25:36,052 - Channel closed <mqttjs_e06f352b>
+2020-06-12 15:25:36,052 - Notifying connection lost event. CId: mqttjs_e06f352b, channel: [id: 0x3038b2a9, L:0.0.0.0/0.0.0.0:18080 ! R:/127.0.0.1:58461]
+2020-06-12 15:25:36,155 - C->B CONNECT <null>
+2020-06-12 15:25:36,166 - C->B SUBSCRIBE <mqttjs_bd166352> to topics [MqttTopicSubscription[topicFilter=test, qualityOfService=AT_MOST_ONCE]]
+2020-06-12 15:25:36,166 - canRead topic test username null clientId mqttjs_bd166352
+2020-06-12 15:25:36,166 - C<-B SUBACK <mqttjs_bd166352> packetID <37744>, grantedQoses [0]
+2020-06-12 15:25:36,168 - canWrite topic test username null clientId mqttjs_bd166352
