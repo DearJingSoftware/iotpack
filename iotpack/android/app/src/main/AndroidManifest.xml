@@ -2,15 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iotpack.shell">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+       
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+        <!-- 往SDCard写入数据的权限 -->
+       
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <!-- 在SDCard读取数据的权限 -->
+       
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@drawable/ic_senc"
         android:label="IotPack">
-        <meta-data android:name="com.mapbox.token" android:value="pk.eyJ1IjoiamluZ2RvciIsImEiOiJja2I3c2NqZnAwMGx2MnJsYmpva3F2dWVvIn0.5k2wk1iqG10JNFYD7dREvw" />
+        <meta-data
+            android:name="com.mapbox.token"
+            android:value="pk.eyJ1IjoiamluZ2RvciIsImEiOiJja2I3c2NqZnAwMGx2MnJsYmpva3F2dWVvIn0.5k2wk1iqG10JNFYD7dREvw" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

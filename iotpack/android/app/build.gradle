@@ -60,7 +60,7 @@ android {
 
     defaultConfig {
         applicationId "com.iotpack.shell"
-        minSdkVersion 16
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

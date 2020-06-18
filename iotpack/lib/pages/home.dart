@@ -104,6 +104,7 @@ class _HomeState extends State<homePage> with SingleTickerProviderStateMixin {
             child: Icon(Icons.add),
             backgroundColor: Colors.black,
             onPressed: () {
+              Navigator.of(context).pushNamed("deviceScan");
               fetchPing(context).then((value) {
                 showDialog(
                     context: context,

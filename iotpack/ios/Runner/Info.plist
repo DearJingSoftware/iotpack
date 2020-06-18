@@ -4,6 +4,10 @@
 <dict>
     <key>io.flutter.embedded_views_preview</key>
     <true/>
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs camera access to scan QR codes</string>
+    <key>io.flutter.embedded_views_preview</key>
+    <true/>
     <key>MGLMapboxAccessToken</key>
     <string>pk.eyJ1IjoiamluZ2RvciIsImEiOiJja2I3c2NqZnAwMGx2MnJsYmpva3F2dWVvIn0.5k2wk1iqG10JNFYD7dREvw</string>
     <key>NSCameraUsageDescription</key>
