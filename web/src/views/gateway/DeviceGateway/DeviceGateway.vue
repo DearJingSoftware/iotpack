@@ -2,14 +2,17 @@
   <page-header-wrapper>
     <a-card :bordered="false">
       <a-row>
-        <a-col :sm="8" :xs="24">
-          <info title="设备总数" value="900" :bordered="true"/>
+        <a-col :sm="6" :xs="24">
+          <info title="网关总数" value="8" :bordered="true"/>
         </a-col>
-        <a-col :sm="8" :xs="24">
-          <info title="在线设备" value="800" :bordered="true"/>
+        <a-col :sm="6" :xs="24">
+          <info title="上行流量" value="800G" :bordered="true"/>
         </a-col>
-        <a-col :sm="8" :xs="24">
-          <info title="异常设备" value="3"/>
+        <a-col :sm="6" :xs="24">
+          <info title="下行流量" value="200M" :bordered="true"/>
+        </a-col>
+        <a-col :sm="6" :xs="24">
+          <info title="异常网关" value="3"/>
         </a-col>
       </a-row>
     </a-card>
@@ -17,64 +20,49 @@
     <a-card
       style="margin-top: 24px"
       :bordered="false"
-      title="设备列表">
-
-      <div slot="extra">
-        <a-radio-group v-model="status">
-          <a-radio-button value="all">全部</a-radio-button>
-          <a-radio-button value="processing">正常</a-radio-button>
-          <a-radio-button value="waiting">离线</a-radio-button>
-        </a-radio-group>
-        <a-input-search style="margin-left: 16px; width: 272px;"/>
+      title="网关">
+      <div class="operate">
+        <a-button type="dashed" icon="plus" @click="add">创建设备网关</a-button>
       </div>
 
-      <div class="operate">
-        <a-button type="dashed" icon="plus" @click="add">增加设备</a-button>
+      <div slot="extra">
+        <a-radio-group v-model="type">
+          <a-radio-button value="all">全部</a-radio-button>
+          <a-radio-button value="processing">烟感</a-radio-button>
+          <a-radio-button value="waiting">燃气</a-radio-button>
+          <a-radio-button value="waiting">手报</a-radio-button>
+          <a-radio-button value="waiting">门磁</a-radio-button>
+        </a-radio-group>
+        <a-input-search style="margin-left: 16px; width: 272px;"/>
       </div>
 
       <a-list size="large" :pagination="{showSizeChanger: true, showQuickJumper: true, pageSize: 5, total: 50}">
         <a-list-item :key="index" v-for="(item, index) in data">
           <a-list-item-meta :description="item.description">
             <a-avatar slot="avatar" size="large" shape="square" :src="item.avatar"/>
-            <a slot="title">{{ item.title }}</a>
-            <a slot="title">{{ item.sn }}</a>
-          </a-list-item-meta>
-          <a-list-item-meta description="设备交互操作">
-            <a slot="title">编辑</a>
-            <a slot="title">打开</a>
-            <a slot="title">关闭</a>
+            <a slot="title"> 网关名称: {{ item.title }}</a>
+            <a slot="title"> 网关协议: {{ item.sn }}</a>
           </a-list-item-meta>
           <div slot="actions">
-            <a @click="edit(item)">数据</a>
+            <a @click="edit(item)">上传流量 80</a>
+          </div>
+          <div slot="actions">
+            <a @click="edit(item)">下载流量 20</a>
+          </div>
+          <div slot="actions">
+            <a @click="edit(item)">数量 54</a>
           </div>
           <div slot="actions">
             <a-dropdown>
               <a-menu slot="overlay">
                 <a-menu-item><a>编辑</a></a-menu-item>
+                <a-menu-item><a>增加设备</a></a-menu-item>
                 <a-menu-item><a>删除</a></a-menu-item>
               </a-menu>
-              <a>设备操作
+              <a>操作
                 <a-icon type="down"/>
               </a>
             </a-dropdown>
-          </div>
-          <div class="list-content">
-            <div class="list-content-item">
-              <span>产品类型</span>
-              <p> <a slot="title">P_0001</a></p>
-            </div>
-            <div class="list-content-item">
-              <span>最后通讯时间</span>
-              <p>{{ item.startAt }}</p>
-            </div>
-            <div class="list-content-item">
-              <span>所属网关</span>
-              <p> <a slot="title">gateway1</a></p>
-            </div>
-            <div class="list-content-item">
-              <span>设备状态</span>
-              <p>{{ item.status }}</p>
-            </div>
           </div>
         </a-list-item>
       </a-list>
@@ -89,27 +77,47 @@
 
   const data = []
   data.push({
-    title: '烟感',
-    sn: '123456',
+    title: 'NB',
+    sn: 'mqtt',
     avatar: '/logo.png',
-    description: '设备位置: 河南省郑州市财富广场',
-    owner: 'X001',
+    description: '网关位置: 河南省郑州市财富',
+    owner: '800',
     startAt: '2018-07-26 22:44',
     status: '在线'
   })
 
   data.push({
-    title: '烟感',
-    sn: '123456',
+    title: 'WIFI',
+    sn: 'mqtt',
     avatar: '/logo.png',
-    description: '设备位置: 河南省郑州市财富广场',
-    owner: 'X002',
+    description: '网关位置: 河南省郑州市财富广场',
+    owner: '200',
+    startAt: '2018-07-26 22:44',
+    status: '离线'
+  })
+
+  data.push({
+    title: 'IBEACON',
+    sn: 'mqtt',
+    avatar: '/logo.png',
+    description: '网关位置: 河南省郑州市财富广场',
+    owner: '200',
+    startAt: '2018-07-26 22:44',
+    status: '离线'
+  })
+
+  data.push({
+    title: 'VideoGateway',
+    sn: 'mqtt',
+    avatar: '/logo.png',
+    description: '网关位置: 河南省郑州市财富广场',
+    owner: '200',
     startAt: '2018-07-26 22:44',
     status: '离线'
   })
 
   export default {
-    name: 'DeviceList',
+    name: 'ProductList',
     components: {
       TaskForm,
       Info

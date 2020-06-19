@@ -40,20 +40,26 @@ export const asyncRouterMap = [
           {
             path: '/device/product',
             name: 'Product',
-            component: () => import('@/views/form/basicForm'),
-            meta: { title: '产品', keepAlive: true, permission: [ 'form' ] }
+            component: () => import('@/views/product/ProductList/ProductList'),
+            meta: { title: '产品列表', keepAlive: true, permission: [ 'form' ] }
           },
+          // {
+          //   path: '/device/model',
+          //   name: 'Model',
+          //   component: () => import('@/views/form/stepForm/StepForm'),
+          //   meta: { title: '产品模型', keepAlive: true, permission: [ 'form' ] }
+          // },
           {
-            path: '/device/model',
-            name: 'Model',
-            component: () => import('@/views/form/stepForm/StepForm'),
-            meta: { title: '产品模型', keepAlive: true, permission: [ 'form' ] }
-          },
-          {
-            path: '/device/gateway',
+            path: '/device/serviceGateway',
             name: 'Gateway',
-            component: () => import('@/views/form/advancedForm/AdvancedForm'),
-            meta: { title: '网关', keepAlive: true, permission: [ 'form' ] }
+            component: () => import('@/views/gateway/ServiceGateway/GatewayList'),
+            meta: { title: '服务网关', keepAlive: true, permission: [ 'form' ] }
+          },
+          {
+            path: '/device/deviceGateway',
+            name: 'DeviceGateway',
+            component: () => import('@/views/gateway/DeviceGateway/DeviceGateway'),
+            meta: { title: '设备网关', keepAlive: true, permission: [ 'form' ] }
           }
         ]
       },

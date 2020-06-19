@@ -24,6 +24,7 @@ public class ApiLimitAspect {
     /**
      * api TODO 请求限额
      * api TODO 请求统计 超时发送 邮件提醒
+     *
      * @param pjp
      * @return
      * @throws Throwable
@@ -33,21 +34,21 @@ public class ApiLimitAspect {
         Long startTime = System.currentTimeMillis();
         Object o = pjp.proceed();
         Long endTime = System.currentTimeMillis();
-        if((endTime-startTime)>3000){
+        if ((endTime - startTime) > 3000) {
             log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
-            String msg="api 请求耗时预警提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
+            String msg = "api 请求耗时预警提醒 " + httpServletRequest.getRequestURL().toString() + " " + (endTime - startTime);
             systemService.sendMessage(msg);
         }
 
-        if((endTime-startTime)>5000){
+        if ((endTime - startTime) > 5000) {
             log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
-            String msg="api 请求耗时提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
+            String msg = "api 请求耗时提醒 " + httpServletRequest.getRequestURL().toString() + " " + (endTime - startTime);
             systemService.sendMessage(msg);
         }
 
-        if((endTime-startTime)>10000){
+        if ((endTime - startTime) > 10000) {
             log.info("api:{} time:{} controller:{}", httpServletRequest.getRequestURL().toString(), endTime - startTime, pjp.toString());
-            String msg="api 请求耗时超时提醒 "+httpServletRequest.getRequestURL().toString()+" "+(endTime - startTime);
+            String msg = "api 请求耗时超时提醒 " + httpServletRequest.getRequestURL().toString() + " " + (endTime - startTime);
             systemService.sendMessage(msg);
         }
         return o;
