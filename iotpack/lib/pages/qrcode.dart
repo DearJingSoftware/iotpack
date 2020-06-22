@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-const flashOn = '开启闪光灯';
-const flashOff = '关闭闪光灯';
+const flashOn = '开启灯光';
+const flashOff = '关闭灯光';
 const frontCamera = '前置';
 const backCamera = '后置';
 
@@ -95,31 +95,14 @@ class _QrcodeScanState extends State<QrcodeScan> {
                           child:
                               Text(cameraState, style: TextStyle(fontSize: 20)),
                         ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.all(8),
-                        child: RaisedButton(
-                          onPressed: () {
-                            controller?.pauseCamera();
-                          },
-                          child: Text('pause', style: TextStyle(fontSize: 20)),
-                        ),
                       ),
                       Container(
                         margin: EdgeInsets.all(8),
                         child: RaisedButton(
-                          onPressed: () {
-                            controller?.resumeCamera();
-                          },
-                          child: Text('resume', style: TextStyle(fontSize: 20)),
+                          onPressed: () {},
+                          child: Text("设置", style: TextStyle(fontSize: 20)),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ],
