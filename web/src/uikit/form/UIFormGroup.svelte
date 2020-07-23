@@ -25,10 +25,11 @@ export let title='';
 }
 </style>
 <div class="group">
-
+  {#if title!==""}
   <div class="label">
       {title}
   </div>
+  {/if}
   <div class="body">
     <slot>
     </slot>

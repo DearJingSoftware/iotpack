@@ -1,6 +1,6 @@
 
 <svelte:head>
-	<title>用户登录</title>
+	<title>忘记密码</title>
 </svelte:head>
 
 <script>

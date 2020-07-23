@@ -10,7 +10,7 @@ export const menu = writable([
   {
     segment:'project',
     name:"项目",
-    icon:'las la-tachometer-alt',
+    icon:'las la-briefcase',
   },
   {
     segment:'organization',

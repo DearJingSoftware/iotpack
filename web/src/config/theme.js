@@ -13,7 +13,6 @@ function themeStore() {
 	return {
     subscribe,
     leftNavTaggle:()=>update(n=>{
-      console.log(n);
       n.leftNavTaggle=!n.leftNavTaggle;
       return n;
     }),
