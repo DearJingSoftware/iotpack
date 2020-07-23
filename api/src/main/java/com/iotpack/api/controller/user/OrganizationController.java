@@ -22,7 +22,4 @@ public class OrganizationController extends BaseController {
 
     @Autowired
     AuthService authService;
-
-
-
 }
