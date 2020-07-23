@@ -1,6 +1,13 @@
 <script>
-	import Search from './top_nav/search.svelte';
 	export let segment;
+	import Search from './top_nav/search.svelte';
+	import { theme } from "../config/theme.js";
+
+	function handleTaggleLeftNav(event) {
+			console.log("切换显示模式")
+			theme.leftNavTaggle()
+	}
+
 </script>
 
 
@@ -9,7 +16,7 @@
 
 	<ul class="left">
 		<li>
-			<a href="javascriopt:;"><i class="las la-bars"></i></a>
+			<a href="javascript:void(0);"  on:click={handleTaggleLeftNav} ><i class="las la-bars"></i></a>
 		</li>
 		<li>
 			<a href="javascriopt:;"  class="pageTitle">
@@ -28,9 +35,9 @@
 	</ul>
 
 	<ul class="right">
-		<li>
+		<!-- <li>
 			<Search></Search>
-		</li>
+		</li> -->
 		<li><a href="/chat"><i class="las la-comments"></i></a></li>
 		<li><a href="/message/inbox"><i class="las la-bell"></i></a></li>
 		<li class="avatar">

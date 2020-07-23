@@ -2,6 +2,13 @@
 	import UITable from '../uikit/UITable.svelte';
 	import UIPage from '../uikit/UIPage.svelte';
 	import UIButton from '../uikit/UIButton.svelte';
+	import UIModal from '../uikit/UIModal.svelte';
+
+	var showCreateProject="hide";
+
+	function createProject(event) {
+			showCreateProject="show"
+	}
 </script>
 <svelte:head>
 	<title>项目管理</title>
@@ -21,7 +28,9 @@
 }
 </style>
 
-
+<UIModal bind:show={showCreateProject}>
+	创建的内容呀
+</UIModal>
 <UIPage>
 	<span slot="header-left">
 		<ul class="filter">
@@ -46,8 +55,8 @@
 				</UIButton>
 			</li>
 			<li>
-				<UIButton status="primary">
-					<i class="las la-plus-circle"></i>创建新项目
+				<UIButton status="primary" on:click={createProject}>
+					<i class="las la-plus-circle" ></i>创建新项目
 				</UIButton>
 			</li>
 		</ul>

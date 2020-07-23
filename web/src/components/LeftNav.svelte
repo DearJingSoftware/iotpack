@@ -89,7 +89,7 @@
 	<ul>
 	{#each menus as item}
 		<li class="nav-item" aria-current="{item.segment === segment ? 'page' : undefined}" >
-		<a href="{item.segment}">	{@html item.icon} {item.name}</a></li>
+		<a href="{item.segment}">	<i class="{item.icon}"> </i>{item.name}</a></li>
 	{/each}
 	
 	</ul>
