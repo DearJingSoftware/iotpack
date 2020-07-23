@@ -3,6 +3,13 @@
 	import UIPage from '../uikit/UIPage.svelte';
 	import UIButton from '../uikit/UIButton.svelte';
 	import UIModal from '../uikit/UIModal.svelte';
+	import UISilder from '../uikit/UISilder.svelte';
+	import UIForm from '../uikit/form/UIForm.svelte';
+	import UIFormGroup from '../uikit/form/UIFormGroup.svelte';
+	import UITextInput from '../uikit/form/UITextInput.svelte';
+
+	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
+
 
 	var showCreateProject="hide";
 
@@ -26,11 +33,27 @@
 	padding-right: 20px;
 	list-style: none;
 }
+
 </style>
 
-<UIModal bind:show={showCreateProject}>
-	创建的内容呀
-</UIModal>
+<UISilder bind:show={showCreateProject} title="新增项目">
+	<div style="height:300px">
+		<UIForm>
+			<UIFormGroup title="项目名称:" info="项目名称">
+					<UITextInput  placeholder="项目成员"></UITextInput>
+			</UIFormGroup>
+			<UIFormGroup title="项目成员:" info="项目成员" >
+					<UITextInput placeholder="项目成员" disabled></UITextInput>
+			</UIFormGroup>
+		</UIForm>
+	</div>
+	<span slot="footer">
+		<LayoutAlignBoth>
+				<UIButton>创建</UIButton>
+				<UIButton>取消</UIButton>
+		</LayoutAlignBoth>
+	</span>
+</UISilder>
 <UIPage>
 	<span slot="header-left">
 		<ul class="filter">
