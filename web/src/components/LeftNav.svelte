@@ -1,5 +1,10 @@
 <script>
 	export let segment;
+	import { menu } from "../config/menu.js";
+	var menus=[];
+	const unsubscribe = menu.subscribe(value => {
+			menus=value
+	});
 </script>
 
 <style>
@@ -79,21 +84,13 @@
 
 <nav>
 	<a  href="/" class="main_logo">
-		Evolution
+		IotPack
 	</a>
 	<ul>
-		<li class="nav-item" aria-current="{segment === undefined ? 'page' : undefined}" >
-		
-		<a href=".">	<i class="las la-tachometer-alt"></i>首页</a></li>
-		<li class="nav-item" aria-current="{segment === 'project' ? 'page' : undefined}"><a  href="project">
-		<i class="las la-tachometer-alt"></i>项目</a></li>
-		<li class="nav-item" aria-current="{segment === 'organizational' ? 'page' : undefined}"><a  href="organizational">
-		<i class="las la-user-friends"></i>组织</a></li>
-		<li class="nav-item" aria-current="{segment === 'application' ? 'page' : undefined}"><a  href="application">
-		<i class="lab la-uikit"></i>应用</a></li>
-		<li class="nav-item" aria-current="{segment === 'task' ? 'page' : undefined}"><a  href="task">
-		<i class="las la-tasks"></i>任务</a></li>
-		<li class="nav-item" aria-current="{segment === 'calendar' ? 'page' : undefined}"><a  href="calendar">
-		<i class="las la-calendar"></i>日历</a></li>
+	{#each menus as item}
+		<li class="nav-item" aria-current="{item.segment === segment ? 'page' : undefined}" >
+		<a href="{item.segment}">	{@html item.icon} {item.name}</a></li>
+	{/each}
+	
 	</ul>
 </nav>
