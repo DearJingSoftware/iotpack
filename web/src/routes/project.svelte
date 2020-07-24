@@ -2,6 +2,8 @@
 	import UITable from '../uikit/UITable.svelte';
 	import UIPage from '../uikit/UIPage.svelte';
 	import UIButton from '../uikit/UIButton.svelte';
+	import UIPlaceholder from '../uikit/UIPlaceholder.svelte';
+	import UIProgress from '../uikit/UIProgress.svelte';
 	import UIModal from '../uikit/UIModal.svelte';
 	import UISilder from '../uikit/UISilder.svelte';
 	import UIForm from '../uikit/form/UIForm.svelte';
@@ -56,22 +58,22 @@
 
 	var	field = [
 		{
-			id:1,name:"id",width:"20px",sort:true,
+			id:1,name:"id",width:"20px",sort:true,displayName:"编号"
 		},
 		{
-			id:2,name:"name",width:"200px",sort:true
+			id:2,name:"name",width:"100px",sort:true,displayName:"名称",component:UIPlaceholder
 		},
 		{
-			id:3,name:"role",width:"200px",sort:true
+			id:3,name:"member",width:"200px",sort:true,displayName:"项目成员"
 		},
 		{
-			id:4,name:"salary",width:"200px",sort:true
+			id:4,name:"progress",width:"80px",sort:true,displayName:"项目进度",component:UIProgress
 		},
 		{
-			id:5,name:"type",width:"200px",sort:true
+			id:5,name:"type",width:"200px",sort:true,displayName:"设备信息"
 		},
 		{
-			id:6,name:"action",width:"200px"
+			id:6,name:"action",width:"200px",displayName:"操作"
 		}
 	]
 </script>
@@ -101,7 +103,7 @@
 					<UIUpload  placeholder="项目成员"></UIUpload>
 			</UIFormGroup>
 			<UIFormGroup title="项目名称:" info="项目名称">
-					<UITextInput  placeholder="项目成员"></UITextInput>
+					<UITextInput  placeholder="项目名称"></UITextInput>
 			</UIFormGroup>
 			<UIFormGroup title="项目成员:" info="项目成员" >
 					<UITextInput placeholder="项目成员" disabled></UITextInput>

@@ -2,6 +2,68 @@
 	import UITable from '../uikit/UITable.svelte';
 	import UIPage from '../uikit/UIPage.svelte';
 	import UIButton from '../uikit/UIButton.svelte';
+	import UIPlaceholder from '../uikit/UIPlaceholder.svelte';
+	import UIProgress from '../uikit/UIProgress.svelte';
+	import UIModal from '../uikit/UIModal.svelte';
+	import UISilder from '../uikit/UISilder.svelte';
+	import UIForm from '../uikit/form/UIForm.svelte';
+	import UIFormGroup from '../uikit/form/UIFormGroup.svelte';
+	import UITextInput from '../uikit/form/UITextInput.svelte';
+	import UIUpload from '../uikit/form/UIUpload.svelte';
+	import UIButton1 from '../uikit/form/UIButton.svelte';
+	import UIPagination from "../uikit/UIPagination.svelte";
+	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
+
+
+	var showCreateProject="hide";
+	function createProject(event) {
+			showCreateProject="show"
+	}
+
+	var	list = [
+		{
+			id:1,name:"NBIOT",
+		},
+		{
+			id:2,name:"Ctwing"
+		},
+		{
+			id:3,name:"Onenet"
+		},
+		{
+			id:4,name:"OC网关"
+		},
+			{
+			id:5,name:"直连网关"
+		}
+		
+	]
+
+	// list=[];
+
+	var	field = [
+		{
+			id:1,name:"id",width:"20px",sort:true,displayName:"编号"
+		},
+		{
+			id:2,name:"name",width:"100px",sort:true,displayName:"网关名称",component:UIPlaceholder
+		},
+		{
+			id:3,name:"member",width:"200px",sort:true,displayName:"设备信息"
+		},
+		{
+			id:3,name:"quality",width:"200px",sort:true,displayName:"通讯质量"
+		},
+		{
+			id:4,name:"progress",width:"80px",sort:true,displayName:"资源概况"
+		},
+		{
+			id:5,name:"type",width:"200px",sort:true,displayName:"设备信息"
+		},
+		{
+			id:6,name:"action",width:"200px",displayName:"操作"
+		}
+	]
 </script>
 <svelte:head>
 	<title>网关管理</title>
@@ -19,9 +81,30 @@
 	padding-right: 20px;
 	list-style: none;
 }
+
 </style>
 
-
+<UISilder bind:show={showCreateProject} title="新增网关">
+	<div style="height:300px">
+		<UIForm>
+			<UIFormGroup title="项目Logo:" info="项目Logo">
+					<UIUpload  placeholder="项目成员"></UIUpload>
+			</UIFormGroup>
+			<UIFormGroup title="项目名称:" info="项目名称">
+					<UITextInput  placeholder="项目名称"></UITextInput>
+			</UIFormGroup>
+			<UIFormGroup title="项目成员:" info="项目成员" >
+					<UITextInput placeholder="项目成员" disabled></UITextInput>
+			</UIFormGroup>
+		</UIForm>
+	</div>
+	<span slot="footer">
+		<LayoutAlignBoth>
+				<UIButton1>创建</UIButton1>
+				<UIButton1>取消</UIButton1>
+		</LayoutAlignBoth>
+	</span>
+</UISilder>
 <UIPage>
 	<span slot="header-left">
 		<ul class="filter">
@@ -37,7 +120,7 @@
 		<ul class="filter">
 			<li>
 				<UIButton>
-					<i class="las la-list-ol"></i> 列表
+					<i class="las la-list-ol"></i>列表
 				</UIButton>
 			</li>
 			<li>
@@ -46,27 +129,23 @@
 				</UIButton>
 			</li>
 			<li>
-				<UIButton>
-					<i class="las la-cloud-upload-alt"></i> 导入
-				</UIButton>
-			</li>
-			<li>
-				<UIButton>
-					<i class="las la-cloud-download-alt"></i> 导出
-				</UIButton>
-			</li>
-			<li>
-				<UIButton status="primary">
-					<i class="las la-plus-circle"></i>新建网关
+				<UIButton status="primary" on:click={createProject}>
+					<i class="las la-plus-circle" ></i>新建网关
 				</UIButton>
 			</li>
 		</ul>
 	</span>
 
-	<UITable />
-
+	<UITable data={list} field={field} url="">
+			<span slot="row">
+			</span>
+			<span slot="footer">
+				<UIPagination></UIPagination>
+			</span>
+	</UITable>
 
 	<span slot="page-footer">
 		page header
 	</span>
+
 </UIPage>

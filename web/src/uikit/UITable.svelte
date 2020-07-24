@@ -46,6 +46,7 @@ a {
   display: flex;
   padding: 20px;
   border-bottom: 1px solid #E8ECEF;
+
 }
 
 .row:hover {
@@ -54,6 +55,9 @@ a {
 .col {
   flex-grow: 1;
   margin-left: 20px;
+  /* display:flex; 
+  justify-content:start;
+  justify-items: center; */
 }
 </style>
 <div>
@@ -64,13 +68,12 @@ a {
             <UiCheckBox></UiCheckBox>
         </div>
         {/if}
-        
       {#each field as f}
       <div class="header_item" style="width:{f.width}">
         {#if f.sort}
           <a href="javascript:void(0);" class="handler"><i class="las la-sort-amount-down-alt"></i></a>
         {/if}
-        <div class="title">{f.name}</div>
+        <div class="title">{f.displayName?f.displayName:f.name}</div>
       </div>
       {/each}
     </div>
@@ -90,7 +93,12 @@ a {
         </div>
         {#each field as f}
           <div class="col" style="width:{f.width};{f.align?"text-align:"+f.align:''}">
-            {d[f.name]?d[f.name]:""}
+
+              {#if f.component}
+                <svelte:component this={f.component}  {...d}/>
+              {:else}
+                {d[f.name]?d[f.name]:""}
+              {/if}
           </div>
         {/each}
       </div>
