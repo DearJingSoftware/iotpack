@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 let defaultTheme = {
   //左侧菜单打开
-  leftNavTaggle:true,
+  leftNavTaggle:false,
 }
 
 var customTheme=defaultTheme;

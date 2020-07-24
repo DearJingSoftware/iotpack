@@ -71,28 +71,28 @@ export var show_animate="animate__fadeInRight"
      padding: 5px 24px;
   }
 </style>
-<div class="modal {show}" on:click={handleClose}>
-  
-  <div class="content  animate__animated" on:click={handleContentClose}>
+{#if show=="show"}
+  <div class="modal {show}" on:click={handleClose}>
+    
+    <div class="content  animate__animated" on:click={handleContentClose}>
 
-  <div class="title">
-    <div class="text">
-      {title}
+    <div class="title">
+      <div class="text">
+        {title}
+      </div>
+      <div class="more">
+        <i class="las la-ellipsis-h"></i>
+      </div>
     </div>
-    <div class="more">
-      <i class="las la-ellipsis-h"></i>
+    <div class="body">
+      <slot>
+      </slot>
+    </div>
+    <div class="footer">
+      <slot name="footer">
+        底部菜单
+      </slot>
+    </div>
     </div>
   </div>
-  <div class="body">
-    <slot>
-    </slot>
-  </div>
-  <div class="footer">
-    <slot name="footer">
-      底部菜单
-    </slot>
-  </div>
-
-
-  </div>
-</div>
+{/if}

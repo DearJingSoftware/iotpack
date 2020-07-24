@@ -14,10 +14,10 @@
 
 
 	var showCreateProject="hide";
-
 	function createProject(event) {
 			showCreateProject="show"
 	}
+
 	var	list = [
 		{
 			id:1,name:"name1",
@@ -51,6 +51,8 @@
 		}
 		
 	]
+
+	// list=[];
 
 	var	field = [
 		{
@@ -144,7 +146,7 @@
 		</ul>
 	</span>
 
-	<UITable data={list} field={field}>
+	<UITable data={list} field={field} url="">
 			<span slot="row">
 			</span>
 			<span slot="footer">
@@ -152,8 +154,8 @@
 			</span>
 	</UITable>
 
-
 	<span slot="page-footer">
 		page header
 	</span>
+
 </UIPage>

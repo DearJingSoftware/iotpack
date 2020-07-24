@@ -3,7 +3,9 @@
 	import UiCheckBox from './form/UICheckBox.svelte';
   export var data=[];
   export var field =[];
+  export var query={};
   export var select=true;
+  export var url="";
 </script>
 
 <style>
@@ -34,7 +36,12 @@ a {
   width: 20px;
 }
 
-
+.remote_loading ,.no_data {
+  text-align: center;
+  height: 500px;
+  line-height: 500px;
+  margin: 20px;
+}
 .row {
   display: flex;
   padding: 20px;
@@ -50,13 +57,14 @@ a {
 }
 </style>
 <div>
-  {#if field.length>0 }
+  {#if field.length>0 && data.length>0 }
     <div class="header">
       {#if select && field.length>0 }
         <div class="header_item" style="width:30px;margin-right:20px;flex-grow:0">
             <UiCheckBox></UiCheckBox>
         </div>
         {/if}
+        
       {#each field as f}
       <div class="header_item" style="width:{f.width}">
         {#if f.sort}
@@ -67,6 +75,13 @@ a {
       {/each}
     </div>
   {/if}
+  {#if data.length==0 }
+     {#if url!="" }
+        <div class="remote_loading"><i class="las la-spinner"></i>数据加载中...</div>
+     {:else}
+        <div class="no_data"><i class="las la-exclamation"></i>暂无数据</div>
+     {/if}
+  {:else}
   <div class="body">
     {#each data as d}
     <div class="row">
@@ -81,7 +96,10 @@ a {
       </div>
     {/each}
   </div>
+  {/if}
+  {#if field.length>0 && data.length>0 }
   <div class="footer">
     <slot name="footer"></slot>
   </div>
+  {/if}
 </div>
