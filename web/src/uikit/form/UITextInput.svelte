@@ -13,8 +13,24 @@ export let placeholder='';
   height: 22px;
   font-size: 14px;
 }
+
+.body {
+  border: 1px solid #E8ECEF;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.body:hover {
+ border: 1px solid #4D7CFE;
+}
 </style>
 
 
-
-<input type="text" class="form-input" placeholder="{placeholder}"/>
+<div class="body">
+  <input type="text" class="form-input" placeholder="{placeholder}"/>
+</div>

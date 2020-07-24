@@ -1,12 +1,19 @@
 <script>
 import { createEventDispatcher } from 'svelte';
 export var show='hide';
+export var show_animate="animate__fadeInRight"
   export var title='';
   const dispatch = createEventDispatcher();
   
   function handleClose() {
     console.log("关闭")
     show='hide'
+    // show_animate="animate__fadeOutRight"
+
+    // setTimeout(() => {
+    //    show='hide'
+    //    show_animate='animate__fadeInRight'
+    // }, 500);
 		dispatch('close', {});
   }
   
@@ -16,8 +23,6 @@ export var show='hide';
 
 </script>
 <style>
-
-
   .modal {
     position: fixed;
     left: 0;
@@ -42,6 +47,7 @@ export var show='hide';
     display: flex;
     flex-direction: column;
     background-color: white;
+    box-shadow: 0px 2px 16px rgba(153,155,168,0.12);
   }
 
   .more i {
@@ -59,13 +65,15 @@ export var show='hide';
   .body {
     flex-grow: 1;
     padding: 24px;
-    background-color: #F8FAFB;
+    background-color: white;
   }
-
+  .footer{
+     padding: 5px 24px;
+  }
 </style>
 <div class="modal {show}" on:click={handleClose}>
   
-  <div class="content" on:click={handleContentClose}>
+  <div class="content  animate__animated" on:click={handleContentClose}>
 
   <div class="title">
     <div class="text">
@@ -79,9 +87,11 @@ export var show='hide';
     <slot>
     </slot>
   </div>
-  <slot name="footer">
-    底部菜单
-  </slot>
+  <div class="footer">
+    <slot name="footer">
+      底部菜单
+    </slot>
+  </div>
 
 
   </div>

@@ -1,4 +1,3 @@
-
 <script>
 export let status='default';
 
@@ -23,7 +22,6 @@ import { createEventDispatcher } from 'svelte';
   }
 </style>
 <div class="{'button'+" "+status}" on:click={handleClick}>
-<slot>
-
-</slot>
+  <slot>
+  </slot>
 </div>

@@ -7,6 +7,9 @@
 	import UIForm from '../uikit/form/UIForm.svelte';
 	import UIFormGroup from '../uikit/form/UIFormGroup.svelte';
 	import UITextInput from '../uikit/form/UITextInput.svelte';
+	import UIUpload from '../uikit/form/UIUpload.svelte';
+
+	import UIButton1 from '../uikit/form/UIButton.svelte';
 
 	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
 
@@ -39,6 +42,9 @@
 <UISilder bind:show={showCreateProject} title="新增项目">
 	<div style="height:300px">
 		<UIForm>
+			<UIFormGroup title="项目Logo:" info="项目Logo">
+					<UIUpload  placeholder="项目成员"></UIUpload>
+			</UIFormGroup>
 			<UIFormGroup title="项目名称:" info="项目名称">
 					<UITextInput  placeholder="项目成员"></UITextInput>
 			</UIFormGroup>
@@ -49,8 +55,8 @@
 	</div>
 	<span slot="footer">
 		<LayoutAlignBoth>
-				<UIButton>创建</UIButton>
-				<UIButton>取消</UIButton>
+				<UIButton1>创建</UIButton1>
+				<UIButton1>取消</UIButton1>
 		</LayoutAlignBoth>
 	</span>
 </UISilder>
