@@ -50,9 +50,9 @@ a {
 }
 </style>
 <div>
-  {#if field.size>0 }
+  {#if field.length>0 }
     <div class="header">
-      {#if select && field.size>0 }
+      {#if select && field.length>0 }
         <div class="header_item" style="width:30px;margin-right:20px;flex-grow:0">
             <UiCheckBox></UiCheckBox>
         </div>

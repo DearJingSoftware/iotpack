@@ -2,7 +2,7 @@
 	export let segment;
 	import Search from './top_nav/search.svelte';
 	import { theme } from "../config/theme.js";
-
+	import Message from "./top_nav/message.svelte";
 	function handleTaggleLeftNav(event) {
 			console.log("切换显示模式")
 			theme.leftNavTaggle()
@@ -38,8 +38,8 @@
 		<!-- <li>
 			<Search></Search>
 		</li> -->
-		<li><a href="/chat"><i class="las la-comments"></i></a></li>
-		<li><a href="/message/inbox"><i class="las la-bell"></i></a></li>
+		<li><Message icon="la-comments" num=20 href="/chat" color="red"></Message></li>
+		<li><Message icon="la-bell" num=20 href="/message/inbox" color="green"></Message></li>
 		<li class="avatar">
 			<a href="#" alt="avatar">
 			<img width="36px" height="36px" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png" alt="avatar"/></a>
@@ -110,7 +110,7 @@
 		float: left;
 	}
 
-	a,.item {
+	a, .item {
 		text-decoration: none;
 		padding: 1em 0.5em;
 		display: block;
