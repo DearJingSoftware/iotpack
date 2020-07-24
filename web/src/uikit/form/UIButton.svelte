@@ -1,6 +1,5 @@
 
 <script>
-export let placeholder='';
 </script>
 
 <style>
@@ -18,6 +17,7 @@ export let placeholder='';
   height: 46px;
   border-radius: 4px;
   line-height:46px;
+  cursor: pointer;
   }
 </style>
 

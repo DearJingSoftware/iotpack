@@ -1,6 +1,6 @@
 
 <svelte:head>
-	<title>用户登录</title>
+	<title>用户注册</title>
 </svelte:head>
 
 <script>
@@ -23,14 +23,20 @@
 .option {
 	margin:10px 0px;
 }
-
+.logo {
+	display: flex;
+	flex-direction: column;
+  	justify-content: center;
+  	justify-items: center;
+ 	align-items: center;
+}
 </style>
 
 
 <div class="login_form">
 	<div class="logo">
 		<img class="application_logo" src="/logo.png" alt="logo" width="64px" height="64px"/>
-		<div class="application_name">IotPack</div>
+		<div class="application_name">IotPack 最简单的iot设备管理工具</div>
 	</div>
 	<UIForm>
 		<UIFormGroup title="账户:">
@@ -39,15 +45,20 @@
 		<UIFormGroup title="密码:">
 				<UITextPassword placeholder="密码" disabled></UITextPassword>
 		</UIFormGroup>
+		<UIFormGroup title="确认密码:">
+				<UITextPassword placeholder="确认密码" disabled></UITextPassword>
+		</UIFormGroup>
 	<div class="option">
 		<LayoutAlignBoth style="margin:0px 10px;">
-			<UiCheckBox>记住账户</UiCheckBox>
-			<UILink>找回密码</UILink>
+			<UiCheckBox href="agreement">我同意许可协议</UiCheckBox>
 		</LayoutAlignBoth>
 	</div>	
-		
-		<UIButton>登录</UIButton>
-		
+		<UIButton>注册</UIButton>
+		<div class="option">
+			<LayoutAlignBoth style="margin:0px 10px;">
+				<UILink href="/auth/login">已经有账户?去登录</UILink>
+			</LayoutAlignBoth>
+		</div>
 	</UIForm>
 </div>
 

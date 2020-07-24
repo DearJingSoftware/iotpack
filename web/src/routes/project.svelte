@@ -8,9 +8,8 @@
 	import UIFormGroup from '../uikit/form/UIFormGroup.svelte';
 	import UITextInput from '../uikit/form/UITextInput.svelte';
 	import UIUpload from '../uikit/form/UIUpload.svelte';
-
 	import UIButton1 from '../uikit/form/UIButton.svelte';
-
+	import UIPagination from "../uikit/UIPagination.svelte";
 	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
 
 
@@ -19,6 +18,60 @@
 	function createProject(event) {
 			showCreateProject="show"
 	}
+	var	list = [
+		{
+			id:1,name:"name1",
+		},
+		{
+			id:2,name:"name2"
+		},
+		{
+			id:3,name:"name3"
+		},
+			{
+			id:4,name:"name4"
+		},
+			{
+			id:5,name:"name5"
+		},
+			{
+			id:6,name:"name5"
+		},
+			{
+			id:7,name:"name5"
+		},
+			{
+			id:8,name:"name5"
+		},
+			{
+			id:9,name:"name5"
+		},
+			{
+			id:10,name:"name5"
+		}
+		
+	]
+
+	var	field = [
+		{
+			id:1,name:"id",width:"20px",sort:true,
+		},
+		{
+			id:2,name:"name",width:"200px",sort:true
+		},
+		{
+			id:3,name:"role",width:"200px",sort:true
+		},
+		{
+			id:4,name:"salary",width:"200px",sort:true
+		},
+		{
+			id:5,name:"type",width:"200px",sort:true
+		},
+		{
+			id:6,name:"action",width:"200px"
+		}
+	]
 </script>
 <svelte:head>
 	<title>项目管理</title>
@@ -75,7 +128,7 @@
 		<ul class="filter">
 			<li>
 				<UIButton>
-					<i class="las la-list-ol"></i> 列表
+					<i class="las la-list-ol"></i>列表
 				</UIButton>
 			</li>
 			<li>
@@ -91,7 +144,13 @@
 		</ul>
 	</span>
 
-	<UITable />
+	<UITable data={list} field={field}>
+			<span slot="row">
+			</span>
+			<span slot="footer">
+				<UIPagination></UIPagination>
+			</span>
+	</UITable>
 
 
 	<span slot="page-footer">
