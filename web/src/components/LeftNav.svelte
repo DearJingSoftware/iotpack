@@ -112,6 +112,10 @@
 		justify-items: center;
 		align-items: center;
 }
+	.fa {
+		font-size: 22px;
+		width: 22px;
+	}
 </style>
 
 <nav class="{themeConfig.leftNavTaggle?"menu_unfold":"menu_fold"}">
@@ -130,7 +134,7 @@
 	<ul>
 	{#each menus as item}
 		<li class="nav-item" aria-current="{item.segment === segment ? 'page' : undefined}" >
-		<a href="{item.segment}" alt="{item.name}">	<i class="{item.icon}"> </i>
+		<a href="{item.segment}" alt="{item.name}">	<i class="{item.segment === segment?item.active_icon:item.icon}"> </i>
 			{#if themeConfig.leftNavTaggle}	
 				{item.name}
 			{/if}

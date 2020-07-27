@@ -6,6 +6,7 @@
   export var query={};
   export var select=true;
   export var url="";
+  export var list_style=1;
 </script>
 
 <style>
@@ -61,7 +62,7 @@ a {
 }
 </style>
 <div>
-  {#if field.length>0 && data.length>0 }
+  {#if field.length>0 && data.length>0 && list_style==1 }
     <div class="header">
       {#if select && field.length>0 }
         <div class="header_item" style="width:30px;margin-right:20px;flex-grow:0">
@@ -86,23 +87,27 @@ a {
      {/if}
   {:else}
   <div class="body">
-    {#each data as d}
-    <div class="row">
-        <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
-            <UiCheckBox></UiCheckBox>
-        </div>
-        {#each field as f}
-          <div class="col" style="width:{f.width};{f.align?"text-align:"+f.align:''}">
-
-              {#if f.component}
-                <svelte:component this={f.component}  {...d}/>
-              {:else}
-                {d[f.name]?d[f.name]:""}
-              {/if}
+    {#if list_style==1 }
+      {#each data as d}
+      <div class="row">
+          <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
+              <UiCheckBox></UiCheckBox>
           </div>
-        {/each}
-      </div>
-    {/each}
+          {#each field as f}
+            <div class="col" style="width:{f.width};{f.align?"text-align:"+f.align:''}">
+
+                {#if f.component}
+                  <svelte:component this={f.component}  {...d}/>
+                {:else}
+                  {d[f.name]?d[f.name]:""}
+                {/if}
+            </div>
+          {/each}
+        </div>
+      {/each}
+    {:else}
+      <slot name="grid"></slot>
+    {/if}
   </div>
   {/if}
   {#if field.length>0 && data.length>0 }

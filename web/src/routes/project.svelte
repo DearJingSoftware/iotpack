@@ -110,6 +110,7 @@
 			</UIFormGroup>
 		</UIForm>
 	</div>
+	
 	<span slot="footer">
 		<LayoutAlignBoth>
 				<UIButton1>创建</UIButton1>
@@ -148,11 +149,14 @@
 		</ul>
 	</span>
 
-	<UITable data={list} field={field} url="">
+	<UITable data={list} field={field} url="" list_style=1>
 			<span slot="row">
 			</span>
 			<span slot="footer">
 				<UIPagination></UIPagination>
+			</span>
+			<span slot="grid">
+				网格显示
 			</span>
 	</UITable>
 
