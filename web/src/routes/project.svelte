@@ -12,6 +12,7 @@
 	import UIUpload from '../uikit/form/UIUpload.svelte';
 	import UIButton1 from '../uikit/form/UIButton.svelte';
 	import UIPagination from "../uikit/UIPagination.svelte";
+	import Avatar from "../uikit/Avatar.svelte";
 	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
 
 
@@ -37,21 +38,17 @@
 			id:5,name:"name5"
 		},
 			{
-			id:6,name:"name5"
+			id:6,name:"name6"
 		},
 			{
-			id:7,name:"name5"
+			id:7,name:"name7"
 		},
 			{
-			id:8,name:"name5"
+			id:8,name:"name8"
 		},
 			{
-			id:9,name:"name5"
+			id:9,name:"name9"
 		},
-			{
-			id:10,name:"name5"
-		}
-		
 	]
 
 	// list=[];
@@ -92,6 +89,13 @@
 	padding: 0px;
 	padding-right: 20px;
 	list-style: none;
+}
+
+.item-container {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	justify-content: center;
 }
 
 </style>
@@ -149,14 +153,15 @@
 		</ul>
 	</span>
 
-	<UITable data={list} field={field} url="" list_style=1>
+	<UITable data={list} field={field} url="" list_style=2>
 			<span slot="row">
 			</span>
 			<span slot="footer">
 				<UIPagination></UIPagination>
 			</span>
-			<span slot="grid">
-				网格显示
+			<span slot="grid-item" let:data={data} class="item-container">
+				<Avatar size="small" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
+				<div class="project_name">{data.name}</div>
 			</span>
 	</UITable>
 

@@ -60,6 +60,17 @@ a {
   justify-content:start;
   justify-items: center; */
 }
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.grid {
+  text-align: center;
+}
 </style>
 <div>
   {#if field.length>0 && data.length>0 && list_style==1 }
@@ -86,28 +97,34 @@ a {
         <div class="no_data"><i class="las la-exclamation"></i>暂无数据</div>
      {/if}
   {:else}
-  <div class="body">
-    {#if list_style==1 }
+  <div class="body {list_style==1?'list':'grid'}">
+    
       {#each data as d}
-      <div class="row">
-          <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
-              <UiCheckBox></UiCheckBox>
-          </div>
-          {#each field as f}
-            <div class="col" style="width:{f.width};{f.align?"text-align:"+f.align:''}">
-
-                {#if f.component}
-                  <svelte:component this={f.component}  {...d}/>
-                {:else}
-                  {d[f.name]?d[f.name]:""}
-                {/if}
+        {#if list_style==1 }
+          <div class="row">
+            <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
+                <UiCheckBox></UiCheckBox>
             </div>
-          {/each}
-        </div>
+            {#each field as f}
+              
+              <div class="col" style="width:{f.width};{f.align?"text-align:"+f.align:''}">
+
+                  {#if f.component}
+                    <svelte:component this={f.component}  {...d}/>
+                  {:else}
+                    {d[f.name]?d[f.name]:""}
+                  {/if}
+              </div>
+            
+            {/each}
+          </div>
+        {:else}
+            <div class="grid-wrap">
+              <slot name="grid-item" data={d} ></slot>
+            </div>
+        {/if}
       {/each}
-    {:else}
-      <slot name="grid"></slot>
-    {/if}
+  
   </div>
   {/if}
   {#if field.length>0 && data.length>0 }
