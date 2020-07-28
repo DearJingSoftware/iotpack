@@ -1,6 +1,10 @@
 
 <script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
 export let placeholder='';
+export let value='';
 </script>
 
 <style>
@@ -32,5 +36,5 @@ export let placeholder='';
 
 
 <div class="body">
-  <input type="text" class="form-input" placeholder="{placeholder}"/>
+  <input type="text" class="form-input" placeholder="{placeholder}" bind:value={value}/>
 </div>

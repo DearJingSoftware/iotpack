@@ -1,11 +1,10 @@
 <script>
-  export var name='';
 </script>
 
 <style>
  .progress {
-   height:6px;
-   border-radius: 1px;
+  height:4px;
+  border-radius: 1px;
   background: #f2f4f6;
   display: flex;
   justify-content:start;

@@ -1,6 +1,7 @@
 
 <script>
 export let placeholder='';
+export var value='';
 </script>
 
 <style>
@@ -31,5 +32,5 @@ export let placeholder='';
 </style>
 
 <div class="body">
-  <input type="password" class="form-input" placeholder="{placeholder}"/>
+  <input type="password" class="form-input" placeholder="{placeholder}" bind:value={value}/>
 </div>

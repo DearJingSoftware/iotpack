@@ -24,16 +24,17 @@
 	margin:10px 0px;
 }
 .logo {
+		margin-top: 20px;
 	display: flex;
 	flex-direction: column;
-  	justify-content: center;
-  	justify-items: center;
+  justify-content: center;
+  justify-items: center;
  	align-items: center;
 }
 </style>
 
 
-<div class="login_form">
+<form class="login_form">
 	<div class="logo">
 		<img class="application_logo" src="/logo.png" alt="logo" width="64px" height="64px"/>
 		<div class="application_name">IotPack 最简单的iot设备管理工具</div>
@@ -60,5 +61,5 @@
 			</LayoutAlignBoth>
 		</div>
 	</UIForm>
-</div>
+</form>
 

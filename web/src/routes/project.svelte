@@ -16,6 +16,9 @@
 	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
 
 
+		import ProjectMemberList from './project/component/ProjectMemberList.svelte';
+
+
 	var showCreateProject="hide";
 	function createProject(event) {
 			showCreateProject="show"
@@ -23,31 +26,31 @@
 
 	var	list = [
 		{
-			id:1,name:"name1",
+			id:1,name:"AirBnb",
 		},
 		{
-			id:2,name:"name2"
+			id:2,name:"Behance Presentation"
 		},
 		{
-			id:3,name:"name3"
+			id:3,name:"Evanato"
 		},
 			{
-			id:4,name:"name4"
+			id:4,name:"DropBox"
 		},
 			{
-			id:5,name:"name5"
+			id:5,name:"Google"
 		},
 			{
-			id:6,name:"name6"
+			id:6,name:"Baidu"
 		},
 			{
-			id:7,name:"name7"
+			id:7,name:"Youtube"
 		},
 			{
-			id:8,name:"name8"
+			id:8,name:"Riddit"
 		},
 			{
-			id:9,name:"name9"
+			id:9,name:"Twitter"
 		},
 	]
 
@@ -96,8 +99,36 @@
 	flex-direction: column;
 	justify-items: center;
 	justify-content: center;
+	align-items: center;
 }
 
+.project .name {
+	font-size:20px;
+	line-height:23px;
+	height:23px;
+	color: #252631;
+	padding: 35px 0px
+}
+.project:hover .name{
+	color: #4d7cfe;
+}
+.project {
+	cursor: pointer;
+	position: relative;
+
+}
+
+
+.project .progress {
+	left: 0px;
+  top: 12px;
+	position: absolute;
+}
+.project .action {
+	    right: 0px;
+    top: 0px;
+	position: absolute;
+}
 </style>
 
 <UISilder bind:show={showCreateProject} title="新增项目">
@@ -159,9 +190,16 @@
 			<span slot="footer">
 				<UIPagination></UIPagination>
 			</span>
-			<span slot="grid-item" let:data={data} class="item-container">
-				<Avatar size="small" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
-				<div class="project_name">{data.name}</div>
+			<span slot="grid-item" let:data={data} class="item-container project">
+				<div class="progress" style="width:54px">
+					<UIProgress></UIProgress>
+				</div>
+				<div class="action" ><i class="las la-ellipsis-h" ></i></div>
+				<Avatar size="80" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
+				<div class="name" style="">{data.name}</div>
+				<div class="completion_ratio" style="font-size:24px;color: #252631;">80/148</div>
+				<div class="completion_word" style=" line-height: 21px;font-size:14px;color: #252631;  color: #98a9bc;margin-bottom:30px">Task complete</div>
+				<div class="member_avatar"><ProjectMemberList /></div>
 			</span>
 	</UITable>
 

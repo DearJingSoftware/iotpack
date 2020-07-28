@@ -1,5 +1,5 @@
 <script>
-export let size='middle';
+export let size='48';
 export let src='';
 //circle
 export let style='circle';
@@ -38,6 +38,6 @@ export let style='circle';
   }
 
 </style>
-<div class="{size} {style}" >
+<div class="{style}" style="width:{size}px;height:{size}px" >
   <img {src} alt="avatar"/>
 </div>

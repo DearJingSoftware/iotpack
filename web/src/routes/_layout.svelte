@@ -3,7 +3,17 @@
 	import TopNav from '../components/TopNav.svelte';
 
 
+			import auth from "../config/auth.js"
+
 	export let segment;
+
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		// auth.setAuth()
+		// var authData=localStorage.setItem('auth',JSON(JSON.stringify()));
+		console.log("页面加载完成")
+	});
 </script>
 
 <style>

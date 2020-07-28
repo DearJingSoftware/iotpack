@@ -20,14 +20,19 @@
 	margin: 0 auto;
 	width: 20vw;
 }
-.option {
-	margin:10px 0px;
+.logo {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+  	justify-content: center;
+  	justify-items: center;
+ 	align-items: center;
 }
 
 </style>
 
 
-<div class="login_form">
+<form class="login_form">
 	<div class="logo">
 		<img class="application_logo" src="/logo.png" alt="logo" width="64px" height="64px"/>
 		<div class="application_name">IotPack</div>
@@ -36,18 +41,9 @@
 		<UIFormGroup title="账户:">
 				<UITextInput  placeholder="邮箱或者电话号码"></UITextInput>
 		</UIFormGroup>
-		<UIFormGroup title="密码:">
-				<UITextPassword placeholder="密码" disabled></UITextPassword>
-		</UIFormGroup>
-	<div class="option">
-		<LayoutAlignBoth style="margin:0px 10px;">
-			<UiCheckBox>记住账户</UiCheckBox>
-			<UILink>找回密码</UILink>
-		</LayoutAlignBoth>
-	</div>	
-		
-		<UIButton>登录</UIButton>
+	
+		<UIButton>确认</UIButton>
 		
 	</UIForm>
-</div>
+</form>
 

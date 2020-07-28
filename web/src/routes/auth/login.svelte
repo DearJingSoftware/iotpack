@@ -1,4 +1,3 @@
-
 <svelte:head>
 	<title>用户登录</title>
 </svelte:head>
@@ -13,6 +12,44 @@
 
 	import UiCheckBox from '../../uikit/form/UICheckBox.svelte';
 	import LayoutAlignBoth from '../../uikit/layout/LayoutAlignBoth.svelte';
+	import server from "../../config/server.js"
+	import auth from "../../config/auth.js"
+
+	import { goto } from '@sapper/app';
+	import { setContext } from 'svelte';
+
+	var form={
+		username:"admin",
+		password:"admin"
+	}
+
+	auth.subscribe(value=>{
+		console.log(value);
+	})
+
+
+	function handleSubmit() {
+	 fetch(server.endpoint+'/auth/login',{
+		 	method:"POST",
+		 	body: JSON.stringify(form), // data can be `string` or {object}!
+			headers: new Headers({
+				'Content-Type': 'application/json'
+			})
+	 })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(res) {
+    if(res.code==1){
+			alert(res.msg)
+		}else{
+			console.log(auth)
+			window.localStorage.setItem("auth",res.data);
+			auth.setAuth(res.data)
+			goto("/dashboard");
+		}
+  });
+	}
 </script>
 
 <style>
@@ -24,26 +61,31 @@
 	margin:10px 0px;
 }
 .logo {
+	margin-top: 150px;
+	margin-bottom: 50px;
 	display: flex;
 	flex-direction: column;
-  	justify-content: center;
-  	justify-items: center;
+  justify-content: center;
+  justify-items: center;
  	align-items: center;
+}
+.application_logo {
+	margin-bottom: 50px;
 }
 </style>
 
 
-<div class="login_form">
+<form class="login_form">
 	<div class="logo">
 		<img class="application_logo" src="/logo.png" alt="logo" width="64px" height="64px"/>
 		<div class="application_name">IotPack 最简单的iot设备管理工具</div>
 	</div>
 	<UIForm>
 		<UIFormGroup title="账户:">
-				<UITextInput  placeholder="邮箱或者电话号码"></UITextInput>
+				<UITextInput  placeholder="邮箱或者电话号码" bind:value={form.username}></UITextInput>
 		</UIFormGroup>
 		<UIFormGroup title="密码:">
-				<UITextPassword placeholder="密码" disabled></UITextPassword>
+				<UITextPassword placeholder="密码" bind:value={form.password}></UITextPassword>
 		</UIFormGroup>
 	<div class="option">
 		<LayoutAlignBoth style="margin:0px 10px;">
@@ -51,12 +93,12 @@
 			<UILink href="/auth/forget">找回密码</UILink>
 		</LayoutAlignBoth>
 	</div>	
-		<UIButton>登录</UIButton>
+		<UIButton on:click={handleSubmit}>登录</UIButton>
 		<div class="option">
 			<LayoutAlignBoth style="margin:0px 10px;">
 				<UILink href="/auth/signup">没有账户?注册一个</UILink>
 			</LayoutAlignBoth>
 		</div>
 	</UIForm>
-</div>
+</form>
 

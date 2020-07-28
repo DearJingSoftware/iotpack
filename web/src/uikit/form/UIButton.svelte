@@ -1,5 +1,7 @@
 
 <script>
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -22,7 +24,7 @@
 </style>
 
 
-<div class="form-button">
+<div class="form-button" on:click>
 <slot>
 </slot>
 </div>
