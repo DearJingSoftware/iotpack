@@ -4,6 +4,9 @@
 	import { theme } from "../config/theme.js";
 	import  auth  from "../config/auth.js";
 	import Message from "./top_nav/message.svelte";
+	import Menu from "./top_nav/menu.svelte";
+
+	import UIDropdown from '../uikit/UIDropdown.svelte';
 	function handleTaggleLeftNav(event) {
 			console.log("切换显示模式")
 			theme.leftNavTaggle()
@@ -50,10 +53,15 @@
 		<li><Message icon="la-comments" num=20 href="/chat" color="red"></Message></li>
 		<li><Message icon="la-bell" num=20 href="/message/inbox" color="green"></Message></li>
 		<li class="avatar">
-			<a href="#" class="cur_user_name">{userInfo.user.username}</a>
-			<a href="#" alt="avatar">
-				<img width="36px" height="36px" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png" alt="avatar"/>
-			</a>
+			<a href="user/profile" class="cur_user_name">{userInfo.user.username}</a>
+				<UIDropdown>
+					<a href="user/profile" alt="avatar">
+						<img width="36px" height="36px" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png" alt="avatar"/>
+					</a>
+					<span slot="menu">
+						<Menu></Menu>
+					</span>
+				</UIDropdown>
 		</li>
 	</ul>
 
