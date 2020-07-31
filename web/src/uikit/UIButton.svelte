@@ -1,6 +1,6 @@
 <script>
 export let status='default';
-
+export let active='';
 import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
@@ -20,8 +20,12 @@ import { createEventDispatcher } from 'svelte';
   .button.primary {
     color: #4D7CFE;
   }
+
+  .button.active {
+     color: #4D7CFE;
+  }
 </style>
-<div class="{'button'+" "+status}" on:click={handleClick}>
+<div class="{'button'+" "+status}" on:click={handleClick} class:active>
   <slot>
   </slot>
 </div>

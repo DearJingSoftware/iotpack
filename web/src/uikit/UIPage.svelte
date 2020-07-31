@@ -1,7 +1,15 @@
 <style>
+.page {
+  		padding: 24px;
+      background-color: #F8FAFB;
+}
 .header {
   background-color: #F8FAFB;
 }
+.body {
+  background-color: white;
+}
+
 .tool {
   padding: 0px 0px 20px 0px;
   display: flex

@@ -1,3 +1,17 @@
+
+<script>
+export let status='default';
+export let active='';
+import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+  
+  function handleClick() {
+		dispatch('click', {});
+	}
+</script>
+
+
 <style>
 .dropdown {
   position:relative;
@@ -10,6 +24,7 @@
 }
 .menu_warp {
   display: none;
+  z-index: 200;
   top:69px;
   position:absolute;
   width: 120px;

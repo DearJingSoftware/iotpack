@@ -25,7 +25,6 @@
 	}
 	main {
 		background-color: white;
-		margin: 24px;
 		/* padding: 20px; */
 		flex-grow: 1;
 		box-sizing: border-box;

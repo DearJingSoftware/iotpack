@@ -14,14 +14,20 @@
 	import UIPagination from "../uikit/UIPagination.svelte";
 	import Avatar from "../uikit/Avatar.svelte";
 	import LayoutAlignBoth from '../uikit/layout/LayoutAlignBoth.svelte';
+	import UIDropdown from '../uikit/UIDropdownV1.svelte';
 
 
-		import ProjectMemberList from './project/component/ProjectMemberList.svelte';
+	import ProjectMemberList from './project/component/ProjectMemberList.svelte';
+	import Menu from './project/component/Menu.svelte';
 
-
+	export var list_style=2;
 	var showCreateProject="hide";
 	function createProject(event) {
 			showCreateProject="show"
+	}
+
+	function handleStyle(style) {
+			list_style=style
 	}
 
 	var	list = [
@@ -30,27 +36,6 @@
 		},
 		{
 			id:2,name:"Behance Presentation"
-		},
-		{
-			id:3,name:"Evanato"
-		},
-			{
-			id:4,name:"DropBox"
-		},
-			{
-			id:5,name:"Google"
-		},
-			{
-			id:6,name:"Baidu"
-		},
-			{
-			id:7,name:"Youtube"
-		},
-			{
-			id:8,name:"Riddit"
-		},
-			{
-			id:9,name:"Twitter"
 		},
 	]
 
@@ -167,12 +152,12 @@
 	<span slot="header-right">
 		<ul class="filter">
 			<li>
-				<UIButton>
+				<UIButton on:click={e=>{list_style=1}} active={list_style==1}>
 					<i class="las la-list-ol"></i>列表
 				</UIButton>
 			</li>
 			<li>
-				<UIButton>
+				<UIButton on:click={e=>{list_style=2}} active={list_style==2}>
 					<i class="las la-list"></i> 网格
 				</UIButton>
 			</li>
@@ -184,7 +169,7 @@
 		</ul>
 	</span>
 
-	<UITable data={list} field={field} url="" list_style=2>
+	<UITable data={list} field={field} url="" bind:list_style={list_style}>
 			<span slot="row">
 			</span>
 			<span slot="footer">
@@ -194,7 +179,16 @@
 				<div class="progress" style="width:54px">
 					<UIProgress></UIProgress>
 				</div>
-				<div class="action" ><i class="las la-ellipsis-h" ></i></div>
+				<div class="action" >
+				
+						<UIDropdown>
+							<i class="las la-ellipsis-h" ></i>
+							<span slot="menu">
+								<Menu></Menu>
+							</span>
+						</UIDropdown>
+				
+				</div>
 				<Avatar size="80" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
 				<div class="name" style="">{data.name}</div>
 				<div class="completion_ratio" style="font-size:24px;color: #252631;">80/148</div>

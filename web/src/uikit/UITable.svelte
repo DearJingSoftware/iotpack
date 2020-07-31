@@ -21,7 +21,7 @@ a {
 }
 
 .footer {
-  
+   background-color: #F8FAFB;
 }
 .header_item {
   flex-grow: 1;
@@ -80,6 +80,7 @@ a {
   box-shadow: 0px 2px 16px rgba(153,155,168,0.12);
   border-radius: 4px;
 }
+
 </style>
 <div>
   {#if field.length>0 && data.length>0 && list_style==1 }
