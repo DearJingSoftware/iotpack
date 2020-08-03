@@ -1,11 +1,73 @@
 
 <script>
 	import UiCheckBox from './form/UICheckBox.svelte';
+  	import LeftTree from './table/LeftTree.svelte';
   export var data=[];
   export var field =[];
   export var query={};
   export var select=true;
   export var url="";
+  export var tree=false;
+  export var treeData=[
+    {
+      id:0,
+      name:"中国",
+      is_explode:true,
+      count:2000,
+      children:[
+          {
+            id:1,
+            name:"北京",
+            is_explode:false,
+            count:20,
+            children:[
+              {
+                id:3,
+                name:"海淀",
+                count:5,
+                children:[
+
+                ],
+              },
+               {
+                id:3,
+                name:"朝阳",
+                count:5,
+                children:[
+
+                ],
+              }
+            ],
+          },
+           {
+            id:2,
+            name:"上海",
+            children:[
+
+            ],
+          }
+      ]
+    },
+      {
+      id:0,
+      name:"美国",
+      is_explode:false,
+      children:[
+          {
+            id:1,
+            name:"纽约",
+            children:[
+            ],
+          },
+           {
+            id:2,
+            name:"西雅图",
+            children:[
+            ],
+          }
+      ]
+    }
+  ];
   export var list_style=1;
 </script>
 
@@ -80,9 +142,21 @@ a {
   box-shadow: 0px 2px 16px rgba(153,155,168,0.12);
   border-radius: 4px;
 }
+.warp {
+  display: flex;
+}
 
+.table-content {
+  flex-grow: 1;
+}
 </style>
-<div>
+<div class="warp">
+{#if tree }
+<LeftTree data={treeData}></LeftTree>
+{/if}
+<div class="table-content">
+
+ 
   {#if field.length>0 && data.length>0 && list_style==1 }
     <div class="header">
       {#if select && field.length>0 }
@@ -142,4 +216,7 @@ a {
     <slot name="footer"></slot>
   </div>
   {/if}
+</div>
+
+
 </div>
