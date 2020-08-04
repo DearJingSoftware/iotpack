@@ -7,6 +7,8 @@
 	import UIModal from '../uikit/UIModal.svelte';
 	import UISilder from '../uikit/UISilder.svelte';
 	import UIForm from '../uikit/form/UIForm.svelte';
+	import UISelect from '../uikit/form/UISelect.svelte';
+
 	import UIFormGroup from '../uikit/form/UIFormGroup.svelte';
 	import UITextInput from '../uikit/form/UITextInput.svelte';
 	import UIUpload from '../uikit/form/UIUpload.svelte';
@@ -39,6 +41,11 @@
 		
 	]
 
+		var query={
+		active:null,
+		status:null,
+		gateway:null,
+	}
 	// list=[];
 
 	var	field = [
@@ -106,13 +113,13 @@
 	</span>
 </UISilder>
 <UIPage>
-	<span slot="header-left">
+<span slot="header-left">
 		<ul class="filter">
 			<li>
-				<i class="las la-filter"></i> 排序: A-Z 	<i class="las la-angle-down"></i>
+				<UISelect icon="la-exclamation-circle" title="在线状态" multiple=false bind:value={query.status} defaultData="-1" data={[{id:1,name:"在线"},{id:2,name:"离线"}]}></UISelect>
 			</li>
 			<li>
-				<i class="las la-exclamation-circle"></i> 状态: 全部 	<i class="las la-angle-down"></i>
+				<UISelect icon="la-sync" title="网关类型" multiple=false bind:value={query.gateway} defaultData="-1" data={[{id:1,name:"MQTT"},{id:2,name:"COAP"}]}></UISelect>
 			</li>
 		</ul>
 	</span>

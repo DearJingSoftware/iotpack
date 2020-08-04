@@ -1,4 +1,6 @@
-	
+  <script>
+  export let data=[];
+  </script>
   <style>
     ul ,li {
       margin: 0px;
@@ -18,7 +20,7 @@
   </style>
   
   <ul>
-			<li><i class="icon las la-address-card"></i><a href="user/edit">编辑</a></li>
-      <li><i class="icon las la-address-card"></i><a href="user/exit">退出</a></li>
-			<li><i class="icon las la-sign-out-alt"></i><a href="auth/delete">删除</a></li>
+    {#each data as d}
+			<li><i class="icon {d.icon}"></i><a  href="javascript:void(0)">{d.name}</a></li>
+    {/each}
 	</ul>

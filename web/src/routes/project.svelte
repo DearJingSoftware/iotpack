@@ -184,10 +184,9 @@
 						<UIDropdown>
 							<i class="las la-ellipsis-h" ></i>
 							<span slot="menu">
-								<Menu></Menu>
+								<Menu data={[{id:1,name:"编辑",icon:"las la-edit"},{id:2,name:"删除",icon:"las la-trash"},{id:3,name:"退出",icon:"las la-sign-out-alt"}]}></Menu>
 							</span>
 						</UIDropdown>
-				
 				</div>
 				<Avatar size="80" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
 				<div class="name" style="">{data.name}</div>

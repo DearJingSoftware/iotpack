@@ -30,6 +30,11 @@
 			list_style=style
 	}
 
+	var query={
+		active:null,
+		status:null,
+		gateway:null,
+	}
 	var	list = [
 		{
 			id:1,name:"AirBnb",
@@ -133,16 +138,13 @@
 	<span slot="header-left">
 		<ul class="filter">
 			<li>
-				<i class="las la-filter"></i> 排序: A-Z 	<i class="las la-angle-down"></i>
-			</li>
-			<li>
-				<i class="las la-exclamation-circle"></i> 状态: 全部 	<i class="las la-angle-down"></i>
+				组织
 			</li>
 		</ul>
 	</span>
 	<span slot="header-right">
 		<ul class="filter">
-
+			
 			<li>
 				<UIButton status="primary" on:click={createProject}>
 					<i class="las la-plus-circle" ></i>创建组织

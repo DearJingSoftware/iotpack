@@ -47,9 +47,9 @@
 	</ul>
 
 	<ul class="right">
-		<!-- <li>
+		<li>
 			<Search></Search>
-		</li> -->
+		</li>
 		<li><Message icon="la-comments" num=20 href="/chat" color="red"></Message></li>
 		<li><Message icon="la-bell" num=20 href="/message/inbox" color="green"></Message></li>
 		<li class="avatar">

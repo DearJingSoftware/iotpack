@@ -28,7 +28,6 @@
       <div class="tool">
         <div class="left">
           <slot name="header-left">
-          left
           </slot>
         </div>
         <div class="right">
@@ -36,8 +35,7 @@
             right
           </slot>
         </div>
-      </div>
-     
+      </div>     
   </div>
 
   <div class="body">
