@@ -30,13 +30,40 @@
 			list_style=style
 	}
 
+		var menu=[
+					{id:1,name:"编辑",icon:"las la-pen"},
+					{id:2,name:"发布",icon:"las la-code-branch"},
+					{id:3,name:"删除",icon:"las la-trash"},
+					{id:4,name:"移除",icon:"las la-sign-out-alt"},
+					{id:5,name:"导出",icon:"las la-file-export"},
+					{id:2,name:"克隆",icon:"las la-clone"},
+					];
+
 	var	list = [
 		{
-			id:1,name:"AirBnb",
+			id:1,name:"Arduino",deviceCount:100,gatewayCount:20,is_publish:false,avatar:"/img/arduino.png",detail:"项目信息项目信息项目信息项目信息项目信"
 		},
 		{
-			id:2,name:"Behance Presentation"
+			id:2,name:"Orangepi",deviceCount:100,gatewayCount:20,is_publish:false,avatar:"/img/orangepi.png",detail:"项目信息项目信息"
 		},
+		{
+			id:3,name:"Raspberrypi",deviceCount:200,gatewayCount:200,is_publish:true,avatar:"/img/raspberrypi.png",detail:"项目信息项目信息"
+		},
+			{
+			id:4,name:"Arduino",deviceCount:100,gatewayCount:20,is_publish:false,avatar:"/img/arduino.png",detail:"项目信息项目信息"
+		},
+		{
+			id:5,name:"Orangepi",deviceCount:100,gatewayCount:20,is_publish:false,avatar:"/img/orangepi.png",detail:"项目信息项目信息"
+		},
+		{
+			id:6,name:"Raspberrypi",deviceCount:200,gatewayCount:200,is_publish:true,avatar:"/img/raspberrypi.png",detail:"项目信息项目信息"
+		},
+			{
+			id:7,name:"Arduino",deviceCount:100,gatewayCount:20,is_publish:false,avatar:"/img/arduino.png",detail:"项目信息项目信息"
+		},
+		{
+			id:8,name:"Orangepi",deviceCount:100,gatewayCount:20,is_publish:false,avatar:"/img/orangepi.png",detail:"项目信息项目信息"
+		}
 	]
 
 	// list=[];
@@ -141,26 +168,11 @@
 <UIPage>
 	<span slot="header-left">
 		<ul class="filter">
-			<li>
-				<i class="las la-filter"></i> 排序: A-Z 	<i class="las la-angle-down"></i>
-			</li>
-			<li>
-				<i class="las la-exclamation-circle"></i> 状态: 全部 	<i class="las la-angle-down"></i>
-			</li>
+		
 		</ul>
 	</span>
 	<span slot="header-right">
 		<ul class="filter">
-			<li>
-				<UIButton on:click={e=>{list_style=1}} active={list_style==1}>
-					<i class="las la-list-ol"></i>列表
-				</UIButton>
-			</li>
-			<li>
-				<UIButton on:click={e=>{list_style=2}} active={list_style==2}>
-					<i class="las la-list"></i> 网格
-				</UIButton>
-			</li>
 			<li>
 				<UIButton status="primary" on:click={createProject}>
 					<i class="las la-plus-circle" ></i>创建新项目
@@ -176,22 +188,21 @@
 				<UIPagination></UIPagination>
 			</span>
 			<span slot="grid-item" let:data={data} class="item-container project">
-				<div class="progress" style="width:54px">
+				<!-- <div class="progress" style="width:54px">
 					<UIProgress></UIProgress>
-				</div>
+				</div> -->
 				<div class="action" >
-				
 						<UIDropdown>
 							<i class="las la-ellipsis-h" ></i>
 							<span slot="menu">
-								<Menu data={[{id:1,name:"编辑",icon:"las la-edit"},{id:2,name:"删除",icon:"las la-trash"},{id:3,name:"退出",icon:"las la-sign-out-alt"}]}></Menu>
+								<Menu data={menu}></Menu>
 							</span>
 						</UIDropdown>
 				</div>
-				<Avatar size="80" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
+				<Avatar size="80" src="{data.avatar}"></Avatar>
 				<div class="name" style="">{data.name}</div>
-				<div class="completion_ratio" style="font-size:24px;color: #252631;">80/148</div>
-				<div class="completion_word" style=" line-height: 21px;font-size:14px;color: #252631;  color: #98a9bc;margin-bottom:30px">Task complete</div>
+				<div class="completion_ratio" style="font-size:24px;color: #252631;">{data.deviceCount}/{data.gatewayCount}</div>
+				<div class="completion_word" style=" line-height: 21px;font-size:14px;color: #252631;  color: #98a9bc;margin-bottom:30px">{data.detail}</div>
 				<div class="member_avatar"><ProjectMemberList /></div>
 			</span>
 	</UITable>
