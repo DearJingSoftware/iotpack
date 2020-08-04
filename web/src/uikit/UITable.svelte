@@ -4,7 +4,13 @@
   	import LeftTree from './table/LeftTree.svelte';
   export var data=[];
   export var field =[];
-  export var query={};
+  export var query={
+    //排序字段
+    sort:"",
+    //排序顺序 desc asc
+    order:"desc",
+    checkAll:false
+  };
   export var select=true;
   export var url="";
   export var tree=false;
@@ -69,6 +75,24 @@
     }
   ];
   export var list_style=1;
+  //全部选择
+  function selectAll(e) {
+    data.forEach(d=>{
+      d.check=!query.checkAll;
+    })
+    query.checkAll=!query.checkAll;
+    data=data;
+  }
+  //全部
+  function handlerSort(e,d) {
+    if(d.name === query.sort){
+      query.order=(query.order=="desc")?"asc":"desc";
+    }else{
+      query.sort=d.name
+      query.order="desc"
+    }
+    query=query
+  }
 </script>
 
 <style>
@@ -78,8 +102,8 @@ a {
 
 .header {
   display: flex;
-  padding: 20px;
-  border-bottom: 1px solid #E8ECEF;
+  padding: 0px 20px;
+  border-bottom: 2px solid #E8ECEF;
 }
 
 .footer {
@@ -87,8 +111,11 @@ a {
 }
 .header_item {
   flex-grow: 1;
+  padding: 20px 0px;
+  padding-left: 5px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .header .title {
@@ -97,6 +124,15 @@ a {
 
 .header .handler {
   width: 20px;
+  cursor: pointer;
+}
+
+.header .header_item:first-child :hover {
+   background-color: white
+}
+
+.header .handler.active {
+  color: #4D7CFE;
 }
 
 .remote_loading ,.no_data {
@@ -161,13 +197,13 @@ a {
     <div class="header">
       {#if select && field.length>0 }
         <div class="header_item" style="width:30px;margin-right:20px;flex-grow:0">
-            <UiCheckBox></UiCheckBox>
+            <UiCheckBox on:change={selectAll}></UiCheckBox>
         </div>
         {/if}
       {#each field as f}
-      <div class="header_item" style="width:{f.width}">
+      <div class="header_item" style="width:{f.width}" on:click={(e)=>{handlerSort(e,f)}}>
         {#if f.sort}
-          <a href="javascript:void(0);" class="handler"><i class="las la-sort-amount-down-alt"></i></a>
+          <a href="javascript:void(0);" class="handler {f.name==query.sort?'active':''}"><i class="las {(query.order=='asc'&&f.name==query.sort)?'la-sort-amount-up-alt':'la-sort-amount-down-alt'}"></i></a>
         {/if}
         <div class="title">{f.displayName?f.displayName:f.name}</div>
       </div>
@@ -187,7 +223,7 @@ a {
         {#if list_style==1 }
           <div class="row">
             <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
-                <UiCheckBox></UiCheckBox>
+                <UiCheckBox bind:value={d.check}></UiCheckBox>
             </div>
             {#each field as f}
               

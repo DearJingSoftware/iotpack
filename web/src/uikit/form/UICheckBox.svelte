@@ -1,6 +1,9 @@
 
 <script>
 export let href='';
+export let value=false
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -15,8 +18,7 @@ a {
 
 
 <div class="form-checkbox">
-  <input type="checkbox"/>
-
+  <input type="checkbox" checked={!!value} on:change/>
   <a href="{href}">
     <slot>
     </slot>

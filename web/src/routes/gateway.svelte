@@ -42,6 +42,8 @@
 	]
 
 		var query={
+		sort:"id",
+		order:"desc",
 		active:null,
 		status:null,
 		gateway:null,
@@ -53,19 +55,19 @@
 			id:1,name:"id",width:"20px",sort:true,displayName:"编号"
 		},
 		{
-			id:2,name:"name",width:"100px",sort:true,displayName:"网关名称",component:UIPlaceholder
+			id:2,name:"name",width:"100px",displayName:"网关名称",component:UIPlaceholder
 		},
 		{
-			id:3,name:"member",width:"200px",sort:true,displayName:"设备信息"
+			id:3,name:"member",width:"200px",displayName:"设备信息"
 		},
 		{
-			id:3,name:"quality",width:"200px",sort:true,displayName:"通讯质量"
+			id:3,name:"quality",width:"200px",displayName:"通讯质量"
 		},
 		{
-			id:4,name:"progress",width:"80px",sort:true,displayName:"资源概况"
+			id:4,name:"progress",width:"80px",displayName:"资源概况"
 		},
 		{
-			id:5,name:"type",width:"200px",sort:true,displayName:"设备信息"
+			id:5,name:"type",width:"200px",displayName:"设备信息"
 		},
 		{
 			id:6,name:"action",width:"200px",displayName:"操作"
@@ -143,7 +145,7 @@
 		</ul>
 	</span>
 
-	<UITable data={list} field={field} url="">
+	<UITable data={list} field={field} url="" query={query}>
 			<span slot="row">
 			</span>
 			<span slot="footer">
