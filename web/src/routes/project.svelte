@@ -144,7 +144,6 @@
 </style>
 
 <UISilder bind:show={showCreateProject} title="新增项目">
-	<div style="height:300px">
 		<UIForm>
 			<UIFormGroup title="项目Logo:" info="项目Logo">
 					<UIUpload  placeholder="项目成员"></UIUpload>
@@ -156,12 +155,11 @@
 					<UITextInput placeholder="项目成员" disabled></UITextInput>
 			</UIFormGroup>
 		</UIForm>
-	</div>
 	
 	<span slot="footer">
 		<LayoutAlignBoth>
-				<UIButton1>创建</UIButton1>
-				<UIButton1>取消</UIButton1>
+					<span slot="left"><UIButton1>创建</UIButton1></span>
+					<span slot="right"><UIButton1>取消</UIButton1></span>
 		</LayoutAlignBoth>
 	</span>
 </UISilder>

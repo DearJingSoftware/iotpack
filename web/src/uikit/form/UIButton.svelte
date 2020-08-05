@@ -6,12 +6,11 @@ const dispatch = createEventDispatcher();
 
 <style>
 .form-button {
-  width: 100%;
+  min-width: 80px;
   outline: none;
   border: none;
-  padding: 0;
-  margin: 0px;
-  height: 22px;
+  padding: 0px 10px;
+  margin: 5px 10px;
   font-size: 14px;
   text-align: center;
   background-color: #4D7CFE;

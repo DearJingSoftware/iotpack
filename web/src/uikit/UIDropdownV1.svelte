@@ -25,7 +25,7 @@ import { createEventDispatcher } from 'svelte';
 .menu_warp {
   display: none;
   z-index: 200;
-  top:16px;
+  top:24px;
   position:absolute;
   width: 80px;
   left: -64px;
@@ -35,13 +35,27 @@ import { createEventDispatcher } from 'svelte';
   border: 2px solid rgba(153,155,168,0.12);
   background-color: white;
 }
+.handler_icon{
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
 
+
+.dropdown:hover .handler_icon {
+  background-color: rgba(28,28,33,0.08)
+}
+.handler_icon:hover{
+  background-color: rgba(28,28,33,0.08)
+}
 </style>
 
 <div class="dropdown">
-  <slot>
+  <div class="handler_icon">
+    <slot >
   
-  </slot>
+    </slot>
+  </div>
   <div class="menu_warp">
     <slot name="menu">
     </slot>

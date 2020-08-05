@@ -7,5 +7,7 @@
 </style>
 
 <div class="layout_align_both">
+  <slot name="left"></slot>
   <slot></slot>
+  <slot name="right"></slot>
 </div>

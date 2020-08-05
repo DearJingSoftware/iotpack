@@ -10,6 +10,11 @@ import { createEventDispatcher } from 'svelte';
 	}
 </script>
 <style>
+
+/* //填充 
+//边框色
+//圆角 直角
+//状态色 */
   .button {
     cursor: pointer;
   }

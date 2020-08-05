@@ -14,6 +14,9 @@
     ul a ,li a {
       text-decoration: none;
     }
+    li:hover{
+        color: #4D7CFE;
+    }
     li .icon {
       margin-right: 10px;
     }

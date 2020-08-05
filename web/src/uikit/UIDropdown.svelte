@@ -41,9 +41,10 @@ import { createEventDispatcher } from 'svelte';
 </style>
 
 <div class="dropdown">
-  <slot>
-  
-  </slot>
+   
+   <slot>
+   </slot>
+
   <div class="menu_warp">
     <slot name="menu">
     </slot>
