@@ -1,9 +1,9 @@
 <script>
 	import LeftNav from '../components/LeftNav.svelte';
 	import TopNav from '../components/TopNav.svelte';
+	import FastNav from '../components/FastNav.svelte';
 
-
-			import auth from "../config/auth.js"
+	import auth from "../config/auth.js"
 
 	export let segment;
 
@@ -36,12 +36,11 @@
 {#if segment!="auth"}
 	<LeftNav {segment}/>
 {/if}
-
 <div class="main_body">
 {#if segment!="auth"}
 	<TopNav {segment}/>
 {/if}
-
+<!-- <FastNav {segment}/> -->
 
 <main>
 	<slot></slot>

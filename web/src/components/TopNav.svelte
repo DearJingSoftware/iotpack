@@ -22,10 +22,7 @@
 
 </script>
 
-
-
 <nav>
-
 	<ul class="left">
 		<li>
 			<a href="javascript:void(0);"  on:click={handleTaggleLeftNav} ><i class="las la-bars"></i></a>
@@ -64,10 +61,6 @@
 				</UIDropdown>
 		</li>
 	</ul>
-
-
-
-		
 </nav>
 
 

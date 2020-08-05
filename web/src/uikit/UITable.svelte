@@ -159,13 +159,13 @@ a {
   justify-items: center; */
 }
 
-
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 45px;
+  grid-gap: 20px;
   grid-auto-rows: minmax(100px, auto);
 }
+
 .grid {
   background-color: #F8FAFB;
   text-align: center;
@@ -174,7 +174,7 @@ a {
 .grid-wrap {
   background-color: #F8FAFB;
   background-color: white;
-  padding: 35px;
+  padding: 30px;
   box-shadow: 0px 2px 16px rgba(153,155,168,0.12);
   border-radius: 4px;
 }
