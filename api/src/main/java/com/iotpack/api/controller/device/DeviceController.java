@@ -21,5 +21,4 @@ public class DeviceController extends BaseController {
 
     @Autowired
     AuthService authService;
-
 }

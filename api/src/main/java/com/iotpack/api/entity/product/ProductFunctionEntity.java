@@ -8,12 +8,12 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 
 /**
- * 设备属性表
+ * 设备功能特性表
  */
 @Data
 @SQLDelete(sql = "update `product_function` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "product_property")
+@Table(name = "product_function")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
@@ -28,5 +28,4 @@ public class ProductFunctionEntity {
      * 属性的名称
      */
     String name;
-
 }

@@ -44,4 +44,9 @@ public class MenuEntity extends BaseGroupEntity {
      * icon 显示的 图标
      */
     String icon;
+
+    /**
+     * 访问路径
+     */
+    String path;
 }

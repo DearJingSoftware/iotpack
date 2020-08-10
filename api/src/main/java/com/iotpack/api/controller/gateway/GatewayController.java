@@ -1,4 +1,4 @@
-package com.iotpack.api.controller.device;
+package com.iotpack.api.controller.gateway;
 
 import com.iotpack.api.controller.BaseController;
 import com.iotpack.api.service.AuthService;

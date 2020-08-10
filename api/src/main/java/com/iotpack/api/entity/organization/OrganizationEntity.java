@@ -24,13 +24,42 @@ public class OrganizationEntity extends BaseUserEntity {
     Long id;
 
     /**
-     * 登录账户
+     *  组织名称
      */
     String name;
 
     /**
-     * 联系电话
+     *  组织电话
      */
     String phone;
+
+    /**
+     * 组织机构的fid;
+     */
+    Long pid;
+
+    /**
+     * organization path
+     */
+    String path;
+
+
+    /**
+     * 组织机构的位置
+     */
+    String location;
+
+    /**
+     * 经度
+     */
+    Double lon=113.62;
+    /**
+     * 纬度
+     */
+    Double lat=34.75;
+    /**
+     * 高度
+     */
+    Double ele=0.0;
 
 }

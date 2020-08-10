@@ -9,6 +9,7 @@ import com.iotpack.api.entity.user.repo.UserRepository;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.service.AuthService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -38,12 +39,12 @@ public class AuthServiceImpl implements AuthService {
         LoginDto loginDto=new LoginDto();
         String token;
 
-        token = httpServletRequest.getHeader("Authorization").split(" ")[1];
-//        if (httpServletRequest.getMethod().equals("GET")) {
-//            token = httpServletRequest.getParameter("token");
-//        } else {
-//            token = httpServletRequest.getHeader("Authorization").split(" ")[1];
-//        }
+//        token = httpServletRequest.getHeader("Authorization").split(" ")[1];
+        if (httpServletRequest.getMethod().equals("GET")) {
+            token = httpServletRequest.getParameter("token");
+        } else {
+            token = httpServletRequest.getHeader("Authorization").split(" ")[1];
+        }
 
         if (ObjectUtils.isEmpty(token)) {
             throw new BusinessException("token不能为空");
@@ -51,12 +52,8 @@ public class AuthServiceImpl implements AuthService {
 
         TokenEntity tokenEntity= tokenRepository.findByToken(token).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("token 错误"));
         UserEntity u = userRepository.findById(tokenEntity.getUserId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("用户不存在"));
+        BeanUtils.copyProperties(u,loginDto.getUser());
         loginDto.setToken(token);
-        loginDto.setId(tokenEntity.getId());
-        loginDto.setUser(u);
-
-//        GroupEntity g = groupRepository.findById(u.getGroupId()).orElseThrow((Supplier<RuntimeException>) () -> new BusinessException("账户到用户组"));
-//        u.setGroup(g);
         return loginDto;
     }
 

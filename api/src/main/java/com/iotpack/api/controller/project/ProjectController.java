@@ -1,4 +1,4 @@
-package com.iotpack.api.controller.user;
+package com.iotpack.api.controller.project;
 
 import com.iotpack.api.controller.BaseController;
 import com.iotpack.api.service.AuthService;
@@ -9,17 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/organization")
+@RequestMapping("/api/project")
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class OrganizationController extends BaseController {
+public class ProjectController extends BaseController {
 
     private final UserService userService;
 
-    public OrganizationController(UserService userService) {
+    public ProjectController(UserService userService) {
         this.userService = userService;
     }
 
 
     @Autowired
     AuthService authService;
+
+
+
 }

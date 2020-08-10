@@ -1,7 +1,6 @@
-package com.iotpack.api.entity.organization;
+package com.iotpack.api.entity.team;
 
 
-import com.iotpack.api.entity.base.BaseEntity;
 import com.iotpack.api.entity.base.BaseUserEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
@@ -10,32 +9,39 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
-/**
- * 组织 用户表
- */
+
 @Data
-@SQLDelete(sql = "update `organization_user` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
+@SQLDelete(sql = "update `team_user_invite` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
 @Entity
-@Table(name = "organization_user")
+@Table(name = "team_user_invite")
 @Where(clause = "deleted_at is null")
 @DynamicUpdate
 @Cacheable
-public class OrganizationUserEntity extends BaseEntity {
+public class TeamUserInviteEntity extends BaseUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    /**
-     * 项目id
-     */
-    Long organizationId;
+    Long teamId;
 
     /**
-     * 邀请人用户id
+     * 发起邀请人
      */
-    Long userId;
+    Long fromUserId;
+    /**
+     * 受邀请人
+     */
+    Long ToUserId;
 
+    /**
+     * true 已处理 false未处理
+     */
+    Boolean isProcess;
+    /**
+     * true 接受 false 拒绝
+     */
+    Boolean isAccept;
     /**
      * 邀请的时候发送的消息
      */

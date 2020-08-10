@@ -1,5 +1,6 @@
 package com.iotpack.api.entity.device;
 
+import com.iotpack.api.entity.converter.HashMapConverter;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
@@ -7,6 +8,7 @@ import org.hibernate.annotations.Where;
 import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
+import java.util.HashMap;
 
 /**
  * 设备表
@@ -30,14 +32,6 @@ public class DeviceEntity {
      */
     String location;
 
-    /**
-     * 联网IMEI;
-     */
-    String IMEI;
-    /**
-     * onenet 协议 LWM2M
-     */
-    String protocol="LWM2M";
     /**
      * 经度
      */
@@ -72,4 +66,17 @@ public class DeviceEntity {
      * 产品id
      */
     Long gatewayId;
+
+    /**
+     * 设备缩水组织
+     */
+    Long organizationId;
+
+    /**
+     * 上级设备
+     */
+    Long superiorDeviceId;
+
+    @Convert(converter = HashMapConverter.class)
+    HashMap<String,Object> meta;
 }

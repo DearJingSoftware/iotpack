@@ -24,25 +24,27 @@ public class OneNetServiceImpl extends PlatformGatewayImpl {
     @Value("${app.onenet.MasterKey}")
     String key;
 
-
     @Override
-    public void createDevice(DeviceEntity device)  {
+    public void createDevice(DeviceEntity device) {
         log.info("onenet 创建设备");
-        String title = device.getIMEI();
-        String desc = device.getIMEI();
+
+        String imei = String.valueOf(device.getMeta().get("imei"));
+        String protocol = String.valueOf(device.getMeta().get("protocol"));
+        String title = imei;
+        String desc = imei;
         //设备位置{"纬度", "经度", "高度"}（可选）
-        Location location = new Location(0.0, 0.0, 0.0);
+        Location location = new Location(device.getLon(), device.getLat(), device.getEle());
         List<String> tags = new ArrayList<String>();
         tags.add("china");
         tags.add("mobile");
         Map<String, String> authinfo = new HashMap<>(1);
-        authinfo.put(device.getIMEI(), device.getIMEI());
+        authinfo.put(imei, imei);
 
         try {
-            NewDeviceResponse newDeviceResponse=new AddDevicesApi(
+            NewDeviceResponse newDeviceResponse = new AddDevicesApi(
                     title,
-                    device.getProtocol(),
                     desc,
+                    imei,
                     tags,
                     location,
                     true,
@@ -55,18 +57,18 @@ public class OneNetServiceImpl extends PlatformGatewayImpl {
             System.out.println(newDeviceResponse);
             System.out.println(newDeviceResponse.getDeviceId());
             device.setDeviceId(newDeviceResponse.getDeviceId());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new BusinessException("Onenet 创建设备失败");
         }
     }
 
     @Override
-    public void removeDevice(DeviceEntity newEntity)  {
+    public void removeDevice(DeviceEntity newEntity) {
         log.info("onenet 删除设备");
         try {
             new DeleteDeviceApi(newEntity.getDeviceId(), key).executeApi();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new BusinessException("Onenet 删除设备失败");
         }
 

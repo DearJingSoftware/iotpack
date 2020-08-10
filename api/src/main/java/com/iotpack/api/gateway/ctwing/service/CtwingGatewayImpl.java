@@ -39,18 +39,19 @@ public class CtwingGatewayImpl extends PlatformGatewayImpl {
         log.info("ctwing创建设备请求");
         AepDeviceManagementClient client =
                 AepDeviceManagementClient
-                .newClient()
-                .appKey(appKey).appSecret(appSecret)
-                .build();
+                        .newClient()
+                        .appKey(appKey).appSecret(appSecret)
+                        .build();
 
         CreateDeviceRequest request = new CreateDeviceRequest();
         request.setParamMasterKey(masterKey);
         Gson gson = new Gson();
 
         AddCtwingDeviceDto addCtwingDeviceDto = new AddCtwingDeviceDto();
-        addCtwingDeviceDto.setDeviceName(device.getIMEI());
-        addCtwingDeviceDto.setDeviceSn(device.getIMEI());
-        addCtwingDeviceDto.setImei(device.getIMEI());
+        String imei = String.valueOf(device.getMeta().get("imei"));
+        addCtwingDeviceDto.setDeviceName(imei);
+        addCtwingDeviceDto.setDeviceSn(imei);
+        addCtwingDeviceDto.setImei(imei);
         addCtwingDeviceDto.getOther().put("autoObserver", 0);
         addCtwingDeviceDto.setProductId(ProductId);
         request.setBody(gson.toJson(device).getBytes());

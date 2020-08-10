@@ -1,6 +1,8 @@
 package com.iotpack.api.dto.auth;
 
 
+import com.iotpack.api.dto.menu.MenuTree;
+import com.iotpack.api.dto.user.UserDto;
 import com.iotpack.api.entity.access.RoleEntity;
 import com.iotpack.api.entity.organization.OrganizationEntity;
 import com.iotpack.api.entity.user.UserEntity;
@@ -12,9 +14,7 @@ import java.util.List;
 
 @Data
 public class LoginDto {
-    Long id;
     String token;
-    UserEntity user;
-    OrganizationEntity group;
-    List<RoleEntity> role=new ArrayList<>();
+    UserDto user=new UserDto();
+    List<MenuTree> menus=new ArrayList<>();
 }

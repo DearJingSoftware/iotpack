@@ -13,6 +13,7 @@ import com.iotpack.api.entity.user.repo.UserRepository;
 import com.iotpack.api.exception.BusinessException;
 import com.iotpack.api.form.auth.LoginForm;
 import com.iotpack.api.service.UserService;
+import com.iotpack.api.utils.PasswordUtils;
 import com.iotpack.api.utils.TokenUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -38,22 +39,22 @@ public class UserServiceImpl implements UserService {
     TokenRepository tokenRepository;
 
 
-
     @Override
     public LoginDto login(LoginForm loginForm) {
 
         LoginDto loginDto = new LoginDto();
-        log.info("用户登录 "+loginForm.getUsername()+" "+loginForm.getPassword());
+        log.info("用户登录 " + loginForm.getUsername() + " " + loginForm.getPassword());
 
-//        GroupEntity g= groupRepository.findByName(loginForm.getGroup())
-//                .orElseThrow(()->new BusinessException("找不到"));
-//        loginDto.setGroup(g);
-        UserEntity u = userRepository.findFirstByAccountAndPassword(loginForm.getUsername(), loginForm.getPassword())
-                .orElseThrow(()->new BusinessException("用户名或者密码错误"));
+        UserEntity u = userRepository.findFirstByAccount(loginForm.getUsername())
+                .orElseThrow(() -> new BusinessException("用户名或者密码错误"));
 
-        loginDto.setUser(u);
+        if (!u.getPassword().equals(PasswordUtils.getMd5(loginForm.getPassword()))) {
+            throw new BusinessException("用户名或者密码错误");
+        }
 
-        TokenEntity tokenEntity=new TokenEntity();
+        BeanUtils.copyProperties(u, loginDto.getUser());
+
+        TokenEntity tokenEntity = new TokenEntity();
         tokenEntity.setUserId(u.getId());
         tokenEntity.setToken(TokenUtils.getToken());
         tokenRepository.save(tokenEntity);
@@ -65,7 +66,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Object logout(LoginDto loginDto) {
-        tokenRepository.findById(loginDto.getId()).ifPresent(t->{
+        tokenRepository.findByToken(loginDto.getToken()).ifPresent(t -> {
             tokenRepository.delete(t);
         });
         return true;
@@ -73,13 +74,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Object getInfo(LoginDto userInfo) {
-        UserInfoDto  userInfoDto=new UserInfoDto();
+        UserInfoDto userInfoDto = new UserInfoDto();
 
         getRole(userInfoDto);
-        BeanUtils.copyProperties(userInfo.getUser(),userInfoDto);
-        userInfoDto.setName(userInfo.getUser().getAccount());
+        BeanUtils.copyProperties(userInfo.getUser(), userInfoDto);
+        userInfoDto.setName(userInfo.getUser().getUsername());
 
-        List<String> p= new ArrayList<>();
+        List<String> p = new ArrayList<>();
         p.add("dashboard");
         p.add("exception");
         p.add("result");
@@ -91,10 +92,10 @@ public class UserServiceImpl implements UserService {
         p.add("user");
         p.add("support");
 
-        RoleEntity role= RoleEntity.builder().id(1L).name("管理员").status(1).permissionList(p).description("管理员").build();
+        RoleEntity role = RoleEntity.builder().id(1L).name("管理员").status(1).permissionList(p).description("管理员").build();
         role.setName("admin");
 
-        List<PermissionsEntity> permissionsEntities=new ArrayList<>();
+        List<PermissionsEntity> permissionsEntities = new ArrayList<>();
         permissionsEntities.add(PermissionsEntity.builder().permissionId("dashboard").actions(new ArrayList<>()).permissionName("permissionName").build());
         permissionsEntities.add(PermissionsEntity.builder().permissionId("exception").actions(new ArrayList<>()).permissionName("permissionName").build());
         permissionsEntities.add(PermissionsEntity.builder().permissionId("profile").actions(new ArrayList<>()).permissionName("permissionName").build());
@@ -109,12 +110,14 @@ public class UserServiceImpl implements UserService {
         role.setPermissions(permissionsEntities);
         userInfoDto.setRole(role);
 
-        return  userInfoDto;
+        return userInfoDto;
     }
-    void  getRole(UserInfoDto userInfoDto){
+
+    void getRole(UserInfoDto userInfoDto) {
 
     }
-    void getPermissions(){
+
+    void getPermissions() {
 //        PermissionsEntity permissionsEntity=new PermissionsEntity();
 //        permissionsEntity.
     }

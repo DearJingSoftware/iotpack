@@ -2,12 +2,14 @@ package com.iotpack.api.entity.user;
 
 import com.iotpack.api.entity.access.RoleEntity;
 import com.iotpack.api.entity.base.BaseEntity;
+import com.iotpack.api.entity.project.ProjectEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @SQLDelete(sql = "update `user` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
@@ -58,8 +60,8 @@ public class UserEntity extends BaseEntity {
     Long lastLoginTime;
 
     /**
-     * 角色
+     * 是否需要更新密码
      */
-    @Transient
-    RoleEntity role=new RoleEntity();
+    Boolean needResetPassword;
+
 }

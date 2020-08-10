@@ -15,7 +15,7 @@ public class BusinessException extends RuntimeException {
 
     public BusinessException(String message) {
         super(message);
-        this.code = -1;
+        this.code = 1;
     }
 
     public BusinessException(IExceptionEnum exceptionEnum) {

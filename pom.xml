@@ -25,6 +25,7 @@
         <module>gateway_coap</module>
         <module>gateway_bootstrap</module>
         <module>integration</module>
+        <module>device_warehouse</module>
 
     </modules>
 

@@ -31,4 +31,14 @@ public class TokenEntity extends BaseEntity {
      */
     String token;
 
+    /**
+     * 登录ip;
+     */
+    String ip;
+
+    /**
+     * 登录设备
+     */
+    String device;
+
 }

@@ -1,5 +1,6 @@
 package com.iotpack.api.entity.gateway;
 
+import com.iotpack.api.entity.converter.HashMapConverter;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
@@ -7,6 +8,7 @@ import org.hibernate.annotations.Where;
 import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
+import java.util.HashMap;
 
 @Data
 @SQLDelete(sql = "update `gateway` SET deleted_at =  unix_timestamp(now()) WHERE id = ?")
@@ -33,11 +35,12 @@ public class GatewayEntity {
      */
     String hostname;
     /**
-     * 部署的配置
-     */
-    String setting;
-    /**
      * 设备当前的状态
      */
     Integer status;
+    /**
+     * 网关的配置信息
+     */
+    @Convert(converter = HashMapConverter.class)
+    HashMap<String,String> meta;
 }
