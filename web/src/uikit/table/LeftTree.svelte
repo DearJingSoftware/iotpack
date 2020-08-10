@@ -13,13 +13,15 @@ async function handleListClick(e,d){
   padding-right: 20px;
   background-color: #F8FAFB;
   width: 15%;
-  color:#778CA2
+  color:#778CA2;
+  flex: 0 1 auto;
 }
 .active {
   border-radius: 4px;
   background-color: Rgb(225,225,225)
 }
 nav>ul{
+  width: 200px;
   margin-top: 0px;
   margin-left: 0px;
   padding-left: 0px;

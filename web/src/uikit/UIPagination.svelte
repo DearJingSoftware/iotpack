@@ -40,10 +40,10 @@
     <li class="prev">
    <i class="las la-angle-left"></i> Prev
     </li>
-    <li class="page_num">
+    <li class="page_num active">
       1
     </li>
-     <li class="page_num active">
+     <li class="page_num">
       2
     </li>
      <li class="page_num">

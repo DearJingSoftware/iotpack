@@ -4,6 +4,7 @@
 	import UIButton from '../uikit/UIButton.svelte';
 	import UIPlaceholder from '../uikit/UIPlaceholder.svelte';
 	import UIProgress from '../uikit/UIProgress.svelte';
+	import UIOnline from '../uikit/UIOnline.svelte';
 	import UIModal from '../uikit/UIModal.svelte';
 	import UISilder from '../uikit/UISilder.svelte';
 	import UIForm from '../uikit/form/UIForm.svelte';
@@ -24,24 +25,39 @@
 
 	var	list = [
 		{
-			id:1,name:"NBIOT",
+			id:1,name:"NBIOT",deviceCount:9999,load:'60%',is_online:true
 		},
 		{
-			id:2,name:"Ctwing"
+			id:2,name:"Ctwing",deviceCount:9999,load:'60%',is_online:false
 		},
 		{
-			id:3,name:"Onenet"
+			id:3,name:"Onenet",deviceCount:9999,load:'60%',is_online:true
 		},
 		{
-			id:4,name:"OC网关"
+			id:4,name:"OC网关",deviceCount:9999,load:'60%',is_online:false
 		},
-			{
-			id:5,name:"直连网关"
-		}
+		{
+			id:5,name:"直连网关",deviceCount:9999,load:'60%',is_online:false
+		},
+		{
+			id:6,name:"直连网关",deviceCount:9999,load:'60%',is_online:false
+		},
+		{
+			id:7,name:"直连网关",deviceCount:9999,load:'60%',is_online:true
+		},
+		{
+			id:8,name:"直连网关",deviceCount:9999,load:'60%',is_online:false
+		},
+		{
+			id:9,name:"直连网关",deviceCount:9999,load:'60%',is_online:true
+		},
+		{
+			id:10,name:"直连网关",deviceCount:9999,load:'60%',is_online:false
+		},
 		
 	]
 
-		var query={
+	var query={
 		sort:"id",
 		order:"desc",
 		active:null,
@@ -58,16 +74,13 @@
 			id:2,name:"name",width:"100px",displayName:"网关名称",component:UIPlaceholder
 		},
 		{
-			id:3,name:"member",width:"200px",displayName:"设备信息"
+			id:3,name:"deviceCount",width:"200px",displayName:"设备信息",sort:true
+		},
+			{
+			id:4,name:"is_online",width:"40px",displayName:"在线",component:UIOnline
 		},
 		{
-			id:3,name:"quality",width:"200px",displayName:"通讯质量"
-		},
-		{
-			id:4,name:"progress",width:"80px",displayName:"资源概况"
-		},
-		{
-			id:5,name:"type",width:"200px",displayName:"设备信息"
+			id:4,name:"load",width:"80px",displayName:"负载情况",sort:true
 		},
 		{
 			id:6,name:"action",width:"200px",displayName:"操作"

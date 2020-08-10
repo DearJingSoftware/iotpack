@@ -18,6 +18,7 @@
 
 
 	import ProjectMemberList from './project/component/ProjectMemberList.svelte';
+	import Action from './organization/Action.svelte';
 	import Menu from './project/component/Menu.svelte';
 
 	export var list_style=1;
@@ -54,12 +55,12 @@
 			id:2,name:"name",width:"100px",sort:true,displayName:"名称",component:UIPlaceholder
 		},
 		{
-			id:6,name:"action",width:"200px",displayName:"操作"
+			id:6,name:"action",width:"200px",displayName:"操作",component:Action
 		}
 	]
 </script>
 <svelte:head>
-	<title>项目管理</title>
+	<title>组织管理</title>
 </svelte:head>
 
 <style>
@@ -121,9 +122,6 @@
 			<UIFormGroup title="名称:" info="名称">
 					<UITextInput  placeholder="项目名称"></UITextInput>
 			</UIFormGroup>
-			<UIFormGroup title="成员:" info="成员" >
-					<UITextInput placeholder="项目成员" disabled></UITextInput>
-			</UIFormGroup>
 		</UIForm>
 	</div>
 	
@@ -153,7 +151,7 @@
 		</ul>
 	</span>
 
-	<UITable data={list} field={field} url="" bind:list_style={list_style} tree=true>
+	<UITable data={list} field={field} url="" bind:list_style={list_style} tree=true colTree=true bigDetail=true>
 			<span slot="row">
 			</span>
 			<span slot="footer">
@@ -164,14 +162,12 @@
 					<UIProgress></UIProgress>
 				</div>
 				<div class="action" >
-				
 						<UIDropdown>
 							<i class="las la-ellipsis-h" ></i>
 							<span slot="menu">
 								<Menu></Menu>
 							</span>
 						</UIDropdown>
-				
 				</div>
 				<Avatar size="80" src="https://api-lunacy.icons8.com/api/assets/f7f8d13a-d1aa-420a-b8d6-ff44c1b937f2/img.png"></Avatar>
 				<div class="name" style="">{data.name}</div>
