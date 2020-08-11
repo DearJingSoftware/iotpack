@@ -16,7 +16,12 @@
     line-height: 40px;
     cursor: pointer;
   }
-
+  .prev {
+    margin-right: 10px;
+  }
+  .next {
+    margin-left: 10px;
+  }
   .prev ,.next {
       color: #778ca2;
   }

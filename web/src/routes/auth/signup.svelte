@@ -24,7 +24,8 @@
 	margin:10px 0px;
 }
 .logo {
-		margin-top: 20px;
+	margin-top: 150px;
+	margin-bottom: 50px;
 	display: flex;
 	flex-direction: column;
   justify-content: center;

@@ -78,23 +78,29 @@ i {
   <ul>
     <li  class="active"> <span class="name"><i>&nbsp;</i><span class="title">全部</span></span> <span class="count">100</span></li>
     {#each data as d}
-      <li  class:explode={d.is_explode} on:click={(e)=>{handleListClick(e,d)}}><span class="name"><i class="las la-caret-right">
+      <li  class:explode={d.is_explode} on:click={(e)=>{handleListClick(e,d)}}><span class="name">
+        <i class="las la-caret-{d.is_explode?'right':'down'}">
           </i><span class="title">{d.name}</span></span><span  class="count">{d.count||0}</span></li>
       {#if d.children.length>0 }
         <ul class:explode={d.is_explode} >
           {#each d.children as d1}
           <li explode={d1.is_explode} on:click={(e)=>{handleListClick(e,d1)}}><span class="name">
-          <i class="las la-caret-right"></i><span class="title">{d1.name}</span></span><span  class="count">{d1.count||0}</span></li>
+            {#if d1.children.length>0 }
+              <i class="las la-caret-{d1.is_explode?'right':'down'}"></i>
+            {:else}
+              <i>&nbsp;</i>
+            {/if}
+          
+          <span class="title">{d1.name}</span></span><span  class="count">{d1.count||0}</span></li>
            {#if d1.children.length>0 }
             <ul class:explode={d1.is_explode}>
               {#each d1.children as d2}
               <li on:click={(e)=>{handleListClick(e,d2)}}><span class="name">
                   {#if d2.children.length>0 }
-                    <i class="las la-caret-right"></i>
+                    <i class="las la-caret-{d2.is_explode?'right':'down'}"></i>
                   {:else}
                     <i>&nbsp;</i>
                   {/if}
-
                   <span class="title">{d2.name}</span>
                   </span><span  class="count">{d2.count||0}</span></li>
               {/each}

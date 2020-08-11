@@ -10,7 +10,7 @@ const dispatch = createEventDispatcher();
   outline: none;
   border: none;
   padding: 0px 10px;
-  margin: 5px 10px;
+  margin: 5px 0px;
   font-size: 14px;
   text-align: center;
   background-color: #4D7CFE;

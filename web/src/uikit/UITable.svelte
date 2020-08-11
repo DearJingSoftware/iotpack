@@ -130,18 +130,17 @@ a {
 .header {
   min-width: fit-content;
   display: flex;
-  padding: 0px 20px;
   border-bottom: 2px solid #E8ECEF;
-
 }
 
 .footer {
    background-color: #F8FAFB;
 }
 .header_item {
+  border-left: 1px solid white;
   flex-shrink: 0;
   word-break: keep-all;
-  padding: 20px 0px;
+  padding: 20px;
   display: flex;
   flex-direction: row;
   cursor: pointer;
@@ -172,7 +171,7 @@ a {
 .row {
   min-width: fit-content;
   display: flex;
-  padding: 20px;
+  /* padding: 20px; */
   border-bottom: 1px solid #E8ECEF;
 }
 
@@ -192,7 +191,9 @@ a {
   background-color: #f2f4f6;
 }
 .col {
+  padding:20px;
   flex-shrink: 0;
+  border-left: 1px solid #00000000;
   /* flex-grow: 1; */
   /* margin-left: 20px; */
   /* display:flex; 
@@ -249,13 +250,13 @@ a {
       {#if field.length>0 && data.length>0 && list_style==1 }
         <div class="header">
           {#if select && field.length>0 }
-            <div class="header_item" style="width:30px;margin-right:20px;flex-grow:0">
+            <div class="header_item" style="width:30px;flex-grow:0">
                 <UiCheckBox on:change={selectAll}></UiCheckBox>
             </div>
           {/if}
 
           {#if colTree && field.length>0 }
-            <div class="header_item" style="width:30px;margin-right:20px;flex-grow:0">
+            <div class="header_item" style="width:30px;flex-grow:0">
                 
             </div>
           {/if}
@@ -283,11 +284,11 @@ a {
           {#each data as d}
             {#if list_style==1 }
               <div class="row" >
-                <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
+                <div class="col" style="text-align:center;width:30px;margin-left: 0px;flex-grow:0">
                     <UiCheckBox bind:value={d.check}></UiCheckBox>
                 </div>
                 {#if colTree}
-                <div class="col" style="text-align:center;width:30px;margin-left: 0px;margin-right:20px;flex-grow:0">
+                <div class="col" style="text-align:center;width:30px;margin-left: 0px;flex-grow:0">
                     <i class="lar {d.is_row_tree?'la-minus-square ':'la-plus-square'}" on:click={handlerRowTree(d)} ></i>
                 </div>
                 {/if}

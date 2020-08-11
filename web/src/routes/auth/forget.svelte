@@ -21,11 +21,12 @@
 	width: 20vw;
 }
 .logo {
-	margin-top: 20px;
+	margin-top: 150px;
+	margin-bottom: 50px;
 	display: flex;
 	flex-direction: column;
-  	justify-content: center;
-  	justify-items: center;
+  justify-content: center;
+  justify-items: center;
  	align-items: center;
 }
 
