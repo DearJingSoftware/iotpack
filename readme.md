@@ -37,9 +37,9 @@
 
 ---
 ### Technology Stack
-- frontend  ant-design-vue-pro
+- frontend  svelte
 ```
-https://github.com/vueComponent/ant-design-vue-pro
+https://svelte.dev
 ```
 - backend 
 ```
