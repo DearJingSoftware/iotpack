@@ -19,13 +19,6 @@
     <modules>
 
         <module>api</module>
-        <module>gateway_tcp</module>
-        <module>gateway_udp</module>
-        <module>gateway_mqtt</module>
-        <module>gateway_coap</module>
-        <module>gateway_bootstrap</module>
-        <module>integration</module>
-        <module>device_warehouse</module>
 
     </modules>
 

@@ -20,15 +20,19 @@ public class DeviceLogEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     /**
-     * 设备id
+     * 设备唯一标识符
      */
-    Long deviceId;
+    String deviceId;
     /**
-     * 设备原始日志
+     * 来源
      */
-    String raw;
+    String source;
     /**
-     * 创建时间
+     * 目的地
+     */
+    String dist;
+    /**
+     * 发生时间
      */
     Long createdAt;
 }

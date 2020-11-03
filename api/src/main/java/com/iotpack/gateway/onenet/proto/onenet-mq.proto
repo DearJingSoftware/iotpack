@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package  com.iotpack.gateway.onenet.gateway;
+
+message Msg{
+    uint64 msgid          = 1;
+    bytes data            = 2;
+    uint64 timestamp      = 3;
+}
